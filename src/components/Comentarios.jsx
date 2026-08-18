@@ -36,7 +36,17 @@ export default function Comentarios() {
         <div className="reviews-grid">
           {listaComentarios.slice(0, 4).map((comentario) => (
             <article className="review-card" key={comentario.id}>
-              <div className="review-stars">{'★'.repeat(comentario.estrellas)}{'☆'.repeat(5 - comentario.estrellas)}</div>
+              <div className="review-cakes" aria-label={`Calificación: ${comentario.estrellas} de 5`}>
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <span
+                    key={n}
+                    className={n <= comentario.estrellas ? 'is-selected' : ''}
+                    aria-hidden="true"
+                  >
+                    🧁
+                  </span>
+                ))}
+              </div>
               <p>“{comentario.texto}”</p>
               <strong>{comentario.usuario}</strong>
             </article>
@@ -49,9 +59,17 @@ export default function Comentarios() {
             <input value={nuevoUsuario} onChange={(e) => setNuevoUsuario(e.target.value)} placeholder="Tu nombre" />
             <textarea value={nuevoTexto} onChange={(e) => setNuevoTexto(e.target.value)} rows="3" placeholder="Contanos tu experiencia..." />
             <div className="review-form__bottom">
-              <div className="review-stars-picker">
+              <div className="review-cakes-picker">
                 {[1, 2, 3, 4, 5].map((n) => (
-                  <button type="button" key={n} onClick={() => setEstrellasSeleccionadas(n)} className={n <= estrellasSeleccionadas ? 'is-selected' : ''}>★</button>
+                  <button
+                    type="button"
+                    key={n}
+                    onClick={() => setEstrellasSeleccionadas(n)}
+                    className={n <= estrellasSeleccionadas ? 'is-selected' : ''}
+                    aria-label={`Calificar con ${n} de 5`}
+                  >
+                    🧁
+                  </button>
                 ))}
               </div>
               <button className="btn-primary" type="submit">Publicar</button>
