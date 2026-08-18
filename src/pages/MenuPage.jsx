@@ -6,11 +6,7 @@ import { getCategoria, getOpcion } from '../data/menuCategorias';
 import { imagenes } from '../data/imagenes';
 
 const dulceTortaSecciones = [
-  {
-    id: 'sin-azucar',
-    titulo: 'Sin azúcar',
-    descripcion: 'Opciones pensadas para quienes buscan alternativas sin azúcar.',
-  },
+
   {
     id: 'tortas-y-postres',
     titulo: 'Tortas y postres',
@@ -21,41 +17,95 @@ const dulceTortaSecciones = [
     titulo: 'Tortas personalizadas',
     descripcion: 'Diseños y sabores a medida para celebraciones especiales.',
   },
+  {
+    id: 'sin-azucar',
+    titulo: 'Sin azúcar',
+    descripcion: 'Opciones pensadas para quienes buscan alternativas sin azúcar.',
+  },
 ];
 
 function DulceTortasSections() {
-  return (
-    <div className="dulce-sections" aria-label="Secciones de postres y tortas">
-      {dulceTortaSecciones.map((seccion) => (
-        <section className="dulce-section" key={seccion.id}>
-          <div className="dulce-section__heading">
-            <div>
-              <p className="section-kicker">Esmeralda Sweet · {seccion.id.replaceAll('-', ' ')}</p>
-              <h2>{seccion.titulo}</h2>
-            </div>
-            <p>{seccion.descripcion}</p>
-          </div>
+  const [openSection, setOpenSection] = React.useState(null);
 
-          <div className="dulce-section__grid" aria-label={`Ejemplos de ${seccion.titulo}`}>
-            {[1, 2, 3].map((numero) => (
-              <ProductoCard
-                key={`${seccion.id}-${numero}`}
-                producto={{
-                  id: `placeholder-${seccion.id}-${numero}`,
-                  categoria: 'dulce',
-                  subcategoria: 'tortas',
-                  subsubcategoria: seccion.id,
-                  nombre: `Ejemplo de propuesta ${numero}`,
-                  descripcion: 'Card modelo lista para reemplazar por el nombre, foto, precio y descripción de una nueva propuesta.',
-                  imagen: imagenes.productos.tortaEsmeraldaPremium,
-                  esPlaceholder: true,
-                }}
-                categoria={seccion.titulo}
-              />
-            ))}
-          </div>
-        </section>
-      ))}
+  const toggleSection = (sectionId) => {
+    setOpenSection((current) =>
+      current === sectionId ? null : sectionId
+    );
+  };
+
+  return (
+    <div
+      className="dulce-sections"
+      aria-label="Secciones de postres y tortas"
+    >
+      {dulceTortaSecciones.map((seccion) => {
+        const isOpen = openSection === seccion.id;
+
+        return (
+          <section
+            className={`dulce-section ${isOpen ? 'is-open' : ''}`}
+            key={seccion.id}
+          >
+            <button
+              type="button"
+              className="dulce-section__heading"
+              onClick={() => toggleSection(seccion.id)}
+              aria-expanded={isOpen}
+              aria-controls={`dulce-section-${seccion.id}`}
+            >
+              <div>
+                <p className="section-kicker">
+                  Esmeralda Sweet · {seccion.id.replaceAll('-', ' ')}
+                </p>
+
+                <h2>{seccion.titulo}</h2>
+
+                <p className="dulce-section__description">
+                  {seccion.descripcion}
+                </p>
+              </div>
+
+              <span
+                className="dulce-section__arrow"
+                aria-hidden="true"
+              >
+                {isOpen ? '⌃' : '⌄'}
+              </span>
+            </button>
+
+            {isOpen && (
+              <div
+                id={`dulce-section-${seccion.id}`}
+                className="dulce-section__content"
+              >
+                <div
+                  className="dulce-section__grid"
+                  aria-label={`Ejemplos de ${seccion.titulo}`}
+                >
+                  {[1, 2, 3].map((numero) => (
+                    <ProductoCard
+                      key={`${seccion.id}-${numero}`}
+                      producto={{
+                        id: `placeholder-${seccion.id}-${numero}`,
+                        categoria: 'dulce',
+                        subcategoria: 'tortas',
+                        subsubcategoria: seccion.id,
+                        nombre: `Ejemplo de propuesta ${numero}`,
+                        descripcion:
+                          'Card modelo lista para reemplazar por el nombre, foto, precio y descripción de una nueva propuesta.',
+                        imagen:
+                          imagenes.productos.tortaEsmeraldaPremium,
+                        esPlaceholder: true,
+                      }}
+                      categoria={seccion.titulo}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        );
+      })}
     </div>
   );
 }
@@ -84,14 +134,14 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
 
   const fallbackProduct = filteredProducts.length === 0 && opcion
     ? [{
-        id: `starter-${categoria}-${opcionId}`,
-        categoria,
-        subcategoria: opcionId,
-        nombre: 'Ejemplo de propuesta',
-        descripcion: 'Este espacio queda preparado para agregar nuevas propuestas, variedades y productos de esta categoría.',
-        imagen: imagenes.productos[opcion.imagenKey],
-        esPlaceholder: true,
-      }]
+      id: `starter-${categoria}-${opcionId}`,
+      categoria,
+      subcategoria: opcionId,
+      nombre: 'Ejemplo de propuesta',
+      descripcion: 'Este espacio queda preparado para agregar nuevas propuestas, variedades y productos de esta categoría.',
+      imagen: imagenes.productos[opcion.imagenKey],
+      esPlaceholder: true,
+    }]
     : [];
 
   const visibleProducts = filteredProducts.length > 0 ? filteredProducts : fallbackProduct;
