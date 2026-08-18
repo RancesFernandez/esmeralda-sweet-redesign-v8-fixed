@@ -43,7 +43,7 @@ export default function Comentarios() {
                     className={n <= comentario.estrellas ? 'is-selected' : ''}
                     aria-hidden="true"
                   >
-                    🧁
+                    🍰
                   </span>
                 ))}
               </div>
@@ -68,7 +68,7 @@ export default function Comentarios() {
                     className={n <= estrellasSeleccionadas ? 'is-selected' : ''}
                     aria-label={`Calificar con ${n} de 5`}
                   >
-                    🧁
+                    🍰
                   </button>
                 ))}
               </div>
