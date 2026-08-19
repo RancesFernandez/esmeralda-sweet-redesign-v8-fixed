@@ -1,24 +1,69 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 export default function Comentarios() {
-  const [listaComentarios, setListaComentarios] = useState([
-    { id: 1, usuario: 'María L.', texto: 'Las tortas son increíbles y la presentación quedó preciosa.', estrellas: 5 },
-    { id: 2, usuario: 'Juan P.', texto: 'Muy buena atención, todo fresco y entregado a tiempo.', estrellas: 5 },
-    { id: 3, usuario: 'Carla R.', texto: 'Pedimos una mesa para un cumpleaños y fue un éxito.', estrellas: 5 },
-    { id: 4, usuario: 'Sofía M.', texto: 'Hermoso detalle para regalar. Volvería a pedir sin dudas.', estrellas: 5 }
-  ]);
+  const [listaComentarios, setListaComentarios] = useState([]);
+  const [cargandoComentarios, setCargandoComentarios] = useState(true);
+  const [errorComentarios, setErrorComentarios] = useState('');
 
   const [nuevoTexto, setNuevoTexto] = useState('');
   const [nuevoUsuario, setNuevoUsuario] = useState('');
   const [estrellasSeleccionadas, setEstrellasSeleccionadas] = useState(5);
 
-  const manejarEnvio = (e) => {
+  useEffect(() => {
+    cargarComentarios();
+  }, []);
+
+  const cargarComentarios = async () => {
+    setCargandoComentarios(true);
+    setErrorComentarios('');
+
+    const { data, error } = await supabase
+      .from('comentarios')
+      .select('id, usuario, texto, estrellas, creado_en')
+      .order('creado_en', { ascending: false });
+
+    if (error) {
+      console.error('Error cargando comentarios:', error);
+      setErrorComentarios('No pudimos cargar las reseñas.');
+    } else {
+      setListaComentarios(data ?? []);
+    }
+
+    setCargandoComentarios(false);
+  };
+
+  const manejarEnvio = async (e) => {
     e.preventDefault();
-    if (!nuevoTexto.trim() || !nuevoUsuario.trim()) return;
-    setListaComentarios([
-      { id: Date.now(), usuario: nuevoUsuario, texto: nuevoTexto, estrellas: estrellasSeleccionadas },
-      ...listaComentarios
+
+    const usuario = nuevoUsuario.trim();
+    const texto = nuevoTexto.trim();
+
+    if (!usuario || !texto) return;
+
+    setErrorComentarios('');
+
+    const { data, error } = await supabase
+      .from('comentarios')
+      .insert({
+        usuario,
+        texto,
+        estrellas: estrellasSeleccionadas
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error guardando comentario:', error);
+      setErrorComentarios('No pudimos guardar tu reseña. Inténtalo nuevamente.');
+      return;
+    }
+
+    setListaComentarios((actuales) => [
+      data,
+      ...actuales
     ]);
+
     setNuevoTexto('');
     setNuevoUsuario('');
     setEstrellasSeleccionadas(5);
@@ -33,10 +78,30 @@ export default function Comentarios() {
           <p className="section-subtitle">Experiencias reales de quienes ya compartieron una mesa Esmeralda.</p>
         </div>
 
+        {cargandoComentarios && (
+          <div className="reviews-status">
+            Cargando reseñas...
+          </div>
+        )}
+
+        {errorComentarios && (
+          <div className="reviews-status reviews-status--error">
+            {errorComentarios}
+          </div>
+        )}
+
         <div className="reviews-grid">
-          {listaComentarios.slice(0, 4).map((comentario) => (
+          {listaComentarios.slice(0, 6).map((comentario) => (
             <article className="review-card" key={comentario.id}>
-              <div className="review-cakes" aria-label={`Calificación: ${comentario.estrellas} de 5`}>
+
+              <div className="review-card__quote">
+                “
+              </div>
+
+              <div
+                className="review-cakes"
+                aria-label={`Calificación: ${comentario.estrellas} de 5`}
+              >
                 {[1, 2, 3, 4, 5].map((n) => (
                   <span
                     key={n}
@@ -47,8 +112,22 @@ export default function Comentarios() {
                   </span>
                 ))}
               </div>
-              <p>“{comentario.texto}”</p>
-              <strong>{comentario.usuario}</strong>
+
+              <p className="review-card__text">
+                {comentario.texto}
+              </p>
+
+              <div className="review-card__author">
+                <span className="review-card__avatar">
+                  {comentario.usuario.charAt(0).toUpperCase()}
+                </span>
+
+                <div>
+                  <strong>{comentario.usuario}</strong>
+                  <span>Cliente Esmeralda Sweet</span>
+                </div>
+              </div>
+
             </article>
           ))}
         </div>
