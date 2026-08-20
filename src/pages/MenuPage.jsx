@@ -24,83 +24,74 @@ const dulceTortaSecciones = [
   },
 ];
 
-function DulceTortasSections() {
-  const [openSection, setOpenSection] = React.useState(null);
+function DulceTortasSections({ productos }) {
+  const secciones = [
+    {
+      id: 'tortas-y-postres',
+      titulo: 'Tortas y postres',
+      descripcion:
+        'Tortas y postres artesanales para disfrutar y compartir.',
+    },
 
-  const toggleSection = (sectionId) => {
-    setOpenSection((current) =>
-      current === sectionId ? null : sectionId
-    );
-  };
+    {
+      id: 'tortas-personalizadas',
+      titulo: 'Tortas personalizadas',
+      descripcion:
+        'Diseños y sabores pensados especialmente para cada celebración.',
+    },
+
+    {
+      id: 'sin-azucar',
+      titulo: 'Sin azúcar',
+      descripcion:
+        'Opciones deliciosas para quienes buscan alternativas sin azúcar.',
+    },
+  ];
 
   return (
-    <div
-      className="dulce-sections"
-      aria-label="Secciones de postres y tortas"
-    >
-      {dulceTortaSecciones.map((seccion) => {
-        const isOpen = openSection === seccion.id;
+    <div className="dulce-sections">
+      {secciones.map((seccion) => {
+        const productosSeccion = productos.filter(
+          (producto) =>
+            producto.subsubcategoria === seccion.id
+        );
 
         return (
           <section
-            className={`dulce-section ${isOpen ? 'is-open' : ''}`}
+            className="dulce-section"
             key={seccion.id}
           >
-            <button
-              type="button"
-              className="dulce-section__heading"
-              onClick={() => toggleSection(seccion.id)}
-              aria-expanded={isOpen}
-              aria-controls={`dulce-section-${seccion.id}`}
-            >
+            <div className="dulce-section__heading">
               <div>
                 <p className="section-kicker">
-                  Esmeralda Sweet · {seccion.id.replaceAll('-', ' ')}
+                  Esmeralda Sweet
                 </p>
 
                 <h2>{seccion.titulo}</h2>
-
-                <p className="dulce-section__description">
-                  {seccion.descripcion}
-                </p>
               </div>
 
-              <span
-                className="dulce-section__arrow"
-                aria-hidden="true"
-              >
-                {isOpen ? '⌃' : '⌄'}
-              </span>
-            </button>
+              <p>
+                {seccion.descripcion}
+              </p>
+            </div>
 
-            {isOpen && (
-              <div
-                id={`dulce-section-${seccion.id}`}
-                className="dulce-section__content"
-              >
-                <div
-                  className="dulce-section__grid"
-                  aria-label={`Ejemplos de ${seccion.titulo}`}
-                >
-                  {[1, 2, 3].map((numero) => (
-                    <ProductoCard
-                      key={`${seccion.id}-${numero}`}
-                      producto={{
-                        id: `placeholder-${seccion.id}-${numero}`,
-                        categoria: 'dulce',
-                        subcategoria: 'tortas',
-                        subsubcategoria: seccion.id,
-                        nombre: `Ejemplo de propuesta ${numero}`,
-                        descripcion:
-                          'Card modelo lista para reemplazar por el nombre, foto, precio y descripción de una nueva propuesta.',
-                        imagen:
-                          imagenes.productos.tortaEsmeraldaPremium,
-                        esPlaceholder: true,
-                      }}
-                      categoria={seccion.titulo}
-                    />
-                  ))}
-                </div>
+            {productosSeccion.length > 0 ? (
+              <div className="dulce-section__grid">
+                {productosSeccion.map((producto) => (
+                  <ProductoCard
+                    key={producto.id}
+                    producto={producto}
+                    categoria="Menú dulce"
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="catalog-note">
+                <strong>
+                  Próximamente nuevas propuestas.
+                </strong>
+                <br />
+                Estamos preparando nuevas opciones para esta categoría.
               </div>
             )}
           </section>
@@ -132,19 +123,9 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
 
   const setTipo = (id) => setSearchParams({ tipo: id });
 
-  const fallbackProduct = filteredProducts.length === 0 && opcion
-    ? [{
-      id: `starter-${categoria}-${opcionId}`,
-      categoria,
-      subcategoria: opcionId,
-      nombre: 'Ejemplo de propuesta',
-      descripcion: 'Este espacio queda preparado para agregar nuevas propuestas, variedades y productos de esta categoría.',
-      imagen: imagenes.productos[opcion.imagenKey],
-      esPlaceholder: true,
-    }]
-    : [];
+  
 
-  const visibleProducts = filteredProducts.length > 0 ? filteredProducts : fallbackProduct;
+  
 
   return (
     <main className="catalog-page">
@@ -195,7 +176,9 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
           </div>
 
           {isDulceTortas ? (
-            <DulceTortasSections />
+            <DulceTortasSections
+  productos={filteredProducts}
+/>
           ) : (
             <div className="catalog-results">
               <div className="catalog-results__heading">
@@ -211,7 +194,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
               </div>
 
               <div className="catalog-grid">
-                {visibleProducts.map((producto) => (
+               {filteredProducts.map((producto) => (
                   <ProductoCard key={producto.id} producto={producto} categoria={categoriaData?.nombre} />
                 ))}
               </div>

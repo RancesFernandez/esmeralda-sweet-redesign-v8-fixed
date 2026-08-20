@@ -1,20 +1,22 @@
+import { imagenes } from './imagenes';
+
 export const menuCategorias = {
   dulce: {
     id: 'dulce',
     nombre: 'Menú dulce',
     descripcion: 'Pastelería artesanal para regalar, celebrar y compartir.',
-    imagen: null,
+    imagen: imagenes.choco,
     opciones: [
       {
         id: 'tortas',
         nombre: 'Postres y tortas',
         descripcion: 'Tortas, postres y propuestas especiales para cada ocasión.',
-        imagenKey: 'tortaEsmeraldaPremium',
+        imagenKey: 'peñarol',
       },
-      { id: 'masitas', nombre: 'Masitas', descripcion: 'Pequeños bocados dulces para compartir.', imagenKey: 'macaronsSurtidos' },
-      { id: 'alfajores', nombre: 'Alfajores', descripcion: 'Rellenos artesanales para regalar o disfrutar.', imagenKey: 'macaronsSurtidos' },
-      { id: 'muffins', nombre: 'Muffins', descripcion: 'Suaves, caseros y perfectos para cualquier momento.', imagenKey: 'cupcakesRedVelvet' },
-      { id: 'rolls-de-canela', nombre: 'Rolls de canela', descripcion: 'Rolls tiernos, aromáticos y recién horneados.', imagenKey: 'tortaEsmeraldaPremium' },
+      { id: 'masitas', nombre: 'Masitas', descripcion: 'Pequeños bocados dulces para compartir.', imagenKey: 'chaja' },
+      { id: 'alfajores', nombre: 'Alfajores', descripcion: 'Rellenos artesanales para regalar o disfrutar.', imagenKey: 'cheesecake' },
+      { id: 'muffins', nombre: 'Muffins', descripcion: 'Suaves, caseros y perfectos para cualquier momento.', imagenKey: 'choco' },
+      { id: 'rolls-de-canela', nombre: 'Rolls de canela', descripcion: 'Rolls tiernos, aromáticos y recién horneados.', imagenKey: 'peñarol' },
     ],
   },
   salado: {
@@ -23,8 +25,8 @@ export const menuCategorias = {
     descripcion: 'Bocados y propuestas saladas pensadas para tus encuentros.',
     imagen: null,
     opciones: [
-      { id: 'saladitos', nombre: 'Saladitos', descripcion: 'Bocados salados ideales para picar y compartir.', imagenKey: 'sandwichJamonCrudo' },
-      { id: 'picadas', nombre: 'Picadas', descripcion: 'Combinaciones para llevar directo a la mesa.', imagenKey: 'pizzaRucula' },
+      { id: 'saladitos', nombre: 'Saladitos', descripcion: 'Bocados salados ideales para picar y compartir.', imagenKey: 'sandwiches' },
+      { id: 'picadas', nombre: 'Picadas', descripcion: 'Combinaciones para llevar directo a la mesa.', imagenKey: 'sandwiches6' },
     ],
   },
   desayunos: {
@@ -37,13 +39,13 @@ export const menuCategorias = {
         id: 'desayunos-individuales',
         nombre: 'Desayunos individuales',
         descripcion: 'Una propuesta completa para disfrutar de forma individual.',
-        imagenKey: 'cupcakesRedVelvet',
+        imagenKey: 'desayunoIndividual1',
       },
       {
         id: 'desayunos-para-compartir',
         nombre: 'Desayunos para compartir',
         descripcion: 'Opciones abundantes para compartir en pareja, familia o con amigos.',
-        imagenKey: 'sandwichJamonCrudo',
+        imagenKey: 'desayunoCompartido',
       },
     ],
   },

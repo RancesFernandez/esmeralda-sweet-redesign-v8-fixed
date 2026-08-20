@@ -40,19 +40,26 @@ export default function ProductoCard({ producto, categoria }) {
         }}
       >
         <div className="product-card__image">
-          <img src={producto.imagen} alt={producto.nombre} loading="lazy" />
+          <img
+            src={producto.imagen}
+            alt={producto.nombre}
+            loading="lazy"
+            decoding="async"
+          />
           <span className="product-card__badge">{categoryLabel}</span>
           <span className="product-card__quick">Ver detalle <span aria-hidden="true">↗</span></span>
         </div>
         <div className="product-card__body">
           <div className="product-card__top">
             <h3>{producto.nombre}</h3>
-            {!producto.esPlaceholder && <strong>${producto.precio.toLocaleString('es-UY')}</strong>}
+            <strong>
+              ${producto.precio.toLocaleString('es-UY')}
+            </strong>
           </div>
-          <p className="product-card__meta">{producto.esPlaceholder ? 'Categoría lista para sumar propuestas' : categoryLabel}</p>
+          <p className="product-card__meta">{categoryLabel}</p>
           <p>{producto.descripcion}</p>
           <span className="product-card__link">
-            {producto.esPlaceholder ? 'Usar como modelo' : 'Consultar por WhatsApp'}
+            Consultar por WhatsApp
             <span aria-hidden="true">→</span>
           </span>
         </div>
@@ -68,21 +75,18 @@ export default function ProductoCard({ producto, categoria }) {
               <h2 id={`producto-${producto.id}`}>{producto.nombre}</h2>
               {!producto.esPlaceholder && <strong className="modal-price">${producto.precio.toLocaleString('es-UY')}</strong>}
               <p>{producto.descripcion}</p>
-              {producto.esPlaceholder ? (
-                <div className="placeholder-hint">
-                  Reemplazá esta card por una propuesta real cuando tengas definidos sus datos.
-                </div>
-              ) : (
-                <a
-                  className="btn-primary"
-                  href={whatsappUrl(`Hola Esmeralda Sweet, quiero pedir ${producto.nombre}`)}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={(event) => event.stopPropagation()}
-                >
-                  Consultar por WhatsApp ↗
-                </a>
-              )}
+              <a
+                className="btn-primary"
+                href={whatsappUrl(
+                  `Hola Esmeralda Sweet, quiero pedir ${producto.nombre}`
+                )}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(event) => event.stopPropagation()}
+              >
+                Consultar por WhatsApp ↗
+              </a>
+
             </div>
           </div>
         </div>
