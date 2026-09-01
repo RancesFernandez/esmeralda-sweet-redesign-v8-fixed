@@ -76,10 +76,10 @@ export default function Inicio() {
 
           <div className="menu-showcase">
             <Link to="/menu-dulce" className="menu-showcase-card menu-showcase-card--dulce">
-              <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.tortaEsmeraldaPremium})` }} />
+              <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.torta})` }} />
               <div className="menu-showcase-card__overlay" />
               <div className="menu-showcase-card__top">
-                <span className="menu-showcase-card__eyebrow">01 · Para endulzar</span>
+                <span className="menu-showcase-card__eyebrow">Para endulzar</span>
                 <span className="menu-showcase-card__arrow">↗</span>
               </div>
               <div className="menu-showcase-card__content">
@@ -93,10 +93,10 @@ export default function Inicio() {
             </Link>
 
             <Link to="/menu-salado" className="menu-showcase-card menu-showcase-card--salado">
-              <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.sandwichJamonCrudo})` }} />
+              <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.sandwiches})` }} />
               <div className="menu-showcase-card__overlay" />
               <div className="menu-showcase-card__top">
-                <span className="menu-showcase-card__eyebrow">02 · Para compartir</span>
+                <span className="menu-showcase-card__eyebrow">Para compartir</span>
                 <span className="menu-showcase-card__arrow">↗</span>
               </div>
               <div className="menu-showcase-card__content">
@@ -110,10 +110,10 @@ export default function Inicio() {
             </Link>
 
             <Link to="/desayunos" className="menu-showcase-card menu-showcase-card--desayunos">
-              <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.cupcakesRedVelvet})` }} />
+              <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.desayunoCompartido})` }} />
               <div className="menu-showcase-card__overlay" />
               <div className="menu-showcase-card__top">
-                <span className="menu-showcase-card__eyebrow">03 · Para empezar bien</span>
+                <span className="menu-showcase-card__eyebrow">Para empezar bien</span>
                 <span className="menu-showcase-card__arrow">↗</span>
               </div>
               <div className="menu-showcase-card__content">

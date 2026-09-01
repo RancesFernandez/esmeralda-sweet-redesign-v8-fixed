@@ -5,7 +5,8 @@ export const menuCategorias = {
     id: 'dulce',
     nombre: 'Menú dulce',
     descripcion: 'Pastelería artesanal para regalar, celebrar y compartir.',
-    imagen: imagenes.choco,
+    imagen: imagenes.choco
+    ,
     opciones: [
       {
         id: 'tortas',
