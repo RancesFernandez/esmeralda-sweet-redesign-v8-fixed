@@ -7,7 +7,7 @@ import ProductoCard from '../components/ProductoCard';
 import Comentarios from '../components/Comentarios';
 import CotizacionRapida from '../components/CotizacionRapida';
 
-const heroImage = imagenes.hero;
+const heroImage = imagenes.Personalizada12;
 const galleryImages = imagenes.galeria;
 
 const beneficios = [
@@ -76,7 +76,7 @@ export default function Inicio() {
 
           <div className="menu-showcase">
             <Link to="/menu-dulce" className="menu-showcase-card menu-showcase-card--dulce">
-              <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.torta})` }} />
+              <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.lemonPie})` }} />
               <div className="menu-showcase-card__overlay" />
               <div className="menu-showcase-card__top">
                 <span className="menu-showcase-card__eyebrow">Para endulzar</span>

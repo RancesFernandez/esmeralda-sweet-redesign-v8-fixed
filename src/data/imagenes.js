@@ -62,6 +62,8 @@ import historia from '../assets/images/nosotros/historia.svg';
 export const imagenes = {
   logo,
   hero,
+  rogel,
+  Personalizada12,
   productos: {
     brownie,
     chaja,
