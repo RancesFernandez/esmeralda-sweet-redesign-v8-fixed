@@ -25,18 +25,18 @@ import lemonPie from '../assets/images/productos/lemonPie.jpg';
 import lemonPie1 from '../assets/images/productos/lemonPie1.png';
 import peñarol from '../assets/images/productos/peñarol.jpg';
 import Personalizada2 from '../assets/images/productos/Personalizada2.jpg';
-import Personalizada3 from '../assets/images/productos/Personalizada3.jpg';
-import Personalizada4 from '../assets/images/productos/Personalizada4.jpg';
-import Personalizada5 from '../assets/images/productos/Personalizada5.jpg';
-import Personalizada6 from '../assets/images/productos/Personalizada6.jpg';
-import Personalizada7 from '../assets/images/productos/Personalizada7.jpg';
-import Personalizada8 from '../assets/images/productos/Personalizada8.jpg';
-import Personalizada9 from '../assets/images/productos/Personalizada9.jpg';
-import Personalizada10 from '../assets/images/productos/Personalizada10.jpg';
-import Personalizada11 from '../assets/images/productos/Personalizada11.jpg';
-import Personalizada12 from '../assets/images/productos/Personalizada12.jpg';
-import Personalizada13 from '../assets/images/productos/Personalizada13.jpg';
-import Personalizada14 from '../assets/images/productos/Personalizada14.jpg';
+import personalizada3 from '../assets/images/productos/personalizada3.jpg';
+import personalizada4 from '../assets/images/productos/personalizada4.jpg';
+import personalizada5 from '../assets/images/productos/personalizada5.jpg';
+import personalizada6 from '../assets/images/productos/personalizada6.jpg';
+import personalizada7 from '../assets/images/productos/personalizada7.jpg';
+import personalizada8 from '../assets/images/productos/personalizada8.jpg';
+import personalizada9 from '../assets/images/productos/personalizada9.jpg';
+import personalizada10 from '../assets/images/productos/personalizada10.jpg';
+import personalizada11 from '../assets/images/productos/personalizada11.jpg';
+import personalizada12 from '../assets/images/productos/personalizada12.jpg';
+import personalizada13 from '../assets/images/productos/personalizada13.jpg';
+import personalizada14 from '../assets/images/productos/personalizada14.jpg';
 import redVelvetPersonalizada from '../assets/images/productos/redVelvetPersonalizada.jpg';
 import rogel from '../assets/images/productos/rogel.jpg';
 import sandwiches from '../assets/images/productos/sandwiches.jpg';
@@ -83,18 +83,18 @@ lemonPie,
 lemonPie1,
 peñarol,
 Personalizada2,
-Personalizada3,
-Personalizada4,
-Personalizada5,
-Personalizada6,
-Personalizada7,
-Personalizada8,
-Personalizada9,
-Personalizada10,
-Personalizada11,
-Personalizada12,
-Personalizada13,
-Personalizada14,
+personalizada3,
+personalizada5,
+personalizada4,
+personalizada6,
+personalizada7,
+personalizada8,
+personalizada9,
+personalizada10,
+personalizada11,
+personalizada12,
+personalizada13,
+personalizada14,
 redVelvetPersonalizada,
 rogel,
 sandwiches,
