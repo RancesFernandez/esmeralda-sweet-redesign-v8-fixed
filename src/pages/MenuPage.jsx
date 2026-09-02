@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { productos } from '../data/productos';
 import ProductoCard from '../components/ProductoCard';
@@ -25,6 +25,12 @@ const dulceTortaSecciones = [
 ];
 
 function DulceTortasSections({ productos }) {
+  const [openSections, setOpenSections] = useState({
+    'tortas-y-postres': true,
+    'tortas-personalizadas': false,
+    'sin-azucar': false,
+  });
+
   const secciones = [
     {
       id: 'tortas-y-postres',
@@ -32,14 +38,12 @@ function DulceTortasSections({ productos }) {
       descripcion:
         'Tortas y postres artesanales para disfrutar y compartir.',
     },
-
     {
       id: 'tortas-personalizadas',
       titulo: 'Tortas personalizadas',
       descripcion:
         'Diseños y sabores pensados especialmente para cada celebración.',
     },
-
     {
       id: 'sin-azucar',
       titulo: 'Sin azúcar',
@@ -47,6 +51,13 @@ function DulceTortasSections({ productos }) {
         'Opciones deliciosas para quienes buscan alternativas sin azúcar.',
     },
   ];
+
+  const toggleSection = (id) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   return (
     <div className="dulce-sections">
@@ -56,44 +67,69 @@ function DulceTortasSections({ productos }) {
             producto.subsubcategoria === seccion.id
         );
 
+        const isOpen = openSections[seccion.id];
+        const contentId = `dulce-content-${seccion.id}`;
+
         return (
           <section
-            className="dulce-section"
+            className={`dulce-section ${isOpen ? 'is-open' : ''}`}
             key={seccion.id}
           >
-            <div className="dulce-section__heading">
-              <div>
-                <p className="section-kicker">
+            <button
+              type="button"
+              className="dulce-section__heading"
+              onClick={() => toggleSection(seccion.id)}
+              aria-expanded={isOpen}
+              aria-controls={contentId}
+            >
+              <span className="dulce-section__heading-text">
+                <span className="section-kicker">
                   Esmeralda Sweet
-                </p>
+                </span>
 
-                <h2>{seccion.titulo}</h2>
-              </div>
+                <span className="dulce-section__title">
+                  {seccion.titulo}
+                </span>
 
-              <p>
-                {seccion.descripcion}
-              </p>
+                <span className="dulce-section__description">
+                  {seccion.descripcion}
+                </span>
+              </span>
+
+              <span
+                className="dulce-section__arrow"
+                aria-hidden="true"
+              >
+                ↓
+              </span>
+            </button>
+
+            <div
+              id={contentId}
+              className="dulce-section__content"
+              aria-hidden={!isOpen}
+              inert={!isOpen}
+            >
+              {productosSeccion.length > 0 ? (
+                <div className="dulce-section__grid">
+                  {productosSeccion.map((producto) => (
+                    <ProductoCard
+                      key={producto.id}
+                      producto={producto}
+                      categoria="Menú dulce"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="catalog-note">
+                  <strong>
+                    Próximamente nuevas propuestas.
+                  </strong>
+                  <br />
+                  Estamos preparando nuevas opciones para esta categoría.
+                </div>
+              )}
             </div>
-
-            {productosSeccion.length > 0 ? (
-              <div className="dulce-section__grid">
-                {productosSeccion.map((producto) => (
-                  <ProductoCard
-                    key={producto.id}
-                    producto={producto}
-                    categoria="Menú dulce"
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="catalog-note">
-                <strong>
-                  Próximamente nuevas propuestas.
-                </strong>
-                <br />
-                Estamos preparando nuevas opciones para esta categoría.
-              </div>
-            )}
           </section>
         );
       })}

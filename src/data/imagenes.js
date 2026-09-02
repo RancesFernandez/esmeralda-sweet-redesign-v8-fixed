@@ -58,6 +58,8 @@ import evento04 from '../assets/images/galeria/evento-04.svg';
 import evento05 from '../assets/images/galeria/evento-05.svg';
 
 import historia from '../assets/images/nosotros/historia.svg';
+import historiaRolito from '../assets/images/nosotros/rolito.jpeg';
+
 
 export const imagenes = {
   logo,
@@ -110,5 +112,6 @@ tortaPersonalizada
   galeria: [desayunoCompartidoGalery, personalizada14Galery,sandwichesGalery, evento04, evento05],
   nosotros: {
     historia,
+    historiaRolito
   },
 };

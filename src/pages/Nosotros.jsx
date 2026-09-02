@@ -14,7 +14,7 @@ export default function Nosotros() {
       <section className="section">
         <div className="section-container story-grid">
           <div className="story-image">
-            <img src={imagenes.nosotros.historia} alt="Trabajo artesanal" />
+            <img src={imagenes.nosotros.historiaRolito} alt="Trabajo artesanal" />
           </div>
           <div className="story-copy">
             <p className="section-kicker">Detrás de cada receta</p>

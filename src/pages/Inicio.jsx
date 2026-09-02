@@ -9,12 +9,13 @@ import CotizacionRapida from '../components/CotizacionRapida';
 
 const heroImage = imagenes.Personalizada12;
 const galleryImages = imagenes.galeria;
+const nosotrosImage = imagenes.rolito;
 
 const beneficios = [
-  ['✦', 'Hecho artesanalmente', 'Cada pedido se prepara con atención al detalle y productos seleccionados.'],
-  ['◌', 'Pedí con anticipación', 'Para encargos especiales recomendamos reservar con al menos 48 horas.'],
-  ['⌁', 'Entrega coordinada', 'Coordinamos el retiro o envío según tu zona y el tipo de pedido.'],
-  ['♡', 'Pensado para compartir', 'Porciones y propuestas pensadas para reuniones, celebraciones y regalos.']
+  ['🤲', 'Hecho artesanalmente', 'Cada pedido se prepara con atención al detalle y productos seleccionados.'],
+  ['⌛', 'Pedí con anticipación', 'Para encargos especiales recomendamos reservar con al menos 48 horas.'],
+  ['🚚', 'Entrega coordinada', 'Coordinamos el retiro o envío según tu zona y el tipo de pedido.'],
+  ['💚', 'Pensado para compartir', 'Porciones y propuestas pensadas para reuniones, celebraciones y regalos.']
 ];
 
 const pasos = [
@@ -200,7 +201,7 @@ export default function Inicio() {
         <div className="section-container story-grid">
           <div className="story-image">
             <img
-              src={imagenes.nosotros.historia}
+              src={imagenes.nosotros.historiaRolito}
               alt="Trabajo artesanal de Esmeralda Sweet"
               loading="lazy"
             />
