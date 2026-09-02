@@ -65,7 +65,7 @@ export const imagenes = {
   logo,
   hero,
   rogel,
-  Personalizada12,
+  personalizada12,
   productos: {
     brownie,
     chaja,

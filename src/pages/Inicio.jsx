@@ -7,7 +7,7 @@ import ProductoCard from '../components/ProductoCard';
 import Comentarios from '../components/Comentarios';
 import CotizacionRapida from '../components/CotizacionRapida';
 
-const heroImage = imagenes.Personalizada12;
+const heroImage = imagenes.personalizada12;
 const galleryImages = imagenes.galeria;
 const nosotrosImage = imagenes.rolito;
 
