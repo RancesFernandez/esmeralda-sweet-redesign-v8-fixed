@@ -183,7 +183,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
               <h2 className="section-title">Encontrá exactamente lo que buscás.</h2>
             </div>
             <p className="catalog-intro__text">
-              Explorá por tipo. Cada sección está preparada para sumar nuevas propuestas sin cambiar el diseño.
+             
             </p>
           </div>
 
