@@ -93,7 +93,13 @@ export default function Navbar() {
             </button>
             <a
               className="nav-cta"
-              href={whatsappUrl('Hola Esmeralda Sweet, quiero hacer un pedido')}
+              href={whatsappUrl(`Hola Esmeralda Sweet 😊
+
+Quisiera hacer una consulta para realizar un pedido.
+
+Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegir la propuesta que mejor se adapte a lo que necesito.
+
+¡Gracias! 💚`)}
               target="_blank"
               rel="noreferrer"
             >

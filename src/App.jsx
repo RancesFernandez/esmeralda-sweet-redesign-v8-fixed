@@ -30,7 +30,13 @@ export default function App() {
         <Route path="/desayunos" element={<MenuDesayunos />} />
         <Route path="/nosotros" element={<Nosotros />} />
       </Routes>
-      <div className="mobile-order-bar"><a href={whatsappUrl('Hola Esmeralda Sweet, quiero hacer un pedido')} target="_blank" rel="noreferrer">Hacer pedido por WhatsApp ↗</a></div>
+      <div className="mobile-order-bar"><a href={whatsappUrl(`Hola Esmeralda Sweet 😊
+
+Quisiera hacer una consulta para realizar un pedido.
+
+Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegir la propuesta que mejor se adapte a lo que necesito.
+
+¡Gracias! 💚`)} target="_blank" rel="noreferrer">Hacer pedido por WhatsApp ↗</a></div>
     </>
   );
 }

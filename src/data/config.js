@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = '+598099123926';
+export const WHATSAPP_NUMBER = '+598096107503';
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export function whatsappUrl(message = '') {

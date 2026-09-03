@@ -228,7 +228,13 @@ export default function ProductoCard({ producto, categoria }) {
               <a
                 className="btn-primary"
                 href={whatsappUrl(
-                  `Hola Esmeralda Sweet, quiero pedir ${producto.nombre}`
+                  `Hola Esmeralda Sweet 😊
+
+Quisiera consultar por *${producto.nombre}*.
+
+¿Me podrían contar disponibilidad, precio y cómo puedo realizar el pedido?
+
+¡Muchas gracias! 💚`
                 )}
                 target="_blank"
                 rel="noreferrer"

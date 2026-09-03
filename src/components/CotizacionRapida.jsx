@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { whatsappUrl } from '../data/config';
 
 const initialForm = {
-  nombre:'',
+  nombre: '',
   tipo: 'Cumpleaños',
   personas: '10-20',
   fecha: '',
   mensaje: ''
 };
 
-export default function CotizacionRapida({ isOpen, onClose = () => {} }) {
+export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
   const [form, setForm] = useState(initialForm);
 
   const update = (event) => {
@@ -31,12 +31,19 @@ export default function CotizacionRapida({ isOpen, onClose = () => {} }) {
     event.preventDefault();
 
     const text = [
-      'Hola Esmeralda Sweet, quiero consultar por un pedido.',
-      `Me llamo: ${form.nombre}`,
-      `Tipo de ocasión: ${form.tipo}`,
-      `Cantidad de personas: ${form.personas}`,
-      `Fecha: ${form.fecha || 'A confirmar'}`,
-      form.mensaje ? `Detalles: ${form.mensaje}` : '',
+      'Hola Esmeralda Sweet 😊',
+      '',
+      `Mi nombre es ${form.nombre} y quisiera consultar por una propuesta para ${form.tipo.toLowerCase()}.`,
+      '',
+      `👥 Somos aproximadamente ${form.personas} personas.`,
+      `📅 La fecha estimada es ${form.fecha || 'a confirmar'}.`,
+      form.mensaje
+        ? `💭 Estoy buscando: ${form.mensaje}`
+        : '',
+      '',
+      '¿Podrían orientarme con las opciones disponibles y pasarme una propuesta?',
+      '',
+      '¡Muchas gracias! 💚',
     ].filter(Boolean).join('\n');
 
     window.open(whatsappUrl(text), '_blank', 'noopener,noreferrer');
@@ -104,7 +111,7 @@ export default function CotizacionRapida({ isOpen, onClose = () => {} }) {
 
         <form className="quote-form quote-form--modal" onSubmit={submit}>
 
-        <label>
+          <label>
             Nombre y Apellido
             <input
               required

@@ -44,7 +44,13 @@ export default function Inicio() {
           <div className="hero-home__actions">
             <a
               className="btn-primary"
-              href={whatsappUrl('Hola Esmeralda Sweet, quiero hacer un pedido')}
+              href={whatsappUrl(`Hola Esmeralda Sweet 😊
+
+Quisiera hacer una consulta para realizar un pedido.
+
+Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegir la propuesta que mejor se adapte a lo que necesito.
+
+¡Gracias! 💚`)}
               target="_blank"
               rel="noreferrer"
             >
@@ -249,7 +255,13 @@ export default function Inicio() {
           <p>Contanos qué estás organizando y armamos una propuesta a medida.</p>
           <a
             className="btn-primary"
-            href={whatsappUrl('Hola Esmeralda Sweet, tengo un evento y quiero una propuesta')}
+            href={whatsappUrl(`Hola Esmeralda Sweet 😊
+
+Estoy organizando un evento y me gustaría consultar por una propuesta.
+
+Quisiera contarles algunos detalles para que puedan orientarme con las opciones disponibles y, si es posible, preparar una propuesta acorde a lo que estoy buscando.
+
+¡Gracias! 💚`)}
             target="_blank"
             rel="noreferrer"
           >
