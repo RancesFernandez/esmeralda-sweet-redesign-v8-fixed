@@ -159,9 +159,9 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
 
   const setTipo = (id) => setSearchParams({ tipo: id });
 
-  
 
-  
+
+
 
   return (
     <main className="catalog-page">
@@ -183,7 +183,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
               <h2 className="section-title">Encontrá exactamente lo que buscás.</h2>
             </div>
             <p className="catalog-intro__text">
-             
+
             </p>
           </div>
 
@@ -196,11 +196,12 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
                 type="button"
                 aria-pressed={opcionId === item.id}
               >
-                <span
-                  className="menu-option-card__image"
-                  style={{ backgroundImage: `url(${imagenes.productos[item.imagenKey]})` }}
-                  aria-hidden="true"
-                />
+                <span className="menu-option-card__image" aria-hidden="true">
+                  <img
+                    src={imagenes.productos[item.imagenKey]}
+                    alt=""
+                  />
+                </span>
                 <span className="menu-option-card__overlay" aria-hidden="true" />
                 <span className="menu-option-card__content">
                   <strong>{item.nombre}</strong>
@@ -213,8 +214,8 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
 
           {isDulceTortas ? (
             <DulceTortasSections
-  productos={filteredProducts}
-/>
+              productos={filteredProducts}
+            />
           ) : (
             <div className="catalog-results">
               <div className="catalog-results__heading">
@@ -230,7 +231,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
               </div>
 
               <div className="catalog-grid">
-               {filteredProducts.map((producto) => (
+                {filteredProducts.map((producto) => (
                   <ProductoCard key={producto.id} producto={producto} categoria={categoriaData?.nombre} />
                 ))}
               </div>
