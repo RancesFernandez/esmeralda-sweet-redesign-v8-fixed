@@ -203,7 +203,7 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
 
       <Comentarios />
 
-      <section id="eventos" className="story-section section">
+      <section id="nuestra-historia" className="story-section section">
         <div className="section-container story-grid">
           <div className="story-image">
             <img
@@ -281,7 +281,7 @@ Quisiera contarles algunos detalles para que puedan orientarme con las opciones 
             <Link to="/menu-dulce">Menú dulce</Link>
             <Link to="/menu-salado">Menú salado</Link>
             <Link to="/desayunos">Desayunos</Link>
-            <Link to="/nosotros">Nosotros</Link>
+            <Link to="/#nuestra-historia">Nosotros</Link>
           </div>
           <div>
             <strong>Contacto</strong>

@@ -35,4 +35,3 @@ Usá nombres sin espacios ni tildes, por ejemplo:
 - `evento-01.webp`
 - `historia.jpg`
 
-Podés usar `.jpg`, `.jpeg`, `.png` o `.webp`. Vite los procesa automáticamente al importar desde `src/assets`.

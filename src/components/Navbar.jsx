@@ -70,7 +70,15 @@ export default function Navbar() {
                 {label}
               </a>
             ))}
-            <Link to="/nosotros" onClick={() => setOpen(false)}>Nosotros</Link>
+            <a
+              href="/#nuestra-historia"
+              onClick={(e) => {
+                e.preventDefault();
+                goToSection('nuestra-historia');
+              }}
+            >
+              Nosotros
+            </a>
             <button
               className="nav-quote-mobile"
               type="button"

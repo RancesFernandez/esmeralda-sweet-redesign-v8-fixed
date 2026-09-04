@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { productos } from '../data/productos';
 import ProductoCard from '../components/ProductoCard';
@@ -140,6 +140,7 @@ function DulceTortasSections({ productos }) {
 export default function MenuPage({ categoria, titulo, subtitulo }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoriaData = getCategoria(categoria);
+  const resultsRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -157,7 +158,16 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
     });
   }, [categoria, opcionId]);
 
-  const setTipo = (id) => setSearchParams({ tipo: id });
+  const setTipo = (id) => {
+    setSearchParams({ tipo: id });
+
+    window.setTimeout(() => {
+      resultsRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 100);
+  };
 
 
 
@@ -213,11 +223,20 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
           </div>
 
           {isDulceTortas ? (
-            <DulceTortasSections
-              productos={filteredProducts}
-            />
+            <div
+              ref={resultsRef}
+              id="menu-resultados"
+            >
+              <DulceTortasSections
+                productos={filteredProducts}
+              />
+            </div>
           ) : (
-            <div className="catalog-results">
+            <div
+              ref={resultsRef}
+              id="menu-resultados"
+              className="catalog-results"
+            >
               <div className="catalog-results__heading">
                 <div>
                   <p className="section-kicker">{categoriaData?.nombre} · {opcion?.nombre}</p>
