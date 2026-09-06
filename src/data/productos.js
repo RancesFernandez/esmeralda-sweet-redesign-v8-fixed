@@ -20,7 +20,7 @@ export const productos = [
     precio16: 1200,
     precio22: 1800,
     descripcion:
-      'Bizcochuelo de vainilla, relleno de mousse de dulce de leche y decorada con merengue italiano flameado.',
+      'Bizcochuelo de vainilla, relleno de dulce de leche y decorada con merengue italiano flameado.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
     imagen: imagenes.productos.chaja,
@@ -50,7 +50,7 @@ export const productos = [
     precio16: 1200,
     precio22: 1800,
     descripcion:
-      'Brownie con nueces u oreos, dulce de leche, merengue italiano y chocote.',
+      'Brownie con nueces u oreos, dulce de leche, merengue italiano y chocolate.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
     imagen: imagenes.productos.brownie,
@@ -65,7 +65,7 @@ export const productos = [
     precio16: 1350,
     precio22: 1950,
     descripcion:
-      'Base de galletas, relleno a base de queso crema y salsa de frutillas, frutos rojos o maracuyá.',
+      'Base de galletas, relleno a base de queso crema y salsa de frutillas, frutos rojos, maracuyá u oreo.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
     imagen: imagenes.productos.cheesecake,
@@ -110,7 +110,7 @@ export const productos = [
     precio16: 1350,
     precio22: 1950,
     descripcion:
-      'Base de galletas, relleno a base de queso crema y dulce de leche con galletas de chocolate.',
+      'Base de galletas, relleno a base de queso crema y dulce de leche con galletas de chocolate chocolinas.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
     imagen: imagenes.productos.chocotorta,
@@ -140,7 +140,7 @@ export const productos = [
     precio16: 1350,
     precio22: 1950,
     descripcion:
-      'Pastel de terciopelo rojo de chocolate con relleno y cobertura de frosting de queso.',
+      'Pastel de terciopelo rojo con relleno y cobertura de frosting de queso.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
     imagen: imagenes.productos.redVelvetPersonalizada,
@@ -155,7 +155,7 @@ export const productos = [
     precio16: 1350,
     precio22: 1950,
     descripcion:
-      'Postre con tres capas de chocolate blanco, dulce de leche y chocolate semi amargo sobre una base de galletas.',
+      'Postre con tres capas de chocolate blanco, dulce de leche y chocolate semi amargo sobre una base de galletas de chocolate.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
     imagen: imagenes.productos.torta,
@@ -176,20 +176,20 @@ export const productos = [
     imagen: imagenes.productos.chaja,
   },
 
-  {
-    id: 112,
-    categoria: 'dulce',
-    subcategoria: 'tortas',
-    subsubcategoria: 'tortas-y-postres',
-    nombre: 'New York Cheesecake',
-    precio16: 1350,
-    precio22: 1950,
-    descripcion:
-      'Base de galletas, relleno a base de queso crema, chantilly y salsa de frutillas, frutos rojos o maracuyá.',
-    porciones16: '8–10 porciones',
-    porciones22: '20–22 porciones',
-    imagen: imagenes.productos.cheesecake,
-  },
+ // {
+ //   id: 112,
+ //   categoria: 'dulce',
+ //   subcategoria: 'tortas',
+ //   subsubcategoria: 'tortas-y-postres',
+ //   nombre: 'New York Cheesecake',
+ //   precio16: 1350,
+ //   precio22: 1950,
+ //   descripcion:
+ //     'Base de galletas, relleno a base de queso crema, chantilly y salsa de frutillas, frutos rojos o maracuyá.',
+ //   porciones16: '8–10 porciones',
+ //   porciones22: '20–22 porciones',
+ //   imagen: imagenes.productos.cheesecake,
+ // },
 
   {
     id: 113,
@@ -206,35 +206,35 @@ export const productos = [
     imagen: imagenes.productos.chocotorta,
   },
 
-  {
-    id: 114,
-    categoria: 'dulce',
-    subcategoria: 'tortas',
-    subsubcategoria: 'tortas-y-postres',
-    nombre: 'Torta Menta',
-    precio16: 1300,
-    precio22: 1900,
-    descripcion:
-      'Base de chocolate semi amargo, mousse de menta y crema chantilly.',
-    porciones16: '8–10 porciones',
-    porciones22: '20–22 porciones',
-    imagen: imagenes.productos.choco,
-  },
+ // {
+  //  id: 114,
+  //  categoria: 'dulce',
+   // subcategoria: 'tortas',
+  //  subsubcategoria: 'tortas-y-postres',
+   // nombre: 'Torta Menta',
+   // precio16: 1300,
+   // precio22: 1900,
+   // descripcion:
+   //   'Base de chocolate semi amargo, mousse de menta y crema chantilly.',
+   // porciones16: '8–10 porciones',
+   // porciones22: '20–22 porciones',
+   // imagen: imagenes.productos.choco,
+ // },
 
-  {
-    id: 115,
-    categoria: 'dulce',
-    subcategoria: 'tortas',
-    subsubcategoria: 'tortas-y-postres',
-    nombre: 'Choco y Maracuyá',
-    precio16: 1350,
-    precio22: 1950,
-    descripcion:
-      'Base de galletas de chocolate, mousse de chocolate y maracuyá con ganache de chocolate semi amargo.',
-    porciones16: '8–10 porciones',
-    porciones22: '20–22 porciones',
-    imagen: imagenes.productos.choco,
-  },
+ // {
+  //  id: 115,
+   // categoria: 'dulce',
+  //  subcategoria: 'tortas',
+   // subsubcategoria: 'tortas-y-postres',
+  //  nombre: 'Choco y Maracuyá',
+  //  precio16: 1350,
+  //  precio22: 1950,
+   // descripcion:
+   //   'Base de galletas de chocolate, mousse de chocolate y maracuyá con ganache de chocolate semi amargo.',
+  //  porciones16: '8–10 porciones',
+   // porciones22: '20–22 porciones',
+  //  imagen: imagenes.productos.choco,
+ // },
 
 
   // ==========================================================

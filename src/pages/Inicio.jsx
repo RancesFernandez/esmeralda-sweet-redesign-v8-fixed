@@ -12,10 +12,10 @@ const galleryImages = imagenes.galeria;
 const nosotrosImage = imagenes.rolito;
 
 const beneficios = [
-  ['🤲', 'Hecho artesanalmente', 'Cada pedido se prepara con atención al detalle y productos seleccionados.'],
-  ['⌛', 'Pedí con anticipación', 'Para encargos especiales recomendamos reservar con al menos 48 horas.'],
-  ['🚚', 'Entrega coordinada', 'Coordinamos el retiro o envío según tu zona y el tipo de pedido.'],
-  ['💚', 'Pensado para compartir', 'Porciones y propuestas pensadas para reuniones, celebraciones y regalos.']
+  ['🤲', 'Hecho artesanalmente', 'Cada pedido es único y se prepara especialemente para ti.'],
+  ['⌛', 'Pedidos con anticipación', 'Tomamos pedidos con 2-3 días de anticipación.'],
+  ['⏱️', 'Pedidos express', '¿Necesitás tu pedido con urgencia?. Contactanos y buscamos la mejor solución.'],
+  ['🚚', 'Entrega coordinada', 'Realizamos envíos en Montevideo o podés retirar tu pedido en nuestro pick up en el Centro.'],
 ];
 
 const pasos = [
@@ -26,7 +26,7 @@ const pasos = [
 ];
 
 export default function Inicio() {
-  const destacados = productos.slice(0, 5);
+  const destacados = productos.slice(0, 4);
 
   return (
     <main>
@@ -34,7 +34,7 @@ export default function Inicio() {
         <div className="hero-home__image" style={{ backgroundImage: `url(${heroImage})` }} />
         <div className="hero-home__overlay" />
         <div className="hero-home__content section-container">
-          <p className="hero-home__eyebrow">ESMERALDA SWEET · ARTESANAL</p>
+          <p className="hero-home__eyebrow">ESMERALDA SWEET · PASTELERÍA ARTESANAL</p>
           <h1>Algo rico para alegrar el <em>corazón.</em></h1>
           <p>
             Creamos propuestas dulces y saladas para compartir,
@@ -74,7 +74,7 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
       <section id="productos" className="section products-section">
         <div className="section-container">
           <div className="section-heading">
-            <p className="section-kicker">Para compartir · para regalar · para celebrar</p>
+            <p className="section-kicker">Para compartir  · para celebrar · para regalar</p>
             <h2 className="section-title">Nuestros productos</h2>
             <p className="section-subtitle">
               Elegí tu propuesta favorita y pedila directo por WhatsApp.
@@ -86,12 +86,12 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
               <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.lemonPie})` }} />
               <div className="menu-showcase-card__overlay" />
               <div className="menu-showcase-card__top">
-                <span className="menu-showcase-card__eyebrow">Para endulzar</span>
+                <span className="menu-showcase-card__eyebrow"></span>
                 <span className="menu-showcase-card__arrow">↗</span>
               </div>
               <div className="menu-showcase-card__content">
                 <h3>Menú dulce</h3>
-                <p>Tortas, masitas, alfajores, muffins y rolls de canela.</p>
+                <p>Tortas, masitas, alfajores y más...</p>
                 <div className="menu-showcase-tags">
                   <span>Tortas</span><span>Masitas</span><span>Alfajores</span><span>Muffins</span><span>Rolls de canela</span>
                 </div>
@@ -103,12 +103,12 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
               <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.sandwiches})` }} />
               <div className="menu-showcase-card__overlay" />
               <div className="menu-showcase-card__top">
-                <span className="menu-showcase-card__eyebrow">Para compartir</span>
+                <span className="menu-showcase-card__eyebrow"></span>
                 <span className="menu-showcase-card__arrow">↗</span>
               </div>
               <div className="menu-showcase-card__content">
                 <h3>Menú salado</h3>
-                <p>Saladitos y picadas pensados para llenar la mesa de sabor.</p>
+                <p>Saladitos y picadas.</p>
                 <div className="menu-showcase-tags">
                   <span>Saladitos</span><span>Picadas</span>
                 </div>
@@ -120,12 +120,12 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
               <div className="menu-showcase-card__image" style={{ backgroundImage: `url(${imagenes.productos.desayunoCompartido})` }} />
               <div className="menu-showcase-card__overlay" />
               <div className="menu-showcase-card__top">
-                <span className="menu-showcase-card__eyebrow">Para empezar bien</span>
+                <span className="menu-showcase-card__eyebrow"></span>
                 <span className="menu-showcase-card__arrow">↗</span>
               </div>
               <div className="menu-showcase-card__content">
                 <h3>Desayunos</h3>
-                <p>Opciones individuales y para compartir, preparadas para arrancar el día con algo rico.</p>
+                <p>Opciones individuales y para compartir.</p>
                 <div className="menu-showcase-tags">
                   <span>Individuales</span><span>Para compartir</span>
                 </div>
@@ -171,36 +171,6 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
         </div>
       </section>
 
-      <section className="section difference-section">
-        <div className="section-container">
-          <div className="section-heading">
-            <p className="section-kicker">Nuestra diferencia</p>
-            <h2 className="section-title">Pequeños detalles, gran diferencia.</h2>
-          </div>
-          <div className="stats-row">
-            <div><strong>100%</strong><span>Artesanal</span></div>
-            <div><strong>48h</strong><span>Anticipación recomendada</span></div>
-            <div><strong>1 a 1</strong><span>Atención personalizada</span></div>
-            <div><strong>♡</strong><span>Hecho para compartir</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section gallery-section section--soft">
-        <div className="section-container">
-          <div className="section-heading">
-            <p className="section-kicker">Así se vive</p>
-            <h2 className="section-title">Esmeralda en vivo</h2>
-            <p className="section-subtitle">Algunas de las mesas y productos que salen de nuestra cocina.</p>
-          </div>
-          <div className="gallery-grid">
-            {galleryImages.map((image, index) => (
-              <img key={image} src={image} alt={`Esmeralda Sweet - trabajo ${index + 1}`} loading="lazy" />
-            ))}
-          </div>
-        </div>
-      </section>
-
       <Comentarios />
 
       <section id="nuestra-historia" className="story-section section">
@@ -226,7 +196,7 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
               también la presentación final. Queremos que abrir una caja o
               encontrarse con una mesa Esmeralda sea parte de la experiencia.
             </p>
-            <Link to="/nosotros" className="text-link">Conocé nuestra historia →</Link>
+            
           </div>
         </div>
       </section>
@@ -240,8 +210,8 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
             <h2 className="section-title">Preguntas frecuentes</h2>
           </div>
           <div className="faq-list">
-            <details><summary>¿Con cuánta antelación debo realizar mi pedido?</summary><p>Los pedidos deben realziarse con 2-3 días de anticipación. ¿Lo necesitás antes? Contactanos y trataremos de buscar una solución</p></details>
-            <details><summary>¿Dónde se retiran?</summary><p>Para retiros con coordinación previa, nos encontramos ubicados en el centro.</p></details>
+            <details><summary>¿Con cuánta antelación debo realizar mi pedido?</summary><p>Los pedidos deben realizarse con 2-3 días de anticipación. ¿Lo necesitás antes? Contactanos y trataremos de buscar una solución</p></details>
+            <details><summary>¿Dónde se retiran?</summary><p>Para retiros con coordinación previa, nos encontramos ubicados en el Centro.</p></details>
             <details><summary>¿Cúando tomamos pedidos?</summary><p>Tomamos pedidos de lunes a sábado.</p></details>
             <details><summary>¿Realizan envíos?</summary><p>Con coordinación previa en Montevideo por cadetería en un rango mínimo de 2 horas. Consultanos por el barrio y te pasamos la info.</p></details>
           </div>
@@ -250,7 +220,7 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
 
       <section className="event-cta">
         <div className="section-container event-cta__inner">
-          <p className="section-kicker">¿Tenés un evento?</p>
+          <p className="section-kicker">¿Tenés un evento o taller?</p>
           <h2>Hagamos algo especial para tu mesa.</h2>
           <p>Contanos qué estás organizando y armamos una propuesta a medida.</p>
           <a

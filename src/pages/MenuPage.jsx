@@ -5,6 +5,9 @@ import ProductoCard from '../components/ProductoCard';
 import { getCategoria, getOpcion } from '../data/menuCategorias';
 import { imagenes } from '../data/imagenes';
 
+//Para desayunos sacar la parte superior y dejar solo las cards con los productos
+// En tortas personalizadas hacer algo similar a lo de los saladitos
+
 const dulceTortaSecciones = [
 
   {
@@ -35,8 +38,7 @@ function DulceTortasSections({ productos }) {
     {
       id: 'tortas-y-postres',
       titulo: 'Tortas y postres',
-      descripcion:
-        'Tortas y postres artesanales para disfrutar y compartir.',
+      descripcion: 'Tortas y postres artesanales para disfrutar y compartir.',
     },
     {
       id: 'tortas-personalizadas',

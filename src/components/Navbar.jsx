@@ -6,7 +6,7 @@ import { imagenes } from '../data/imagenes';
 
 const navItems = [
   ['Productos', 'productos'],
-  ['Cómo funciona', 'como-funciona'],
+  ['¿Cómo funciona?', 'como-funciona'],
   ['Preguntas frecuentes', 'preguntas'],
 ];
 

@@ -11,13 +11,12 @@ export const menuCategorias = {
       {
         id: 'tortas',
         nombre: 'Postres y tortas',
-        descripcion: 'Tortas, postres y propuestas especiales para cada ocasión.',
         imagenKey: 'peñarol',
       },
-      { id: 'masitas', nombre: 'Masitas', descripcion: 'Pequeños bocados dulces para compartir.', imagenKey: 'chaja' },
-      { id: 'alfajores', nombre: 'Alfajores', descripcion: 'Rellenos artesanales para regalar o disfrutar.', imagenKey: 'cheesecake' },
-      { id: 'muffins', nombre: 'Muffins', descripcion: 'Suaves, caseros y perfectos para cualquier momento.', imagenKey: 'choco' },
-      { id: 'rolls-de-canela', nombre: 'Rolls de canela', descripcion: 'Rolls tiernos, aromáticos y recién horneados.', imagenKey: 'peñarol' },
+      { id: 'masitas', nombre: 'Masitas', imagenKey: 'chaja' },
+      { id: 'alfajores', nombre: 'Alfajores', imagenKey: 'cheesecake' },
+      { id: 'muffins', nombre: 'Muffins', imagenKey: 'choco' },
+      { id: 'rolls-de-canela', nombre: 'Rolls de canela', imagenKey: 'peñarol' },
     ],
   },
   salado: {
