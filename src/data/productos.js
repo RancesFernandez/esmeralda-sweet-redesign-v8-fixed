@@ -176,20 +176,20 @@ export const productos = [
     imagen: imagenes.productos.chaja,
   },
 
- // {
- //   id: 112,
- //   categoria: 'dulce',
- //   subcategoria: 'tortas',
- //   subsubcategoria: 'tortas-y-postres',
- //   nombre: 'New York Cheesecake',
- //   precio16: 1350,
- //   precio22: 1950,
- //   descripcion:
- //     'Base de galletas, relleno a base de queso crema, chantilly y salsa de frutillas, frutos rojos o maracuyá.',
- //   porciones16: '8–10 porciones',
- //   porciones22: '20–22 porciones',
- //   imagen: imagenes.productos.cheesecake,
- // },
+  // {
+  //   id: 112,
+  //   categoria: 'dulce',
+  //   subcategoria: 'tortas',
+  //   subsubcategoria: 'tortas-y-postres',
+  //   nombre: 'New York Cheesecake',
+  //   precio16: 1350,
+  //   precio22: 1950,
+  //   descripcion:
+  //     'Base de galletas, relleno a base de queso crema, chantilly y salsa de frutillas, frutos rojos o maracuyá.',
+  //   porciones16: '8–10 porciones',
+  //   porciones22: '20–22 porciones',
+  //   imagen: imagenes.productos.cheesecake,
+  // },
 
   {
     id: 113,
@@ -206,35 +206,81 @@ export const productos = [
     imagen: imagenes.productos.chocotorta,
   },
 
- // {
+  // {
   //  id: 114,
   //  categoria: 'dulce',
-   // subcategoria: 'tortas',
+  // subcategoria: 'tortas',
   //  subsubcategoria: 'tortas-y-postres',
-   // nombre: 'Torta Menta',
-   // precio16: 1300,
-   // precio22: 1900,
-   // descripcion:
-   //   'Base de chocolate semi amargo, mousse de menta y crema chantilly.',
-   // porciones16: '8–10 porciones',
-   // porciones22: '20–22 porciones',
-   // imagen: imagenes.productos.choco,
- // },
+  // nombre: 'Torta Menta',
+  // precio16: 1300,
+  // precio22: 1900,
+  // descripcion:
+  //   'Base de chocolate semi amargo, mousse de menta y crema chantilly.',
+  // porciones16: '8–10 porciones',
+  // porciones22: '20–22 porciones',
+  // imagen: imagenes.productos.choco,
+  // },
 
- // {
+  // {
   //  id: 115,
-   // categoria: 'dulce',
+  // categoria: 'dulce',
   //  subcategoria: 'tortas',
-   // subsubcategoria: 'tortas-y-postres',
+  // subsubcategoria: 'tortas-y-postres',
   //  nombre: 'Choco y Maracuyá',
   //  precio16: 1350,
   //  precio22: 1950,
-   // descripcion:
-   //   'Base de galletas de chocolate, mousse de chocolate y maracuyá con ganache de chocolate semi amargo.',
+  // descripcion:
+  //   'Base de galletas de chocolate, mousse de chocolate y maracuyá con ganache de chocolate semi amargo.',
   //  porciones16: '8–10 porciones',
-   // porciones22: '20–22 porciones',
+  // porciones22: '20–22 porciones',
   //  imagen: imagenes.productos.choco,
- // },
+  // },
+
+  {
+    id: 150,
+    categoria: 'dulce',
+    subcategoria: 'tortas',
+    subsubcategoria: 'tortas-personalizadas',
+    nombre: 'Tortas personalizadas',
+    descripcion: 'Personalizamos tu torta a tu elección.',
+    imagen: imagenes.productos.tortaPersonalizada,
+    imagenes: [
+      imagenes.productos.tortaPersonalizada,
+      imagenes.productos.Personalizada2,
+      imagenes.productos.personalizada3,
+      imagenes.productos.personalizada4,
+      imagenes.productos.personalizada5,
+      imagenes.productos.personalizada6,
+      imagenes.productos.personalizada7,
+      imagenes.productos.personalizada8,
+    ],
+    detalle: {
+      secciones: [
+        {
+          titulo: 'Los bizcochuelos pueden ser:',
+          items: [
+            'Vainilla',
+            'Chocolate',
+            'Marmolado',
+          ],
+        },
+        {
+          titulo: 'Y los rellenos dos entre:',
+          items: [
+            'Dulce de leche',
+            'Crema Bariloche',
+            'Ganache de chocolate blanco',
+            'Ganache de chocolate semi amargo',
+            'Ganache de frutos rojos',
+            'Ganache de frutilla',
+            'Crema de Oreo',
+            'Crema de Nutella',
+            'Crema Tramontana',
+          ],
+        },
+      ],
+    },
+  },
 
 
   // ==========================================================
@@ -267,33 +313,141 @@ export const productos = [
     id: 301,
     categoria: 'salado',
     subcategoria: 'saladitos',
-    nombre: 'Sandwich Gourmet de Jamón Crudo',
-    precio: 3200,
-    descripcion:
-      'Pan de masa madre crujiente, jamón crudo premium, rúcula fresca y aceite de oliva.',
+    nombre: 'Box de saladitos',
+    descripcion: 'Información completa al ingresar.',
     imagen: imagenes.productos.sandwiches,
+    imagenes: [
+      imagenes.productos.sandwiches,
+      imagenes.productos.sandwiches1,
+      imagenes.productos.sandwiches2,
+      imagenes.productos.sandwiches3,
+      imagenes.productos.sandwiches4,
+      imagenes.productos.sandwiches5,
+    ],
+    detalle: {
+      precios: [
+        '-24 unidades $1440',
+        '-30 unidades $1800',
+        '-40 unidades $2400',
+        '-55 unidades $3300',
+        '-60 unidades $3600',
+        '-100 unidades $5900',
+        '-200 unidades $11600',
+      ],
+      secciones: [
+        {
+          titulo: 'Las opciones de saladitos son:',
+          items: [
+            'Scones de queso',
+            'Scones de queso rellenos',
+            'Pan de nuez',
+            'Bagels',
+            'Pan de pita',
+            'Focaccia',
+            'Medialunas',
+          ],
+        },
+        {
+          titulo: 'Los rellenos de los saladitos son:',
+          items: [
+            'Jamón y queso',
+            'Bondiola y rúcula',
+            'Bondiola y queso crema',
+            'Queso y rúcula',
+            'Lomito y queso cheddar',
+            'Caprese',
+          ],
+        },
+      ],
+      nota: 'Por más o menos cantidades podemos armarla personalizada.',
+    },
   },
 
   {
     id: 302,
     categoria: 'salado',
     subcategoria: 'picadas',
-    nombre: 'Pizza Artesanal de Rúcula',
-    precio: 4100,
-    descripcion:
-      'Masa de larga fermentación, salsa de tomate natural, mozzarella, rúcula y parmesano.',
+    nombre: 'Picadas',
+    descripcion: 'Información completa al ingresar.',
     imagen: imagenes.productos.sandwiches1,
+    imagenes: [
+      imagenes.productos.sandwiches1,
+      imagenes.productos.sandwiches2,
+      imagenes.productos.sandwiches3,
+      imagenes.productos.sandwiches6,
+    ],
+    detalle: {
+      precios: [
+        'Picada pan de pita 20 unidades',
+        'Picada aceitunas 40 unidades',
+      ],
+    },
   },
 
   {
-    id: 302,
+    id: 303,
     categoria: 'dulce',
     subcategoria: 'masitas',
     nombre: 'Masitas varias',
     precio: 1000,
     descripcion:
-      'Masa de larga fermentación, salsa de tomate natural, mozzarella, rúcula y parmesano.',
+      'Surtido de masitas artesanales. Variedades y presentación a consultar.',
     imagen: imagenes.productos.sandwiches1,
   },
 
+  {
+    id: 401,
+    categoria: 'desayunos',
+    subcategoria: 'desayunos-individuales',
+    nombre: 'Desayuno individual',
+    descripcion: 'Una propuesta completa para disfrutar algo rico y especial.',
+    imagen: imagenes.productos.desayunoIndividual,
+    imagenes: [
+      imagenes.productos.desayunoIndividual,
+      imagenes.productos.desayunoIndividual1,
+      imagenes.productos.desayunoIndividual2,
+    ],
+  },
+
+  {
+    id: 402,
+    categoria: 'desayunos',
+    subcategoria: 'desayunos-individuales',
+    nombre: 'Desayuno individual especial',
+    descripcion: 'Una selección artesanal preparada para regalar o disfrutar.',
+    imagen: imagenes.productos.desayunoIndividual2,
+    imagenes: [
+      imagenes.productos.desayunoIndividual2,
+      imagenes.productos.desayunoIndividual3,
+    ],
+  },
+
+  {
+    id: 403,
+    categoria: 'desayunos',
+    subcategoria: 'desayunos-para-compartir',
+    nombre: 'Desayuno para compartir',
+    descripcion: 'Una propuesta abundante para disfrutar en compañía.',
+    imagen: imagenes.productos.desayunoCompartido,
+    imagenes: [
+      imagenes.productos.desayunoCompartido,
+      imagenes.productos.desayunoCompartido1,
+      imagenes.productos.desayunoCompartido2,
+    ],
+  },
+
+  {
+    id: 404,
+    categoria: 'desayunos',
+    subcategoria: 'desayunos-para-compartir',
+    nombre: 'Desayuno para compartir especial',
+    descripcion: 'Una selección pensada para compartir momentos especiales.',
+    imagen: imagenes.productos.desayunoCompartido1,
+    imagenes: [
+      imagenes.productos.desayunoCompartido1,
+      imagenes.productos.desayunoCompartido2,
+    ],
+  },
+
 ];
+

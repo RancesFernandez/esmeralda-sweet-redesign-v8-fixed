@@ -7,7 +7,7 @@ import MenuDulce from './pages/MenuDulce';
 import MenuSalado from './pages/MenuSalado';
 import MenuDesayunos from './pages/MenuDesayunos';
 import './App.css';
-import { whatsappUrl } from './data/config';
+import { whatsappUrl, MSG_PEDIDO_GENERAL } from './data/config';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,13 +28,7 @@ export default function App() {
         <Route path="/menu-salado" element={<MenuSalado />} />
         <Route path="/desayunos" element={<MenuDesayunos />} />
       </Routes>
-      <div className="mobile-order-bar"><a href={whatsappUrl(`Hola Esmeralda Sweet 😊
-
-Quisiera hacer una consulta para realizar un pedido.
-
-Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegir la propuesta que mejor se adapte a lo que necesito.
-
-¡Gracias! 💚`)} target="_blank" rel="noreferrer">Hacer pedido por WhatsApp ↗</a></div>
+      <div className="mobile-order-bar"><a href={whatsappUrl(MSG_PEDIDO_GENERAL)} target="_blank" rel="noreferrer">Hacer pedido por WhatsApp ↗</a></div>
     </>
   );
 }

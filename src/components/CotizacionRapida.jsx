@@ -12,9 +12,29 @@ const initialForm = {
 export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
   const [form, setForm] = useState(initialForm);
 
+  const getMinQuoteDate = () => {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + 2);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+  };
+
+  const minQuoteDate = getMinQuoteDate();
+
   const update = (event) => {
     setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
   };
+
+  useEffect(() => {
+    if (!isOpen) {
+      setForm(initialForm);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -29,6 +49,11 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
 
   const submit = (event) => {
     event.preventDefault();
+
+    if (form.fecha && form.fecha < minQuoteDate) {
+      alert('Por favor seleccioná una fecha a partir de pasado mañana.');
+      return;
+    }
 
     const text = [
       'Hola Esmeralda Sweet 😊',
@@ -118,7 +143,7 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
               name="nombre"
               value={form.nombre}
               onChange={update}
-              placeholder="Victoria Lopez"
+              placeholder="Ej.: María Pérez"
             />
           </label>
 
@@ -146,7 +171,15 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
 
           <label>
             Fecha estimada
-            <input className="quote-form__date" type="date" name="fecha" min={new Date().toISOString().split('T')[0]} value={form.fecha} onChange={update} />
+            <input
+              className="quote-form__date"
+              type="date"
+              name="fecha"
+              min={minQuoteDate}
+              value={form.fecha}
+              onChange={update}
+              required
+            />
           </label>
 
           <label>
@@ -157,7 +190,7 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
               value={form.mensaje}
               onChange={update}
               rows="3"
-              placeholder="Ej.: mesa dulce, 20 personas, tonos verdes..."
+              placeholder="Ej.: mesa dulce, 20 personas, tonos verdes, temática..."
             />
           </label>
 

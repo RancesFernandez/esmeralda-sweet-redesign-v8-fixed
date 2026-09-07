@@ -2,14 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { productos } from '../data/productos';
 import { imagenes } from '../data/imagenes';
-import { whatsappUrl } from '../data/config';
+import { whatsappUrl, MSG_PEDIDO_GENERAL, MSG_EVENTO } from '../data/config';
 import ProductoCard from '../components/ProductoCard';
 import Comentarios from '../components/Comentarios';
 import CotizacionRapida from '../components/CotizacionRapida';
 
 const heroImage = imagenes.personalizada12;
-const galleryImages = imagenes.galeria;
-const nosotrosImage = imagenes.rolito;
 
 const beneficios = [
   ['🤲', 'Hecho artesanalmente', 'Cada pedido es único y se prepara especialemente para ti.'],
@@ -26,7 +24,11 @@ const pasos = [
 ];
 
 export default function Inicio() {
-  const destacados = productos.slice(0, 4);
+  const destacadosIds = [101, 301, 302, 403];
+
+  const destacados = destacadosIds
+    .map((id) => productos.find((producto) => producto.id === id))
+    .filter(Boolean);
 
   return (
     <main>
@@ -44,13 +46,7 @@ export default function Inicio() {
           <div className="hero-home__actions">
             <a
               className="btn-primary"
-              href={whatsappUrl(`Hola Esmeralda Sweet 😊
-
-Quisiera hacer una consulta para realizar un pedido.
-
-Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegir la propuesta que mejor se adapte a lo que necesito.
-
-¡Gracias! 💚`)}
+              href={whatsappUrl(MSG_PEDIDO_GENERAL)}
               target="_blank"
               rel="noreferrer"
             >
@@ -177,7 +173,7 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
         <div className="section-container story-grid">
           <div className="story-image">
             <img
-              src={imagenes.nosotros.historiaRolito}
+              src={imagenes.nosotros.historiaDiploma}
               alt="Trabajo artesanal de Esmeralda Sweet"
               loading="lazy"
             />
@@ -196,7 +192,7 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
               también la presentación final. Queremos que abrir una caja o
               encontrarse con una mesa Esmeralda sea parte de la experiencia.
             </p>
-            
+
           </div>
         </div>
       </section>
@@ -225,13 +221,7 @@ Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegi
           <p>Contanos qué estás organizando y armamos una propuesta a medida.</p>
           <a
             className="btn-primary"
-            href={whatsappUrl(`Hola Esmeralda Sweet 😊
-
-Estoy organizando un evento y me gustaría consultar por una propuesta.
-
-Quisiera contarles algunos detalles para que puedan orientarme con las opciones disponibles y, si es posible, preparar una propuesta acorde a lo que estoy buscando.
-
-¡Gracias! 💚`)}
+            href={whatsappUrl(MSG_EVENTO)}
             target="_blank"
             rel="noreferrer"
           >

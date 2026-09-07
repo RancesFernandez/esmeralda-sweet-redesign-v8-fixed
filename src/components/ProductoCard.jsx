@@ -3,8 +3,46 @@ import { whatsappUrl } from '../data/config';
 
 export default function ProductoCard({ producto, categoria }) {
   const [open, setOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [imageTransition, setImageTransition] = useState(false);
 
   const esTorta = producto.subsubcategoria === 'tortas-y-postres';
+  const listaImagenes =
+    producto.imagenes?.length > 0
+      ? producto.imagenes
+      : [producto.imagen];
+
+  const imagenActual = listaImagenes[currentImage];
+
+  const cambiarImagen = (nuevoIndice) => {
+    if (nuevoIndice === currentImage) return;
+
+    setImageTransition(false);
+
+    requestAnimationFrame(() => {
+      setCurrentImage(nuevoIndice);
+
+      requestAnimationFrame(() => {
+        setImageTransition(true);
+      });
+    });
+  };
+
+  const siguienteImagen = (event) => {
+    event.stopPropagation();
+
+    cambiarImagen(
+      (currentImage + 1) % listaImagenes.length
+    );
+  };
+
+  const anteriorImagen = (event) => {
+    event.stopPropagation();
+
+    cambiarImagen(
+      (currentImage - 1 + listaImagenes.length) % listaImagenes.length
+    );
+  };
 
   useEffect(() => {
     if (!open) return undefined;
@@ -24,6 +62,13 @@ export default function ProductoCard({ producto, categoria }) {
 
   useEffect(() => {
     document.body.classList.toggle('product-modal-open', open);
+
+    if (!open) {
+      setCurrentImage(0);
+      setImageTransition(false);
+    } else {
+      setImageTransition(true);
+    }
 
     return () => {
       document.body.classList.remove('product-modal-open');
@@ -56,11 +101,44 @@ export default function ProductoCard({ producto, categoria }) {
         {/* IMAGEN */}
         <div className="product-card__image">
 
+          {listaImagenes.length > 1 && (
+            <>
+              <button
+                type="button"
+                className="product-image-nav product-image-nav--prev"
+                onClick={anteriorImagen}
+                aria-label="Imagen anterior"
+              >
+                ‹
+              </button>
+
+              <button
+                type="button"
+                className="product-image-nav product-image-nav--next"
+                onClick={siguienteImagen}
+                aria-label="Siguiente imagen"
+              >
+                ›
+              </button>
+
+              <div className="product-image-dots">
+                {listaImagenes.map((_, index) => (
+                  <span
+                    key={index}
+                    className={index === currentImage ? 'is-active' : ''}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
           <img
-            src={producto.imagen}
+            key={imagenActual}
+            src={imagenActual}
             alt={producto.nombre}
             loading="lazy"
             decoding="async"
+            className={imageTransition ? 'is-image-transitioning' : ''}
           />
 
           <span className="product-card__badge">
@@ -87,7 +165,7 @@ export default function ProductoCard({ producto, categoria }) {
           </p>
 
 
-          {esTorta && (
+          {esTorta && producto.precio16 != null && (
             <div className="product-card__sizes">
 
               <div className="product-card__size">
@@ -163,10 +241,51 @@ export default function ProductoCard({ producto, categoria }) {
             </button>
 
 
-            <img
-              src={producto.imagen}
-              alt={producto.nombre}
-            />
+            <div className="modal-product__image">
+              <img
+                key={imagenActual}
+                src={imagenActual}
+                alt={producto.nombre}
+                className={imageTransition ? 'is-image-transitioning' : ''}
+              />
+
+              {listaImagenes.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    className="modal-image-nav modal-image-nav--prev"
+                    onClick={anteriorImagen}
+                    aria-label="Imagen anterior"
+                  >
+                    ‹
+                  </button>
+
+                  <button
+                    type="button"
+                    className="modal-image-nav modal-image-nav--next"
+                    onClick={siguienteImagen}
+                    aria-label="Siguiente imagen"
+                  >
+                    ›
+                  </button>
+
+                  <div className="modal-image-dots">
+                    {listaImagenes.map((_, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        className={index === currentImage ? 'is-active' : ''}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          cambiarImagen(index);
+                        }}
+                        aria-label={`Ver imagen ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
 
 
             <div className="modal-product__content">
@@ -190,8 +309,46 @@ export default function ProductoCard({ producto, categoria }) {
                 {producto.descripcion}
               </p>
 
+              {producto.detalle && (
+                <div className="modal-product__details">
 
-              {esTorta ? (
+                  {producto.detalle.precios && (
+                    <div className="modal-product__detail-section">
+                      <h3>Opciones</h3>
+
+                      <ul>
+                        {producto.detalle.precios.map((precio, index) => (
+                          <li key={index}>{precio}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {producto.detalle.secciones?.map((seccion, index) => (
+                    <div
+                      className="modal-product__detail-section"
+                      key={index}
+                    >
+                      <h3>{seccion.titulo}</h3>
+
+                      <ul>
+                        {seccion.items.map((item, itemIndex) => (
+                          <li key={itemIndex}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+
+                  {producto.detalle.nota && (
+                    <p className="modal-product__note">
+                      {producto.detalle.nota}
+                    </p>
+                  )}
+
+                </div>
+              )}
+
+              {esTorta && producto.precio16 != null ? (
                 <div className="modal-product__sizes">
 
                   <div>

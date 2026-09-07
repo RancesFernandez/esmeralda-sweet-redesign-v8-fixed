@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 
 export default function Comentarios() {
@@ -10,11 +10,7 @@ export default function Comentarios() {
   const [nuevoUsuario, setNuevoUsuario] = useState('');
   const [estrellasSeleccionadas, setEstrellasSeleccionadas] = useState(5);
 
-  useEffect(() => {
-    cargarComentarios();
-  }, []);
-
-  const cargarComentarios = async () => {
+  const cargarComentarios = useCallback(async () => {
     setCargandoComentarios(true);
     setErrorComentarios('');
 
@@ -31,7 +27,11 @@ export default function Comentarios() {
     }
 
     setCargandoComentarios(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    cargarComentarios();
+  }, [cargarComentarios]);
 
   const manejarEnvio = async (e) => {
     e.preventDefault();
@@ -135,8 +135,8 @@ export default function Comentarios() {
         <details className="review-form-wrap">
           <summary>Dejanos tu reseña</summary>
           <form onSubmit={manejarEnvio} className="review-form">
-            <input value={nuevoUsuario} onChange={(e) => setNuevoUsuario(e.target.value)} placeholder="Tu nombre" />
-            <textarea value={nuevoTexto} onChange={(e) => setNuevoTexto(e.target.value)} rows="3" placeholder="Contanos tu experiencia..." />
+            <input required minLength={2} value={nuevoUsuario} onChange={(e) => setNuevoUsuario(e.target.value)} placeholder="Tu nombre" />
+            <textarea required minLength={10} value={nuevoTexto} onChange={(e) => setNuevoTexto(e.target.value)} rows="3" placeholder="Contanos tu experiencia..." />
             <div className="review-form__bottom">
               <div className="review-cakes-picker">
                 {[1, 2, 3, 4, 5].map((n) => (

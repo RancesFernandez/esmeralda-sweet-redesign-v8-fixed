@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { whatsappUrl } from '../data/config';
+import { whatsappUrl, MSG_PEDIDO_GENERAL } from '../data/config';
 import CotizacionRapida from './CotizacionRapida';
 import { imagenes } from '../data/imagenes';
 
@@ -101,13 +101,7 @@ export default function Navbar() {
             </button>
             <a
               className="nav-cta"
-              href={whatsappUrl(`Hola Esmeralda Sweet 😊
-
-Quisiera hacer una consulta para realizar un pedido.
-
-Me gustaría conocer las opciones disponibles y recibir asesoramiento para elegir la propuesta que mejor se adapte a lo que necesito.
-
-¡Gracias! 💚`)}
+              href={whatsappUrl(MSG_PEDIDO_GENERAL)}
               target="_blank"
               rel="noreferrer"
             >
