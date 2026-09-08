@@ -12,11 +12,7 @@ const initialForm = {
 export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
   const [form, setForm] = useState(initialForm);
 
-  const getMinQuoteDate = () => {
-    const date = new Date();
-    date.setHours(0, 0, 0, 0);
-    date.setDate(date.getDate() + 2);
-
+  const getLocalDateString = (date) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
@@ -24,10 +20,36 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
     return `${year}-${month}-${day}`;
   };
 
+  const getMinQuoteDate = () => {
+    const date = new Date();
+
+    // Hoy + 2 días = primera fecha permitida.
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + 2);
+
+    return getLocalDateString(date);
+  };
+
   const minQuoteDate = getMinQuoteDate();
 
   const update = (event) => {
-    setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+    const { name, value } = event.target;
+
+    if (name === 'fecha') {
+      // No permitir hoy, mañana ni ninguna fecha anterior.
+      if (value && value < minQuoteDate) {
+        setForm((current) => ({
+          ...current,
+          fecha: '',
+        }));
+        return;
+      }
+    }
+
+    setForm((current) => ({
+      ...current,
+      [name]: value,
+    }));
   };
 
   useEffect(() => {
@@ -178,20 +200,45 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
               min={minQuoteDate}
               value={form.fecha}
               onChange={update}
+              onBlur={(event) => {
+                if (event.target.value && event.target.value < minQuoteDate) {
+                  setForm((current) => ({
+                    ...current,
+                    fecha: '',
+                  }));
+                }
+              }}
+              onInvalid={(event) => {
+                event.target.setCustomValidity(
+                  `Seleccioná una fecha a partir del ${minQuoteDate.split('-').reverse().join('/')}.`
+                );
+              }}
+              onInput={(event) => {
+                event.target.setCustomValidity('');
+              }}
               required
             />
+            <small className="quote-form__hint">
+              Disponible a partir de pasado mañana.
+            </small>
+
           </label>
 
-          <label>
-            ¿Qué tenés en mente?
+          <label className="quote-form__field quote-form__field--full">
+            <span>¿Qué tenés en mente?</span>
+
             <textarea
               className="quote-form__idea"
               name="mensaje"
               value={form.mensaje}
               onChange={update}
-              rows="3"
+              rows="4"
               placeholder="Ej.: mesa dulce, 20 personas, tonos verdes, temática..."
             />
+
+            <small className="quote-form__hint">
+              Contanos brevemente qué estás buscando para poder orientarte mejor.
+            </small>
           </label>
 
           <button className="btn-primary" type="submit">

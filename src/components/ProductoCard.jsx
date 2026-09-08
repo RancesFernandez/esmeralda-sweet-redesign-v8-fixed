@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { whatsappUrl } from '../data/config';
 
 export default function ProductoCard({ producto, categoria }) {
   const [open, setOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-  const [imageTransition, setImageTransition] = useState(false);
+
+
 
   const esTorta = producto.subsubcategoria === 'tortas-y-postres';
   const listaImagenes =
@@ -14,18 +15,17 @@ export default function ProductoCard({ producto, categoria }) {
 
   const imagenActual = listaImagenes[currentImage];
 
+  useEffect(() => {
+    listaImagenes.forEach((src) => {
+      const image = new Image();
+      image.src = src;
+    });
+  }, [listaImagenes]);
+
   const cambiarImagen = (nuevoIndice) => {
     if (nuevoIndice === currentImage) return;
 
-    setImageTransition(false);
-
-    requestAnimationFrame(() => {
-      setCurrentImage(nuevoIndice);
-
-      requestAnimationFrame(() => {
-        setImageTransition(true);
-      });
-    });
+    setCurrentImage(nuevoIndice);
   };
 
   const siguienteImagen = (event) => {
@@ -34,6 +34,34 @@ export default function ProductoCard({ producto, categoria }) {
     cambiarImagen(
       (currentImage + 1) % listaImagenes.length
     );
+  };
+
+  const touchStartX = useRef(null);
+
+  const handleTouchStart = (event) => {
+    touchStartX.current = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (event) => {
+    if (touchStartX.current === null) return;
+
+    const touchEndX = event.changedTouches[0].clientX;
+    const distance = touchStartX.current - touchEndX;
+
+    if (Math.abs(distance) > 45 && listaImagenes.length > 1) {
+      if (distance > 0) {
+        cambiarImagen(
+          (currentImage + 1) % listaImagenes.length
+        );
+      } else {
+        cambiarImagen(
+          (currentImage - 1 + listaImagenes.length) %
+          listaImagenes.length
+        );
+      }
+    }
+
+    touchStartX.current = null;
   };
 
   const anteriorImagen = (event) => {
@@ -65,9 +93,6 @@ export default function ProductoCard({ producto, categoria }) {
 
     if (!open) {
       setCurrentImage(0);
-      setImageTransition(false);
-    } else {
-      setImageTransition(true);
     }
 
     return () => {
@@ -132,14 +157,23 @@ export default function ProductoCard({ producto, categoria }) {
             </>
           )}
 
-          <img
-            key={imagenActual}
-            src={imagenActual}
-            alt={producto.nombre}
-            loading="lazy"
-            decoding="async"
-            className={imageTransition ? 'is-image-transitioning' : ''}
-          />
+          <div
+            className="product-card__image-stage"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            {listaImagenes.map((src, index) => (
+              <img
+                key={src}
+                src={src}
+                alt={index === currentImage ? producto.nombre : ''}
+                aria-hidden={index !== currentImage}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                className={index === currentImage ? 'is-active' : ''}
+              />
+            ))}
+          </div>
 
           <span className="product-card__badge">
             {esTorta ? 'Tortas y postres' : categoryLabel}
@@ -243,10 +277,9 @@ export default function ProductoCard({ producto, categoria }) {
 
             <div className="modal-product__image">
               <img
-                key={imagenActual}
                 src={imagenActual}
                 alt={producto.nombre}
-                className={imageTransition ? 'is-image-transitioning' : ''}
+                decoding="async"
               />
 
               {listaImagenes.length > 1 && (
