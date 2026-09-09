@@ -279,6 +279,8 @@ export const productos = [
           ],
         },
       ],
+
+      nota: 'Escribinos para ayudarte a encontrar tu torta ideal ✨',
     },
   },
 

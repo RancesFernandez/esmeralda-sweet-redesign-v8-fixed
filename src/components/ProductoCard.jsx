@@ -37,6 +37,7 @@ export default function ProductoCard({ producto, categoria }) {
   };
 
   const touchStartX = useRef(null);
+  const modalTouchStartX = useRef(null);
 
   const handleTouchStart = (event) => {
     touchStartX.current = event.touches[0].clientX;
@@ -62,6 +63,32 @@ export default function ProductoCard({ producto, categoria }) {
     }
 
     touchStartX.current = null;
+  };
+
+  const handleModalTouchStart = (event) => {
+    modalTouchStartX.current = event.touches[0].clientX;
+  };
+
+  const handleModalTouchEnd = (event) => {
+    if (modalTouchStartX.current === null) return;
+
+    const touchEndX = event.changedTouches[0].clientX;
+    const distance = modalTouchStartX.current - touchEndX;
+
+    if (Math.abs(distance) > 45 && listaImagenes.length > 1) {
+      if (distance > 0) {
+        cambiarImagen(
+          (currentImage + 1) % listaImagenes.length
+        );
+      } else {
+        cambiarImagen(
+          (currentImage - 1 + listaImagenes.length) %
+          listaImagenes.length
+        );
+      }
+    }
+
+    modalTouchStartX.current = null;
   };
 
   const anteriorImagen = (event) => {
@@ -275,7 +302,11 @@ export default function ProductoCard({ producto, categoria }) {
             </button>
 
 
-            <div className="modal-product__image">
+            <div
+              className="modal-product__image"
+              onTouchStart={handleModalTouchStart}
+              onTouchEnd={handleModalTouchEnd}
+            >
               <img
                 src={imagenActual}
                 alt={producto.nombre}
@@ -338,9 +369,11 @@ export default function ProductoCard({ producto, categoria }) {
               </h2>
 
 
-              <p className="modal-product__description">
-                {producto.descripcion}
-              </p>
+              {producto.descripcion !== 'Información completa al ingresar.' && (
+                <p className="modal-product__description">
+                  {producto.descripcion}
+                </p>
+              )}
 
               {producto.detalle && (
                 <div className="modal-product__details">
