@@ -438,7 +438,6 @@ export const productos = [
         {
           titulo: "Contiene:",
           items: [
-            "Contiene:",
             "Maní",
             "Aceitunas",
             "Pan de molde o pan de nuez",
@@ -487,7 +486,6 @@ export const productos = [
         {
           titulo: "Contiene:",
           items: [
-            "Contiene:",
             "Jugo de naranja o colet",
             "Scones de queso",
             "Scones de queso con bondiola",
@@ -513,6 +511,22 @@ export const productos = [
       imagenes.productos.desayunoMiniCake,
       imagenes.productos.desayunoMiniCake2,
     ],
+    detalle: {
+      secciones: [
+        {
+          titulo: "Contiene:",
+          items: [
+            "Jugo de naranja o colet",
+            "Scones de queso",
+            "Scones de queso con bondiola y queso crema",
+            "Porciones de pan de nuez con jamón y queso",
+            "Mini cake a elección",
+          ],
+        },
+      ],
+
+      precios: ["Individual: $1200", "Para compartir: $1650"],
+    },
   },
 
   {
@@ -521,12 +535,28 @@ export const productos = [
     subcategoria: "desayunos-para-compartir",
     nombre: "Desayuno saladito",
     descripcion:
-      "Una propuesta variada con opciones saladas y dulces para compartir.",
+      "Una propuesta variada con opciones saladas para compartir.",
     imagen: imagenes.productos.desayunoSaladito,
     imagenes: [
       imagenes.productos.desayunoSaladito,
       imagenes.productos.desayunoSaladito2,
     ],
+    detalle: {
+      secciones: [
+        {
+          titulo: "Contiene:",
+          items: [
+            "Jugo de naranja o colet",
+            "Scones de queso",
+            "Scones de queso con bondiola",
+            "Porciones de pan de nuez con jamón y queso",
+            "Bagels con jamón y queso",
+          ],
+        },
+      ],
+
+      precios: ["Individual: $780", "Para compartir: $1300"],
+    },
   },
 
   {
@@ -537,6 +567,21 @@ export const productos = [
     descripcion:
       "Una alternativa especial para disfrutar de un desayuno artesanal sin azúcar.",
     imagen: imagenes.productos.desayunoSinAzucar,
+    detalle: {
+      secciones: [
+        {
+          titulo: "Contiene:",
+          items: [
+            "Jugo de naranja edulcorado con Stevia",
+            "Scones de queso",
+            "Bagels rellenos de jamón y queso",
+            "Alfajores sin azúcar de maicena y chocolate",
+          ],
+        },
+      ],
+
+      precios: ["Individual: $1050", "Para compartir: $1600"],
+    },
   },
 
   {
@@ -546,5 +591,22 @@ export const productos = [
     nombre: "Desayuno con ojitos",
     descripcion: "Una presentación divertida y especial para regalar.",
     imagen: imagenes.productos.desayunoOjitos,
+    detalle: {
+      secciones: [
+        {
+          titulo: "Contiene:",
+          items: [
+            "Jugo de naranja o colet",
+            "Scones de queso",
+            "Scones de queso con bondiola",
+            "Porciones de pan de nuez con jamón y queso",
+            "Ojitos de chocolate y vainilla",
+            "Alfajores de dulce de leche y chocolate",
+          ],
+        },
+      ],
+
+      precios: ["Individual: $850", "Para compartir: $1400"],
+    },
   },
 ];
