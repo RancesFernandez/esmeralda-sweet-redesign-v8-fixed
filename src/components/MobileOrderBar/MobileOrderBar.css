@@ -1,0 +1,23 @@
+.mobile-order-bar {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  .mobile-order-bar {
+        left: 10px;
+        right: 10px;
+        bottom: max(10px, env(safe-area-inset-bottom));
+      }
+
+  .mobile-order-bar a {
+        flex: 1;
+        text-align: center;
+        background: var(--verde-esmeralda);
+        color: #fff;
+        border-radius: 999px;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 800;
+      }
+}

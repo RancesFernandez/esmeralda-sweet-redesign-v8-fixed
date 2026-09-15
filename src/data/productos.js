@@ -23,7 +23,7 @@ export const productos = [
       'Bizcochuelo de vainilla, relleno de dulce de leche y decorada con merengue italiano flameado.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
-    imagen: imagenes.productos.chaja,
+    imagen: imagenes.productos.tortaMerengue,
   },
 
   {
@@ -38,7 +38,7 @@ export const productos = [
       'Bizcochuelo de chocolate, relleno y decorado con crema bariloche de dulce de leche y chocolate.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
-    imagen: imagenes.productos.choco,
+    imagen: imagenes.productos.tortaMatilda,
   },
 
   {
@@ -69,6 +69,20 @@ export const productos = [
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
     imagen: imagenes.productos.cheesecake,
+  },
+
+  {
+    id: 116,
+    categoria: 'dulce',
+    subcategoria: 'sin-azucar',
+    nombre: 'Cheesecake sin azúcar',
+    precio16: 1350,
+    precio22: 1950,
+    descripcion:
+      'Cheesecake artesanal sin azúcar, con base de galletas y una terminación suave y fresca.',
+    porciones16: '8–10 porciones',
+    porciones22: '20–22 porciones',
+    imagen: imagenes.productos.cheesecakeSinAzucar,
   },
 
   {
@@ -128,7 +142,7 @@ export const productos = [
       'Pastel de zanahorias, canela y nueces con relleno y cobertura de frosting de queso.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
-    imagen: imagenes.productos.torta,
+    imagen: imagenes.productos.carrotCake,
   },
 
   {
@@ -203,7 +217,7 @@ export const productos = [
       'Postre a base de galletas Oreo, crema, dulce de leche y chocolate semi amargo.',
     porciones16: '8–10 porciones',
     porciones22: '20–22 porciones',
-    imagen: imagenes.productos.chocotorta,
+    imagen: imagenes.productos.tortaOreo,
   },
 
   // {
@@ -245,6 +259,12 @@ export const productos = [
     descripcion: 'Personalizamos tu torta a tu elección.',
     imagen: imagenes.productos.tortaPersonalizada,
     imagenes: [
+      imagenes.productos.tortaPersonalizada2,
+      imagenes.productos.tortaPersonalizada3,
+      imagenes.productos.tortaPersonalizada4,
+      imagenes.productos.tortaPersonalizada5,
+      imagenes.productos.tortaPersonalizada6,
+      imagenes.productos.tortaPersonalizada7,
       imagenes.productos.tortaPersonalizada,
       imagenes.productos.Personalizada2,
       imagenes.productos.personalizada3,
@@ -288,6 +308,47 @@ export const productos = [
   // ==========================================================
   // OTROS PRODUCTOS QUE YA TENÍAS
   // ==========================================================
+
+  {
+    id: 203,
+    categoria: 'dulce',
+    subcategoria: 'alfajores',
+    nombre: 'Alfajores artesanales',
+    descripcion: 'Selección de alfajores artesanales en distintos sabores y coberturas.',
+    imagen: imagenes.productos.alfajoresPrincipal,
+    imagenes: [
+      imagenes.productos.alfajoresPrincipal,
+      imagenes.productos.alfajores2,
+      imagenes.productos.alfajores3,
+      imagenes.productos.alfajores4,
+    ],
+  },
+
+  {
+    id: 204,
+    categoria: 'dulce',
+    subcategoria: 'muffins',
+    nombre: 'Muffins',
+    descripcion: 'Muffins artesanales con una presentación delicada y opciones para diferentes ocasiones.',
+    imagen: imagenes.productos.muffins,
+    imagenes: [
+      imagenes.productos.muffins,
+      imagenes.productos.muffins1,
+    ],
+  },
+
+  {
+    id: 205,
+    categoria: 'dulce',
+    subcategoria: 'rolls-de-canela',
+    nombre: 'Rolls de canela',
+    descripcion: 'Rolls de canela artesanales, suaves y recién preparados.',
+    imagen: imagenes.productos.rollsDeCanela,
+    imagenes: [
+      imagenes.productos.rollsDeCanela,
+      imagenes.productos.rollsDeCanela2,
+    ],
+  },
 
   {
     id: 201,
@@ -371,8 +432,10 @@ export const productos = [
     subcategoria: 'picadas',
     nombre: 'Picadas',
     descripcion: 'Información completa al ingresar.',
-    imagen: imagenes.productos.sandwiches1,
+    imagen: imagenes.productos.picadaPrincipal,
     imagenes: [
+      imagenes.productos.picadaPrincipal,
+      imagenes.productos.picada2,
       imagenes.productos.sandwiches1,
       imagenes.productos.sandwiches2,
       imagenes.productos.sandwiches3,
@@ -401,13 +464,12 @@ export const productos = [
     id: 401,
     categoria: 'desayunos',
     subcategoria: 'desayunos-individuales',
-    nombre: 'Desayuno individual',
-    descripcion: 'Una propuesta completa para disfrutar algo rico y especial.',
-    imagen: imagenes.productos.desayunoIndividual,
+    nombre: 'Desayuno clásico',
+    descripcion: 'Una propuesta completa y artesanal para regalar o disfrutar.',
+    imagen: imagenes.productos.desayunoClasico,
     imagenes: [
-      imagenes.productos.desayunoIndividual,
-      imagenes.productos.desayunoIndividual1,
-      imagenes.productos.desayunoIndividual2,
+      imagenes.productos.desayunoClasico,
+      imagenes.productos.desayunoClasico2,
     ],
   },
 
@@ -415,12 +477,12 @@ export const productos = [
     id: 402,
     categoria: 'desayunos',
     subcategoria: 'desayunos-individuales',
-    nombre: 'Desayuno individual especial',
-    descripcion: 'Una selección artesanal preparada para regalar o disfrutar.',
-    imagen: imagenes.productos.desayunoIndividual2,
+    nombre: 'Desayuno mini cake',
+    descripcion: 'Una selección especial acompañada de una mini torta para celebrar.',
+    imagen: imagenes.productos.desayunoMiniCake,
     imagenes: [
-      imagenes.productos.desayunoIndividual2,
-      imagenes.productos.desayunoIndividual3,
+      imagenes.productos.desayunoMiniCake,
+      imagenes.productos.desayunoMiniCake2,
     ],
   },
 
@@ -428,27 +490,31 @@ export const productos = [
     id: 403,
     categoria: 'desayunos',
     subcategoria: 'desayunos-para-compartir',
-    nombre: 'Desayuno para compartir',
-    descripcion: 'Una propuesta abundante para disfrutar en compañía.',
-    imagen: imagenes.productos.desayunoCompartido,
+    nombre: 'Desayuno saladito',
+    descripcion: 'Una propuesta variada con opciones saladas y dulces para compartir.',
+    imagen: imagenes.productos.desayunoSaladito,
     imagenes: [
-      imagenes.productos.desayunoCompartido,
-      imagenes.productos.desayunoCompartido1,
-      imagenes.productos.desayunoCompartido2,
+      imagenes.productos.desayunoSaladito,
+      imagenes.productos.desayunoSaladito2,
     ],
   },
 
   {
     id: 404,
     categoria: 'desayunos',
-    subcategoria: 'desayunos-para-compartir',
-    nombre: 'Desayuno para compartir especial',
-    descripcion: 'Una selección pensada para compartir momentos especiales.',
-    imagen: imagenes.productos.desayunoCompartido1,
-    imagenes: [
-      imagenes.productos.desayunoCompartido1,
-      imagenes.productos.desayunoCompartido2,
-    ],
+    subcategoria: 'desayunos-individuales',
+    nombre: 'Desayuno sin azúcar',
+    descripcion: 'Una alternativa especial para disfrutar de un desayuno artesanal sin azúcar.',
+    imagen: imagenes.productos.desayunoSinAzucar,
+  },
+
+  {
+    id: 405,
+    categoria: 'desayunos',
+    subcategoria: 'desayunos-individuales',
+    nombre: 'Desayuno con ojitos',
+    descripcion: 'Una presentación divertida y especial para regalar.',
+    imagen: imagenes.productos.desayunoOjitos,
   },
 
 ];

@@ -1,0 +1,34 @@
+.animated-banner {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.6rem 0;
+  background: var(--verde-claro);
+  color: var(--verde-esmeralda);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.animated-banner__track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: moverTexto 15s linear infinite;
+}
+
+.animated-banner__message {
+  margin-right: 4rem;
+}
+
+@keyframes moverTexto {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

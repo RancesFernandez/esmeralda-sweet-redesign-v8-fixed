@@ -51,6 +51,36 @@ import torta from '../assets/images/productos/torta.jpg';
 import tortaPersonalizada from '../assets/images/productos/tortaPersonalizada.jpg';
 
 
+import alfajores2 from '../assets/images/productos/alfajores 2.jpg';
+import alfajores3 from '../assets/images/productos/alfajores 3.jpg';
+import alfajores4 from '../assets/images/productos/alfajores 4.jpg';
+import alfajoresPrincipal from '../assets/images/productos/alfajores_.jpg';
+import carrotCake from '../assets/images/productos/carrot cake.jpg';
+import cheesecakeSinAzucar from '../assets/images/productos/cheeseacke sin azucar.jpg';
+import desayunoClasico2 from '../assets/images/productos/desayuni clasico 2.jpg';
+import desayunoClasico from '../assets/images/productos/desayuno clasico.jpg';
+import desayunoMiniCake2 from '../assets/images/productos/desayuno mini cake 2.jpg';
+import desayunoMiniCake from '../assets/images/productos/desayuno mini cake.jpg';
+import desayunoOjitos from '../assets/images/productos/desayuno ojitos.jpg';
+import desayunoSaladito2 from '../assets/images/productos/desayuno saladito 2.jpg';
+import desayunoSaladito from '../assets/images/productos/desayuno saladito.jpg';
+import desayunoSinAzucar from '../assets/images/productos/desayuno sin azucar.jpg';
+import muffins1 from '../assets/images/productos/muffins(1).jpg';
+import muffins from '../assets/images/productos/muffins.jpg';
+import picada2 from '../assets/images/productos/picada 2.jpg';
+import picadaPrincipal from '../assets/images/productos/picada_.jpg';
+import rollsDeCanela2 from '../assets/images/productos/rolls de canela 2.jpg';
+import rollsDeCanela from '../assets/images/productos/rolls de canela.jpg';
+import tortaMatilda from '../assets/images/productos/torta matilda.jpg';
+import tortaMerengue from '../assets/images/productos/torta merengue_.jpg';
+import tortaOreo from '../assets/images/productos/torta oreo.jpg';
+import tortaPersonalizada2 from '../assets/images/productos/torta personalizada 2.jpg';
+import tortaPersonalizada3 from '../assets/images/productos/torta personalizada 3.jpg';
+import tortaPersonalizada4 from '../assets/images/productos/torta personalizada 4.jpg';
+import tortaPersonalizada5 from '../assets/images/productos/torta personalizada 5.jpg';
+import tortaPersonalizada6 from '../assets/images/productos/torta personalizada 6.jpg';
+import tortaPersonalizada7 from '../assets/images/productos/torta personalizada_.jpg';
+
 import desayunoCompartidoGalery from '../assets/images/galeria/desayunoCompartidoGalery.jpg';
 import personalizada14Galery from '../assets/images/galeria/personalizada14Galery.jpg';
 import sandwichesGalery from '../assets/images/galeria/sandwichesGalery.jpg';
@@ -60,6 +90,8 @@ import evento05 from '../assets/images/galeria/evento-05.svg';
 import historia from '../assets/images/nosotros/historia.svg';
 import historiaRolito from '../assets/images/nosotros/rolito.jpeg';
 import historiaDiploma from '../assets/images/nosotros/diploma.jpeg';
+import nosotros from '../assets/images/nosotros/nosotros.png';
+
 
 
 
@@ -109,11 +141,41 @@ export const imagenes = {
     sliceTorta,
     torta,
     tortaPersonalizada,
+    alfajores2,
+    alfajores3,
+    alfajores4,
+    alfajoresPrincipal,
+    carrotCake,
+    cheesecakeSinAzucar,
+    desayunoClasico2,
+    desayunoClasico,
+    desayunoMiniCake2,
+    desayunoMiniCake,
+    desayunoOjitos,
+    desayunoSaladito2,
+    desayunoSaladito,
+    desayunoSinAzucar,
+    muffins1,
+    muffins,
+    picada2,
+    picadaPrincipal,
+    rollsDeCanela2,
+    rollsDeCanela,
+    tortaMatilda,
+    tortaMerengue,
+    tortaOreo,
+    tortaPersonalizada2,
+    tortaPersonalizada3,
+    tortaPersonalizada4,
+    tortaPersonalizada5,
+    tortaPersonalizada6,
+    tortaPersonalizada7,
   },
   galeria: [desayunoCompartidoGalery, personalizada14Galery, sandwichesGalery, evento04, evento05],
   nosotros: {
     historia,
     historiaRolito,
     historiaDiploma,
+    nosotros,
   },
 };

@@ -14,9 +14,9 @@ export const menuCategorias = {
         imagenKey: 'peñarol',
       },
       { id: 'masitas', nombre: 'Masitas', imagenKey: 'chaja' },
-      { id: 'alfajores', nombre: 'Alfajores', imagenKey: 'cheesecake' },
-      { id: 'muffins', nombre: 'Muffins', imagenKey: 'choco' },
-      { id: 'rolls-de-canela', nombre: 'Rolls de canela', imagenKey: 'peñarol' },
+      { id: 'alfajores', nombre: 'Alfajores', imagenKey: 'alfajoresPrincipal' },
+      { id: 'muffins', nombre: 'Muffins', imagenKey: 'muffins' },
+      { id: 'rolls-de-canela', nombre: 'Rolls de canela', imagenKey: 'rollsDeCanela' },
     ],
   },
   salado: {
