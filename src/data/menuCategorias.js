@@ -11,7 +11,7 @@ export const menuCategorias = {
       {
         id: 'tortas',
         nombre: 'Postres y tortas',
-        imagenKey: 'peñarol',
+        imagenKey: 'carrotCake',
       },
       { id: 'masitas', nombre: 'Masitas', imagenKey: 'chaja' },
       { id: 'alfajores', nombre: 'Alfajores', imagenKey: 'alfajoresPrincipal' },
