@@ -23,7 +23,7 @@ import desayunoIndividual2 from '../assets/images/productos/desayunoIndividual2.
 import desayunoIndividual3 from '../assets/images/productos/desayunoIndividual3.jpg';
 import lemonPie from '../assets/images/productos/lemonPie.jpg';
 import lemonPie1 from '../assets/images/productos/lemonPie1.png';
-import peñarol from '../assets/images/productos/peñarol.jpg';
+import penarol from '../assets/images/productos/penarol.jpg';
 import Personalizada2 from '../assets/images/productos/Personalizada2.jpg';
 import personalizada3 from '../assets/images/productos/personalizada3.jpg';
 import personalizada4 from '../assets/images/productos/personalizada4.jpg';
@@ -115,7 +115,7 @@ export const imagenes = {
     desayunoIndividual3,
     lemonPie,
     lemonPie1,
-    peñarol,
+    penarol,
     Personalizada2,
     personalizada3,
     personalizada4,

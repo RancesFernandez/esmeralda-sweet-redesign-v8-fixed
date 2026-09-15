@@ -195,6 +195,7 @@
   .hero-home__glow {
     background: radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.1), transparent 40%);
   }
+}
 
 @media (max-width: 380px) {
   .hero-home,

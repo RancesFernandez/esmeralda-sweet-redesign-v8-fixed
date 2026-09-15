@@ -15,6 +15,11 @@ export default function Comentarios() {
     setCargandoComentarios(true);
     setErrorComentarios('');
 
+    if (!supabase) {
+      setCargandoComentarios(false);
+      return;
+    }
+
     const { data, error } = await supabase
       .from('comentarios')
       .select('id, usuario, texto, estrellas, creado_en')
@@ -43,6 +48,11 @@ export default function Comentarios() {
     if (!usuario || !texto) return;
 
     setErrorComentarios('');
+
+    if (!supabase) {
+      setErrorComentarios('Las reseñas estarán disponibles próximamente.');
+      return;
+    }
 
     const { data, error } = await supabase
       .from('comentarios')
@@ -133,6 +143,7 @@ export default function Comentarios() {
           ))}
         </div>
 
+        {supabase && (
         <details className="review-form-wrap">
           <summary>Dejanos tu reseña</summary>
           <form onSubmit={manejarEnvio} className="review-form">
@@ -156,6 +167,7 @@ export default function Comentarios() {
             </div>
           </form>
         </details>
+        )}
       </div>
     </section>
   );
