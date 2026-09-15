@@ -6,6 +6,16 @@ import MenuSalado from './pages/MenuSalado/MenuSalado';
 import MenuDesayunos from './pages/MenuDesayunos/MenuDesayunos';
 import Navbar from './components/Navbar/Navbar';
 import MobileOrderBar from './components/MobileOrderBar/MobileOrderBar';
+import { Analytics } from '@vercel/analytics/react';
+ 
+export default function App() {
+  return (
+    <div>
+      {/* ... */}
+      <Analytics />
+    </div>
+  );
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
