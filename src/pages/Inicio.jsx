@@ -8,10 +8,21 @@ import CotizacionRapida from '../components/CotizacionRapida/CotizacionRapida';
 import FaqSection from '../components/home/FaqSection/FaqSection';
 import EventCta from '../components/home/EventCta/EventCta';
 import SiteFooter from '../components/home/SiteFooter/SiteFooter';
+import SEO, { buildBusinessSchema, buildWebPageSchema } from '../components/SEO/SEO';
 
 export default function Inicio() {
+  const title = 'Esmeralda Sweet | Pastelería artesanal en Montevideo';
+  const description = 'Esmeralda Sweet: pastelería artesanal en Montevideo. Tortas, postres, alfajores, desayunos y propuestas dulces y saladas para regalar, compartir y celebrar.';
+
   return (
-    <main>
+    <>
+      <SEO
+        title={title}
+        description={description}
+        path="/"
+        jsonLd={[buildBusinessSchema(), buildWebPageSchema({ title, description, path: '/' })]}
+      />
+      <main>
       <HeroHome />
       <InfoStrip />
       <ProductsSection />
@@ -22,6 +33,7 @@ export default function Inicio() {
       <FaqSection />
       <EventCta />
       <SiteFooter />
-    </main>
+      </main>
+    </>
   );
 }

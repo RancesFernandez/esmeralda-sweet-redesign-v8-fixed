@@ -69,7 +69,7 @@ export default function ProductImageGallery({
           <img
             key={src}
             src={src}
-            alt={index === currentImage ? producto.nombre : ''}
+            alt={index === currentImage ? `${producto.nombre} - Esmeralda Sweet` : ''}
             aria-hidden={index !== currentImage}
             loading={index === 0 ? 'eager' : 'lazy'}
             decoding="async"
