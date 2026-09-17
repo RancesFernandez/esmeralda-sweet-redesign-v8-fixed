@@ -316,6 +316,32 @@ export const productos = [
       imagenes.productos.alfajores3,
       imagenes.productos.alfajores4,
     ],
+    detalle: {
+      secciones: [
+        {
+          titulo: "Rellenos:",
+          items: [
+            "Dulce de leche",
+            "Nutella",
+            "Kinder",
+            "Frutos rojos",
+            "Crema bariloche",
+            "Maicena",
+            "Coco",
+            "Chocolate",
+            "Chocolate con maní",
+            "Maracuyá",
+          ],
+        },
+      ],
+
+      precios: [
+        "Box de 6 unidades: $390",
+        "Box de 12 unidades: $745",
+        "Box de 18 unidades: $1080",
+        "Box de 24 unidades: $1390",
+      ],
+    },
   },
 
   {
@@ -327,6 +353,22 @@ export const productos = [
       "Muffins artesanales con una presentación delicada y opciones para diferentes ocasiones.",
     imagen: imagenes.productos.muffins,
     imagenes: [imagenes.productos.muffins, imagenes.productos.muffins1],
+    detalle: {
+      secciones: [
+        {
+          titulo: "Opciones:",
+          items: [
+            "Vainilla y merengue",
+            "Chocolate con crema bariloche",
+            "Red velvet y frosting de queso",
+            "Limón, arándanos y merengue",
+          ],
+        },
+      ],
+
+      precios: ["6 unidades: $660", "12 unidades: $1260"],
+      nota: "¿Necesitás muffins personalizados o de alguna temática? Consultanos por whatsapp y los creamos",
+    },
   },
 
   {
@@ -340,28 +382,27 @@ export const productos = [
       imagenes.productos.rollsDeCanela,
       imagenes.productos.rollsDeCanela2,
     ],
-  },
+    detalle: {
+      secciones: [
+        {
+          titulo: "Sabores:",
+          items: [
+            "Clásico",
+            "Frutos rojos",
+            "Nutella",
+            "Manzana",
+            "Oreo",
+            "Chocolate",
+          ],
+        },
+      ],
 
-  {
-    id: 201,
-    categoria: "dulce",
-    subcategoria: "alfajores",
-    nombre: "Macarons Surtidos",
-    precio: 1200,
-    descripcion:
-      "Caja de 6 unidades de macarons franceses con rellenos sutiles de frambuesa, chocolate amargo y pistacho.",
-    imagen: imagenes.productos.choco,
-  },
-
-  {
-    id: 202,
-    categoria: "dulce",
-    subcategoria: "muffins",
-    nombre: "Cupcakes de Red Velvet",
-    precio: 1800,
-    descripcion:
-      "Suaves cupcakes de red velvet coronados con frosting de queso crema y detalles decorativos.",
-    imagen: imagenes.productos.chocotorta,
+      precios: [
+        "Box 4 unidades: $480",
+        "Box 6 unidades: $700",
+        "Box 12 unidades: $1350",
+      ],
+    },
   },
 
   {
@@ -425,14 +466,7 @@ export const productos = [
     nombre: "Picadas",
     descripcion: "Información completa al ingresar.",
     imagen: imagenes.productos.picadaPrincipal,
-    imagenes: [
-      imagenes.productos.picadaPrincipal,
-      imagenes.productos.picada2,
-      imagenes.productos.sandwiches1,
-      imagenes.productos.sandwiches2,
-      imagenes.productos.sandwiches3,
-      imagenes.productos.sandwiches6,
-    ],
+    imagenes: [imagenes.productos.picadaPrincipal, imagenes.productos.picada2],
     detalle: {
       secciones: [
         {
@@ -468,6 +502,17 @@ export const productos = [
     descripcion:
       "Surtido de masitas artesanales. Variedades y presentación a consultar.",
     imagen: imagenes.productos.sandwiches1,
+    detalle: {
+      secciones: [
+        {
+          titulo: "",
+          items: [],
+        },
+      ],
+
+      precios: [],
+      nota: "Próximamente nuevas propuestas",
+    },
   },
 
   {
@@ -534,8 +579,7 @@ export const productos = [
     categoria: "desayunos",
     subcategoria: "desayunos-para-compartir",
     nombre: "Desayuno saladito",
-    descripcion:
-      "Una propuesta variada con opciones saladas para compartir.",
+    descripcion: "Una propuesta variada con opciones saladas para compartir.",
     imagen: imagenes.productos.desayunoSaladito,
     imagenes: [
       imagenes.productos.desayunoSaladito,

@@ -12,7 +12,7 @@ const HERO_IMAGES = [
   { src: imagenes.productos.alfajoresPrincipal, alt: 'Alfajores artesanales' },
 ];
 
-const SLIDE_DURATION = 15000;
+const SLIDE_DURATION = 5000;
 
 export default function HeroHome() {
   const [activeSlide, setActiveSlide] = useState(0);
