@@ -44,7 +44,7 @@ export default function HeroHome() {
 
       <div className="hero-home__content section-container">
         <p className="hero-home__eyebrow">ESMERALDA SWEET · PASTELERÍA ARTESANAL</p>
-        <h1>Pastelería artesanal para alegrar el <em>corazón.</em></h1>
+        <h1>Algo rico para alegrar el <em>corazón.</em></h1>
         <p>
           Creamos tortas, postres, alfajores, desayunos y propuestas dulces y saladas
           para compartir, regalar y celebrar. Hechas artesanalmente en Montevideo,
