@@ -7,6 +7,7 @@ import MenuDesayunos from './pages/MenuDesayunos/MenuDesayunos';
 import Navbar from './components/Navbar/Navbar';
 import MobileOrderBar from './components/MobileOrderBar/MobileOrderBar';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
