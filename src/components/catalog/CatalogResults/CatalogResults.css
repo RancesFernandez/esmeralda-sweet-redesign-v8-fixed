@@ -151,9 +151,11 @@
   }
 
   .catalog-bottom-links {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
+    flex-wrap: nowrap;
   }
 }
 
@@ -262,5 +264,12 @@
     min-height: 58px;
     font-size: 11px;
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 620px) {
+  .catalog-bottom-links {
+    margin-top: 45px;
+    margin-bottom: 25px;
   }
 }
