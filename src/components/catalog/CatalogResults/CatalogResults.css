@@ -273,3 +273,18 @@
     margin-bottom: 25px;
   }
 }
+
+/* Dark mode surfaces for menu navigation and empty states. */
+html[data-theme="dark"] .menu-switcher {
+  background: var(--blanco);
+}
+
+html[data-theme="dark"] .menu-switcher__label,
+html[data-theme="dark"] .catalog-results__heading > span {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .catalog-empty {
+  background: var(--crema);
+  border-color: var(--borde);
+}

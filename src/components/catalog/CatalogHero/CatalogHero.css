@@ -60,3 +60,13 @@
           line-height: 1.6;
         }
 }
+
+/* Dark mode surfaces for the category hero. */
+html[data-theme="dark"] .catalog-hero--dulce,
+html[data-theme="dark"] .catalog-hero--salado {
+  background: var(--crema);
+}
+
+html[data-theme="dark"] .catalog-hero__decor {
+  border-color: rgba(85, 184, 146, 0.18);
+}

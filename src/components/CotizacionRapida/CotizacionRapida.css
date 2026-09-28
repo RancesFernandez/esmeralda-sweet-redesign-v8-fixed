@@ -61,7 +61,7 @@
 
 .quote-form__date {
   cursor: pointer;
-  color-scheme: light;
+  color-scheme: light dark;
 }
 
 .quote-form__date::-webkit-calendar-picker-indicator {

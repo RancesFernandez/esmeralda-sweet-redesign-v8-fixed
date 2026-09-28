@@ -1,29 +1,40 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { whatsappUrl, MSG_PEDIDO_GENERAL } from '../../data/config';
-import CotizacionRapida from '../CotizacionRapida/CotizacionRapida';
-import { imagenes } from '../../data/imagenes';
-import './Navbar.css';
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { whatsappUrl, MSG_PEDIDO_GENERAL } from "../../data/config";
+import CotizacionRapida from "../CotizacionRapida/CotizacionRapida";
+import { imagenes } from "../../data/imagenes";
+import "./Navbar.css";
+import { applyTheme, getInitialTheme } from "../../theme.js";
 
 const menuItems = [
-  { label: 'Menú dulce', to: '/menu-dulce' },
-  { label: 'Menú salado', to: '/menu-salado' },
-  { label: 'Desayunos', to: '/desayunos' },
+  { label: "Menú dulce", to: "/menu-dulce" },
+  { label: "Menú salado", to: "/menu-salado" },
+  { label: "Desayunos", to: "/desayunos" },
 ];
 
 const navItems = [
-  ['¿Cómo funciona?', 'como-funciona'],
-  ['Preguntas frecuentes', 'preguntas'],
+  ["¿Cómo funciona?", "como-funciona"],
+  ["Preguntas frecuentes", "preguntas"],
 ];
 
 export default function Navbar() {
+  const [theme, setTheme] = useState(() => getInitialTheme());
+
+  const handleThemeToggle = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    applyTheme(next);
+    setTheme(next);
+  };
+
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
-  const isMenuSectionActive = menuItems.some(({ to }) => location.pathname === to);
+  const isMenuSectionActive = menuItems.some(
+    ({ to }) => location.pathname === to,
+  );
 
   const closeMenus = () => {
     setOpen(false);
@@ -32,20 +43,22 @@ export default function Navbar() {
 
   const goToSection = (id) => {
     closeMenus();
-    if (location.pathname !== '/') {
+    if (location.pathname !== "/") {
       navigate(`/#${id}`);
       return;
     }
     const target = document.getElementById(id);
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    window.history.replaceState(null, '', `/#${id}`);
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `/#${id}`);
   };
 
   useEffect(() => {
-    if (location.pathname === '/' && location.hash) {
+    if (location.pathname === "/" && location.hash) {
       const id = location.hash.slice(1);
       const timer = window.setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document
+          .getElementById(id)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 80);
       return () => window.clearTimeout(timer);
     }
@@ -62,44 +75,57 @@ export default function Navbar() {
       }
     };
     const handleEscape = (event) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         setMenuOpen(false);
         setOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleEscape);
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, []);
 
   useEffect(() => {
     const openQuote = () => setQuoteOpen(true);
-    window.addEventListener('open-esmeralda-quote', openQuote);
-    return () => window.removeEventListener('open-esmeralda-quote', openQuote);
+    window.addEventListener("open-esmeralda-quote", openQuote);
+    return () => window.removeEventListener("open-esmeralda-quote", openQuote);
   }, []);
 
   useEffect(() => {
-    document.body.classList.toggle('modal-open', quoteOpen);
-    return () => document.body.classList.remove('modal-open');
+    document.body.classList.toggle("modal-open", quoteOpen);
+    return () => document.body.classList.remove("modal-open");
   }, [quoteOpen]);
 
   return (
     <>
       <header className="site-header">
         <nav className="site-nav" aria-label="Navegación principal">
-          <Link to="/" className="brand" aria-label="Esmeralda Sweet - inicio" onClick={closeMenus}>
+          <Link
+            to="/"
+            className="brand"
+            aria-label="Esmeralda Sweet - inicio"
+            onClick={closeMenus}
+          >
             <img src={imagenes.logo} alt="Esmeralda Sweet" />
-            <span>Esmeralda <strong>sweet</strong></span>
+            <span>
+              Esmeralda <strong>sweet</strong>
+            </span>
           </Link>
 
-          <div id="site-navigation-links" className={`nav-links ${open ? 'nav-links--open' : ''}`}>
-            <div className={`nav-dropdown ${menuOpen ? 'nav-dropdown--open' : ''}`} ref={menuRef}>
+          <div
+            id="site-navigation-links"
+            className={`nav-links ${open ? "nav-links--open" : ""}`}
+          >
+            <div
+              className={`nav-dropdown ${menuOpen ? "nav-dropdown--open" : ""}`}
+              ref={menuRef}
+            >
               <button
-                className={`nav-dropdown__trigger ${isMenuSectionActive ? 'is-active' : ''}`}
+                className={`nav-dropdown__trigger ${isMenuSectionActive ? "is-active" : ""}`}
                 type="button"
                 aria-expanded={menuOpen}
                 aria-haspopup="true"
@@ -135,7 +161,7 @@ export default function Navbar() {
               href="/#nuestra-historia"
               onClick={(e) => {
                 e.preventDefault();
-                goToSection('nuestra-historia');
+                goToSection("nuestra-historia");
               }}
             >
               Nosotros
@@ -154,6 +180,21 @@ export default function Navbar() {
           </div>
 
           <div className="nav-actions">
+            <button
+              type="button"
+              className="navbar-theme-toggle"
+              onClick={handleThemeToggle}
+              aria-label={
+                theme === "dark"
+                  ? "Cambiar a modo claro"
+                  : "Cambiar a modo oscuro"
+              }
+              title={theme === "dark" ? "Modo claro" : "Modo oscuro"}
+            >
+              <span className="navbar-theme-toggle-icon" aria-hidden="true">
+                {theme === "dark" ? "☀" : "☾"}
+              </span>
+            </button>
             <button
               className="nav-quote"
               type="button"
@@ -174,12 +215,14 @@ export default function Navbar() {
           <button
             className="nav-menu-button"
             type="button"
-            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             aria-controls="site-navigation-links"
             onClick={() => setOpen((value) => !value)}
           >
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </nav>
       </header>

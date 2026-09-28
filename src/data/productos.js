@@ -257,18 +257,18 @@ export const productos = [
     descripcion: "Personalizamos tu torta a tu elección.",
     imagen: imagenes.productos.tortaPersonalizada,
     imagenes: [
+      imagenes.productos.tortaPersonalizada5,
+      imagenes.productos.tortaPersonalizada7,
+      imagenes.productos.Personalizada2,
+      imagenes.productos.personalizada6,
       imagenes.productos.tortaPersonalizada2,
       imagenes.productos.tortaPersonalizada3,
       imagenes.productos.tortaPersonalizada4,
-      imagenes.productos.tortaPersonalizada5,
       imagenes.productos.tortaPersonalizada6,
-      imagenes.productos.tortaPersonalizada7,
       imagenes.productos.tortaPersonalizada,
-      imagenes.productos.Personalizada2,
       imagenes.productos.personalizada3,
       imagenes.productos.personalizada4,
       imagenes.productos.personalizada5,
-      imagenes.productos.personalizada6,
       imagenes.productos.personalizada7,
       imagenes.productos.personalizada8,
     ],
@@ -552,10 +552,7 @@ export const productos = [
     descripcion:
       "Una selección especial acompañada de una mini torta para celebrar.",
     imagen: imagenes.productos.desayunoMiniCake,
-    imagenes: [
-      imagenes.productos.desayunoMiniCake,
-      imagenes.productos.desayunoMiniCake2,
-    ],
+    imagenes: [imagenes.productos.desayunoMiniCake],
     detalle: {
       secciones: [
         {

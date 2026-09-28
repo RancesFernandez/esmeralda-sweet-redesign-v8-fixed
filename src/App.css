@@ -1,2 +1,534 @@
 
 #root { min-height: 100vh; }
+
+
+/* =========================================================
+   Esmeralda Sweet — Light / Dark theme
+   ========================================================= */
+
+:root {
+  --es-bg: #fffaf6;
+  --es-surface: #ffffff;
+  --es-surface-2: #fff3eb;
+  --es-text: #34241f;
+  --es-text-soft: #6d5a52;
+  --es-border: rgba(74, 47, 38, .13);
+  --es-shadow: 0 12px 35px rgba(75, 43, 29, .10);
+  --es-accent: #b85c73;
+  --es-accent-2: #8f4157;
+  --es-accent-soft: #f6dbe2;
+  --es-header: rgba(255, 250, 246, .90);
+  --es-input: #ffffff;
+  --es-overlay: rgba(22, 13, 10, .66);
+}
+
+html[data-theme="dark"] {
+  --es-bg: #171315;
+  --es-surface: #241d20;
+  --es-surface-2: #302428;
+  --es-text: #fff5f0;
+  --es-text-soft: #cbbab4;
+  --es-border: rgba(255, 235, 225, .13);
+  --es-shadow: 0 18px 45px rgba(0, 0, 0, .36);
+  --es-accent: #f18da5;
+  --es-accent-2: #ffb2c4;
+  --es-accent-soft: #4a2934;
+  --es-header: rgba(23, 19, 21, .90);
+  --es-input: #211a1d;
+  --es-overlay: rgba(0, 0, 0, .78);
+}
+
+html, body, #root {
+  background: var(--es-bg);
+  color: var(--es-text);
+  transition: background-color .22s ease, color .22s ease;
+}
+
+body {
+  background-color: var(--es-bg);
+}
+
+body, button, input, textarea, select {
+  color: var(--es-text);
+}
+
+a {
+  color: var(--es-accent);
+}
+
+button, input, textarea, select {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+/* Common surfaces — intentionally broad so pages, cards, menus and sections
+   inherit the theme even when the original stylesheet used white/cream fills. */
+.catalog-page,
+.page,
+main,
+section,
+header,
+footer,
+nav,
+article,
+aside,
+.modal,
+.modal-content,
+.dialog,
+.card,
+.product-card,
+.menu-card,
+.category-card,
+.testimonial-card,
+.review-card,
+.contact-card,
+.form-card,
+.dropdown,
+.menu-dropdown,
+.mobile-menu,
+.accordion,
+.accordion-item,
+.popup,
+.drawer {
+  color: var(--es-text);
+}
+
+.card,
+.product-card,
+.menu-card,
+.category-card,
+.testimonial-card,
+.review-card,
+.contact-card,
+.form-card,
+.modal-content,
+.dialog,
+.popup,
+.drawer,
+.accordion-item {
+  background-color: var(--es-surface);
+  border-color: var(--es-border);
+  box-shadow: var(--es-shadow);
+}
+
+input,
+textarea,
+select {
+  background-color: var(--es-input);
+  color: var(--es-text);
+  border-color: var(--es-border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--es-text-soft);
+  opacity: .8;
+}
+
+/* Keep media visually clean in dark mode. */
+img {
+  transition: filter .22s ease;
+}
+
+html[data-theme="dark"] img {
+  /* Only a very subtle treatment; product photos remain natural. */
+  filter: saturate(.96) brightness(.94);
+}
+
+/* Modal backdrop */
+.modal-backdrop,
+.modal-overlay,
+.overlay {
+  background: var(--es-overlay);
+}
+
+/* Theme toggle */
+.es-theme-toggle {
+  --toggle-size: 44px;
+  width: var(--toggle-size);
+  height: var(--toggle-size);
+  min-width: var(--toggle-size);
+  border: 1px solid var(--es-border);
+  border-radius: 999px;
+  background: var(--es-surface);
+  color: var(--es-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.es-theme-toggle:hover {
+  border-color: var(--es-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.14);
+}
+
+.es-theme-toggle:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--es-accent) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.es-theme-icon {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.es-theme-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .es-theme-toggle {
+    --toggle-size: 42px;
+  }
+}
+
+/* If the original app has hard-coded white backgrounds, these high-specificity
+   rules make the switch consistent without changing image/photo backgrounds. */
+html[data-theme="dark"] [style*="background-color: white"],
+html[data-theme="dark"] [style*="background: white"],
+html[data-theme="dark"] [style*="background-color: #fff"],
+html[data-theme="dark"] [style*="background: #fff"],
+html[data-theme="dark"] [style*="background-color: #ffffff"],
+html[data-theme="dark"] [style*="background: #ffffff"] {
+  background-color: var(--es-surface) !important;
+  color: var(--es-text) !important;
+}
+
+html[data-theme="dark"] [class*="white-bg"],
+html[data-theme="dark"] [class*="bg-white"] {
+  background-color: var(--es-surface) !important;
+  color: var(--es-text) !important;
+}
+
+.es-theme-toggle-floating {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9998;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+@media (max-width: 768px) {
+  .es-theme-toggle-floating {
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+}
+.es-theme-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* =========================================================
+   ESmeralda Sweet - Theme switch
+   ========================================================= */
+
+:root {
+  --theme-bg: #fffaf7;
+  --theme-surface: #ffffff;
+  --theme-surface-alt: #fff2ea;
+  --theme-text: #332521;
+  --theme-text-muted: #715e56;
+  --theme-border: rgba(67, 45, 38, 0.14);
+  --theme-accent: #b85d76;
+  --theme-accent-hover: #9f4961;
+  --theme-header: rgba(255, 250, 247, 0.94);
+  --theme-input: #ffffff;
+  --theme-shadow: 0 12px 32px rgba(61, 38, 29, 0.10);
+}
+
+html[data-theme="dark"] {
+  --theme-bg: #151214;
+  --theme-surface: #211c1e;
+  --theme-surface-alt: #2c2327;
+  --theme-text: #fff5f0;
+  --theme-text-muted: #c9b8b1;
+  --theme-border: rgba(255, 237, 229, 0.14);
+  --theme-accent: #ef8ea7;
+  --theme-accent-hover: #ffabc0;
+  --theme-header: rgba(21, 18, 20, 0.94);
+  --theme-input: #1b1719;
+  --theme-shadow: 0 16px 42px rgba(0, 0, 0, 0.38);
+}
+
+html,
+body,
+#root {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+body {
+  transition: background-color 0.22s ease, color 0.22s ease;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  color: var(--theme-text);
+}
+
+a {
+  color: var(--theme-accent);
+}
+
+input,
+textarea,
+select {
+  background-color: var(--theme-input);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--theme-text-muted);
+}
+
+/* Main containers and common cards */
+html[data-theme="dark"] main,
+html[data-theme="dark"] section,
+html[data-theme="dark"] article,
+html[data-theme="dark"] aside,
+html[data-theme="dark"] footer,
+html[data-theme="dark"] nav,
+html[data-theme="dark"] header {
+  color: var(--theme-text);
+}
+
+/* Broad selectors cover the existing project's card/modal naming patterns. */
+html[data-theme="dark"] [class*="card"],
+html[data-theme="dark"] [class*="Card"],
+html[data-theme="dark"] [class*="modal"],
+html[data-theme="dark"] [class*="Modal"],
+html[data-theme="dark"] [class*="popup"],
+html[data-theme="dark"] [class*="Popup"],
+html[data-theme="dark"] [class*="drawer"],
+html[data-theme="dark"] [class*="Drawer"],
+html[data-theme="dark"] [class*="accordion"],
+html[data-theme="dark"] [class*="Accordion"] {
+  color: var(--theme-text);
+}
+
+/* Explicitly replace common white backgrounds used by light UI. */
+html[data-theme="dark"] [style*="background: white"],
+html[data-theme="dark"] [style*="background:white"],
+html[data-theme="dark"] [style*="background-color: white"],
+html[data-theme="dark"] [style*="background-color:white"],
+html[data-theme="dark"] [style*="background: #fff"],
+html[data-theme="dark"] [style*="background:#fff"],
+html[data-theme="dark"] [style*="background-color: #fff"],
+html[data-theme="dark"] [style*="background-color:#fff"],
+html[data-theme="dark"] [style*="background: #ffffff"],
+html[data-theme="dark"] [style*="background:#ffffff"],
+html[data-theme="dark"] [style*="background-color: #ffffff"],
+html[data-theme="dark"] [style*="background-color:#ffffff"] {
+  background-color: var(--theme-surface) !important;
+  color: var(--theme-text) !important;
+}
+
+/* Common semantic class names */
+html[data-theme="dark"] .white-bg,
+html[data-theme="dark"] .bg-white,
+html[data-theme="dark"] .background-white {
+  background-color: var(--theme-surface) !important;
+  color: var(--theme-text) !important;
+}
+
+/* Buttons keep accent colors but use readable text. */
+html[data-theme="dark"] button {
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] button:not(.es-theme-toggle) {
+  color: inherit;
+}
+
+/* Theme toggle: fixed so it is reachable on both desktop and mobile. */
+.es-theme-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2147483000;
+
+  min-width: 94px;
+  height: 46px;
+  padding: 0 15px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid var(--theme-border);
+  border-radius: 999px;
+  background: var(--theme-surface);
+  color: var(--theme-text);
+
+  box-shadow: var(--theme-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.es-theme-toggle:hover {
+  transform: translateY(-2px);
+  border-color: var(--theme-accent);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.es-theme-toggle:active {
+  transform: translateY(0);
+}
+
+.es-theme-toggle:focus-visible {
+  outline: 3px solid var(--theme-accent);
+  outline-offset: 3px;
+}
+
+.es-theme-toggle-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.es-theme-toggle-label {
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .es-theme-toggle {
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    min-width: 88px;
+    height: 44px;
+    padding: 0 13px;
+  }
+}
+
+/* Avoid a flash of unthemed background while React loads. */
+html {
+  background-color: var(--theme-bg);
+}
+
+
+
+/* =========================================================
+   Theme switch in the navbar
+   ========================================================= */
+.navbar-theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex: 0 0 auto;
+
+  height: 38px;
+  min-width: 84px;
+  padding: 0 12px;
+
+  border: 1px solid var(--theme-border, rgba(67,45,38,.14));
+  border-radius: 999px;
+  background: var(--theme-surface, #fff);
+  color: var(--theme-text, #332521);
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow: 0 5px 16px rgba(0,0,0,.08);
+  transition: transform .18s ease, box-shadow .18s ease,
+              background-color .22s ease, color .22s ease,
+              border-color .22s ease;
+}
+
+.navbar-theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--theme-accent, #b85d76);
+  box-shadow: 0 8px 20px rgba(0,0,0,.13);
+}
+
+.navbar-theme-toggle:active {
+  transform: translateY(0);
+}
+
+.navbar-theme-toggle:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--theme-accent, #b85d76) 32%, transparent);
+  outline-offset: 2px;
+}
+
+.navbar-theme-toggle-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.navbar-theme-toggle-text {
+  white-space: nowrap;
+}
+
+/* If the navbar uses a horizontal controls group, keep the theme switch
+   aligned naturally without disturbing existing links. */
+.navbar-theme-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Mobile: compact control, still text + icon, placed inside the navbar controls. */
+@media (max-width: 768px) {
+  .navbar-theme-toggle {
+    height: 36px;
+    min-width: 76px;
+    padding: 0 10px;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .navbar-theme-toggle-icon {
+    width: 17px;
+    height: 17px;
+    font-size: 17px;
+  }
+}
+
+/* Legacy floating theme control is intentionally disabled.
+   The theme control now lives in the navbar. */
+.es-theme-toggle-floating {
+  display: none !important;
+}

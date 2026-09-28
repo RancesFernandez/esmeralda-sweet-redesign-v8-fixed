@@ -304,3 +304,27 @@
           height: 36px;
         }
 }
+
+/* =========================================================
+   DARK MODE — dulce sections
+   The base component uses light-only white surfaces, so they
+   need explicit dark-theme overrides to preserve contrast.
+   ========================================================= */
+html[data-theme="dark"] .dulce-section {
+  background: var(--blanco);
+  border-color: var(--borde);
+  box-shadow: var(--sombra);
+}
+
+html[data-theme="dark"] .dulce-section:hover {
+  border-color: rgba(85, 184, 146, 0.38);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+html[data-theme="dark"] .dulce-section__heading:hover {
+  background: rgba(85, 184, 146, 0.055);
+}
+
+html[data-theme="dark"] .dulce-section.is-open {
+  border-color: rgba(85, 184, 146, 0.38);
+}

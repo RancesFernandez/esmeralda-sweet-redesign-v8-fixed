@@ -4743,3 +4743,600 @@ a:focus-visible,
     transition: none;
   }
 }
+
+/* =========================================================
+   DARK MODE — complete site theme
+   ========================================================= */
+html[data-theme="dark"] {
+  --verde-esmeralda: #55b892;
+  --verde-profundo: #7bd0aa;
+  --verde-claro: #203b32;
+  --crema: #1d1a18;
+  --arena: #292522;
+  --texto: #f5f1eb;
+  --muted: #bdb6ad;
+  --blanco: #171513;
+  --borde: #3a3530;
+  --sombra: 0 18px 42px rgba(0, 0, 0, 0.32);
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body,
+html[data-theme="dark"] #root {
+  background: var(--blanco);
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .site-header {
+  background: rgba(23, 21, 19, 0.92);
+  border-color: var(--borde);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.24);
+}
+
+html[data-theme="dark"] .nav-links > a,
+html[data-theme="dark"] .nav-dropdown__trigger,
+html[data-theme="dark"] .nav-links > a,
+html[data-theme="dark"] .brand {
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .nav-dropdown__panel,
+html[data-theme="dark"] .nav-dropdown__panel::before,
+html[data-theme="dark"] .nav-menu-button,
+html[data-theme="dark"] .nav-links {
+  background: #211e1b;
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .nav-dropdown__panel a,
+html[data-theme="dark"] .nav-links > a,
+html[data-theme="dark"] .nav-dropdown__trigger {
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .nav-dropdown__panel a:hover,
+html[data-theme="dark"] .nav-dropdown__panel a:focus-visible,
+html[data-theme="dark"] .nav-links > a:hover,
+html[data-theme="dark"] .nav-links > a:focus-visible,
+html[data-theme="dark"] .nav-dropdown--open .nav-dropdown__trigger {
+  background: var(--verde-claro);
+  color: var(--verde-esmeralda);
+}
+
+html[data-theme="dark"] .section--soft,
+html[data-theme="dark"] .info-icon,
+html[data-theme="dark"] .category-pill,
+html[data-theme="dark"] .nav-dropdown__panel a,
+html[data-theme="dark"] .quote-inline-card,
+html[data-theme="dark"] .menu-option-card,
+html[data-theme="dark"] .step-card {
+  background: #211e1b;
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .products-section,
+html[data-theme="dark"] .reviews-section,
+html[data-theme="dark"] .quote-section,
+html[data-theme="dark"] .story-section,
+html[data-theme="dark"] .faq-section,
+html[data-theme="dark"] .process-section,
+html[data-theme="dark"] .site-footer {
+  background: #171513;
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .product-card,
+html[data-theme="dark"] .review-card,
+html[data-theme="dark"] .contact-card,
+html[data-theme="dark"] .form-card,
+html[data-theme="dark"] .quote-inline-card,
+html[data-theme="dark"] .step-card,
+html[data-theme="dark"] .menu-option-card,
+html[data-theme="dark"] .menu-showcase-card {
+  background: #211e1b;
+  color: var(--texto);
+  border-color: var(--borde);
+  box-shadow: var(--sombra);
+}
+
+html[data-theme="dark"] .product-card__body,
+html[data-theme="dark"] .modal-product__content,
+html[data-theme="dark"] .quote-form,
+html[data-theme="dark"] .review-form,
+html[data-theme="dark"] .quote-modal__intro {
+  background: #211e1b;
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .product-card__image,
+html[data-theme="dark"] .product-card__image img {
+  background: #292522;
+}
+
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .section-subtitle,
+html[data-theme="dark"] .info-item h3,
+html[data-theme="dark"] .story-copy,
+html[data-theme="dark"] .catalog-intro,
+html[data-theme="dark"] .catalog-note,
+html[data-theme="dark"] .dulce-section__description,
+html[data-theme="dark"] .quote-copy,
+html[data-theme="dark"] .review-card__text,
+html[data-theme="dark"] .faq-list,
+html[data-theme="dark"] .step-card,
+html[data-theme="dark"] .menu-option-card__content {
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .section-subtitle,
+html[data-theme="dark"] .info-item p,
+html[data-theme="dark"] .catalog-note,
+html[data-theme="dark"] .quote-form__hint,
+html[data-theme="dark"] .quote-trust,
+html[data-theme="dark"] .review-card__text,
+html[data-theme="dark"] .story-copy p {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .category-pill {
+  color: var(--texto);
+  border: 1px solid var(--borde);
+}
+
+html[data-theme="dark"] .category-pill:hover,
+html[data-theme="dark"] .category-pill--active {
+  background: var(--verde-esmeralda);
+  color: #10241c;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select,
+html[data-theme="dark"] .quote-form__field input,
+html[data-theme="dark"] .quote-form__field textarea,
+html[data-theme="dark"] .quote-form__field select {
+  background: #191715;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #958e85;
+}
+
+html[data-theme="dark"] .modal-backdrop,
+html[data-theme="dark"] .modal-overlay,
+html[data-theme="dark"] .quote-modal-backdrop,
+html[data-theme="dark"] .product-modal-backdrop {
+  background: rgba(0, 0, 0, 0.78);
+}
+
+html[data-theme="dark"] .modal-close,
+html[data-theme="dark"] .quote-modal__close,
+html[data-theme="dark"] .product-image-nav,
+html[data-theme="dark"] .modal-image-nav {
+  background: #211e1b;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .navbar-theme-toggle {
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--borde);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--texto);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .navbar-theme-toggle:hover,
+html[data-theme="dark"] .navbar-theme-toggle:focus-visible {
+  background: rgba(85, 184, 146, 0.12);
+  border-color: var(--verde-esmeralda);
+  color: var(--verde-esmeralda);
+}
+
+.navbar-theme-toggle--mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navbar-theme-toggle--mobile {
+    display: inline-flex;
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    border-radius: 9px;
+    justify-content: flex-start;
+    gap: 9px;
+    padding: 10px 13px;
+    box-shadow: none;
+  }
+
+  .nav-actions .navbar-theme-toggle {
+    display: none;
+  }
+}
+
+/* Existing hard-coded light surfaces that need to follow the dark theme. */
+html[data-theme="dark"] .products-section,
+html[data-theme="dark"] .product-card,
+html[data-theme="dark"] .product-card__body,
+html[data-theme="dark"] .site-footer,
+html[data-theme="dark"] .menu-showcase,
+html[data-theme="dark"] .catalog-results,
+html[data-theme="dark"] .catalog-page,
+html[data-theme="dark"] .quote-section,
+html[data-theme="dark"] .reviews-section,
+html[data-theme="dark"] .story-section,
+html[data-theme="dark"] .faq-section,
+html[data-theme="dark"] .process-section {
+  background-color: #171513;
+}
+
+html[data-theme="dark"] .product-card,
+html[data-theme="dark"] .product-card__body,
+html[data-theme="dark"] .review-card,
+html[data-theme="dark"] .step-card,
+html[data-theme="dark"] .quote-inline-card,
+html[data-theme="dark"] .form-card {
+  background-color: #211e1b;
+}
+
+html[data-theme="dark"] .nav-cta,
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .nav-quote-mobile {
+  color: #10241c;
+}
+
+/* Navbar theme control — intentionally minimal and icon-only. */
+.navbar-theme-toggle {
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--borde);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--texto);
+  box-shadow: none;
+  cursor: pointer;
+  font: inherit;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.navbar-theme-toggle:hover {
+  transform: translateY(-1px);
+  background: var(--verde-claro);
+  border-color: var(--verde-esmeralda);
+  color: var(--verde-esmeralda);
+}
+
+.navbar-theme-toggle:active { transform: translateY(0); }
+
+.navbar-theme-toggle:focus-visible {
+  outline: 2px solid var(--verde-esmeralda);
+  outline-offset: 3px;
+}
+
+.navbar-theme-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* Deep theme overrides for legacy hard-coded light UI. */
+html[data-theme="dark"] .site-header,
+html[data-theme="dark"] .site-footer,
+html[data-theme="dark"] .products-section,
+html[data-theme="dark"] .story-section,
+html[data-theme="dark"] .reviews-section,
+html[data-theme="dark"] .quote-section,
+html[data-theme="dark"] .process-section,
+html[data-theme="dark"] .faq-section,
+html[data-theme="dark"] .catalog-page,
+html[data-theme="dark"] .catalog-results,
+html[data-theme="dark"] .menu-showcase,
+html[data-theme="dark"] .dulce-sections {
+  background: var(--blanco) !important;
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .catalog-hero,
+html[data-theme="dark"] .catalog-hero__decor--one,
+html[data-theme="dark"] .catalog-hero__decor--two {
+  background-color: #24201c;
+}
+
+html[data-theme="dark"] .catalog-note,
+html[data-theme="dark"] .catalog-results__heading,
+html[data-theme="dark"] .catalog-intro,
+html[data-theme="dark"] .dulce-section__heading,
+html[data-theme="dark"] .dulce-section__content,
+html[data-theme="dark"] .menu-option-card__content,
+html[data-theme="dark"] .menu-showcase-card__content,
+html[data-theme="dark"] .quote-copy,
+html[data-theme="dark"] .story-copy,
+html[data-theme="dark"] .faq-list,
+html[data-theme="dark"] .step-card {
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .info-strip,
+html[data-theme="dark"] .section--soft,
+html[data-theme="dark"] .catalog-navigation,
+html[data-theme="dark"] .menu-switcher,
+html[data-theme="dark"] .featured-divider {
+  background: #1d1a18;
+}
+
+html[data-theme="dark"] .info-icon,
+html[data-theme="dark"] .menu-option-card,
+html[data-theme="dark"] .step-card,
+html[data-theme="dark"] .review-card,
+html[data-theme="dark"] .quote-inline-card,
+html[data-theme="dark"] .form-card,
+html[data-theme="dark"] .product-card,
+html[data-theme="dark"] .menu-showcase-card,
+html[data-theme="dark"] .dulce-section__grid > *,
+html[data-theme="dark"] .catalog-bottom-links {
+  background: #24201c;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .product-card__body,
+html[data-theme="dark"] .product-card__image,
+html[data-theme="dark"] .product-card__image img,
+html[data-theme="dark"] .menu-option-card__image {
+  background: #24201c;
+}
+
+html[data-theme="dark"] .product-card__badge,
+html[data-theme="dark"] .product-image-dots,
+html[data-theme="dark"] .modal-image-dots {
+  background: rgba(28, 25, 22, .9);
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .product-card__single-price,
+html[data-theme="dark"] .product-card__size,
+html[data-theme="dark"] .product-card__description,
+html[data-theme="dark"] .review-card__author,
+html[data-theme="dark"] .quote-trust,
+html[data-theme="dark"] .quote-form__hint,
+html[data-theme="dark"] .catalog-note {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .quote-modal,
+html[data-theme="dark"] .quote-modal__content,
+html[data-theme="dark"] .quote-form--modal,
+html[data-theme="dark"] .product-modal,
+html[data-theme="dark"] .modal-product,
+html[data-theme="dark"] .modal-product__content,
+html[data-theme="dark"] .modal-product__details {
+  background: #211e1b;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .quote-form__field input,
+html[data-theme="dark"] .quote-form__field textarea,
+html[data-theme="dark"] .quote-form__field select,
+html[data-theme="dark"] .review-form input,
+html[data-theme="dark"] .review-form textarea {
+  background: #171513;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .menu-switcher__link,
+html[data-theme="dark"] .catalog-bottom-links a,
+html[data-theme="dark"] .text-link,
+html[data-theme="dark"] .center-action__link {
+  color: var(--verde-esmeralda);
+}
+
+html[data-theme="dark"] .nav-menu-button {
+  background: transparent;
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .nav-dropdown__panel a {
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .navbar-theme-toggle--mobile {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    padding: 10px 13px;
+    border-radius: 9px;
+    justify-content: flex-start;
+    gap: 9px;
+    box-shadow: none;
+  }
+}
+
+
+/* =========================================================
+   DARK MODE — dropdowns, accordions and native controls
+   ========================================================= */
+
+/* Tell the browser to render native form controls (including the
+   opened <select> menu and date picker) using the active theme. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Native select menus: Chromium/Windows can otherwise keep a light
+   popup even when the <select> itself has already been themed. */
+html[data-theme="dark"] select,
+html[data-theme="dark"] select option,
+html[data-theme="dark"] select optgroup {
+  background-color: #191715;
+  color: var(--texto);
+}
+
+html[data-theme="dark"] select option:checked,
+html[data-theme="dark"] select option:hover {
+  background-color: #203b32;
+  color: #f5f1eb;
+}
+
+/* Date/time controls should also follow dark mode. */
+html[data-theme="dark"] input[type="date"],
+html[data-theme="dark"] input[type="time"],
+html[data-theme="dark"] input[type="datetime-local"] {
+  color-scheme: dark;
+}
+
+/* Navbar dropdown — desktop and mobile. */
+html[data-theme="dark"] .nav-dropdown__panel {
+  background: #211e1b !important;
+  color: var(--texto);
+  border-color: var(--borde);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .38);
+}
+
+html[data-theme="dark"] .nav-dropdown__panel::before {
+  background: #211e1b !important;
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .nav-dropdown__panel a {
+  background: transparent !important;
+  color: var(--texto) !important;
+}
+
+html[data-theme="dark"] .nav-dropdown__panel a:hover,
+html[data-theme="dark"] .nav-dropdown__panel a:focus-visible {
+  background: var(--verde-claro) !important;
+  color: var(--verde-esmeralda) !important;
+}
+
+/* Mobile navigation contains the same dropdown links inside the
+   expanded panel, so force the complete surface to the dark palette. */
+@media (max-width: 900px) {
+  html[data-theme="dark"] .nav-links,
+  html[data-theme="dark"] .nav-dropdown__panel {
+    background: #211e1b !important;
+    color: var(--texto);
+    border-color: var(--borde);
+  }
+
+  html[data-theme="dark"] .nav-dropdown__panel a {
+    background: transparent !important;
+    color: var(--texto) !important;
+    border-left-color: var(--verde-esmeralda);
+  }
+
+  html[data-theme="dark"] .nav-dropdown__panel a:hover,
+  html[data-theme="dark"] .nav-dropdown__panel a:focus-visible {
+    background: var(--verde-claro) !important;
+    color: var(--verde-esmeralda) !important;
+  }
+}
+
+/* FAQ accordion and "leave a review" accordion. */
+html[data-theme="dark"] .faq-list,
+html[data-theme="dark"] .faq-list details,
+html[data-theme="dark"] .review-form-wrap {
+  background-color: #211e1b;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .faq-list summary,
+html[data-theme="dark"] .review-form-wrap summary {
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .faq-list summary::after,
+html[data-theme="dark"] .review-form-wrap summary::after {
+  color: var(--verde-esmeralda);
+}
+
+html[data-theme="dark"] .faq-list p {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .review-form input,
+html[data-theme="dark"] .review-form textarea {
+  background: #191715 !important;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .reviews-status {
+  background: #211e1b;
+  color: var(--muted);
+  border: 1px solid var(--borde);
+}
+
+html[data-theme="dark"] .reviews-status--error {
+  background: #351f20;
+  color: #f0aaa9;
+  border-color: #63383a;
+}
+
+/* Keep every quote form surface coherent with the dark palette,
+   including fields that have legacy hard-coded white backgrounds. */
+html[data-theme="dark"] .quote-form,
+html[data-theme="dark"] .quote-inline-card {
+  background: #211e1b !important;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .quote-form label {
+  color: var(--texto);
+}
+
+html[data-theme="dark"] .quote-form input,
+html[data-theme="dark"] .quote-form select,
+html[data-theme="dark"] .quote-form textarea {
+  background: #191715 !important;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .quote-form input:focus,
+html[data-theme="dark"] .quote-form select:focus,
+html[data-theme="dark"] .quote-form textarea:focus {
+  background: #191715 !important;
+  color: var(--texto);
+}
+
+/* Legacy light cards/surfaces that can otherwise leak into dark mode. */
+html[data-theme="dark"] .dulce-section__content,
+html[data-theme="dark"] .catalog-results__heading,
+html[data-theme="dark"] .catalog-note,
+html[data-theme="dark"] .catalog-bottom-links {
+  background-color: #211e1b;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+html[data-theme="dark"] .product-modal,
+html[data-theme="dark"] .quote-modal,
+html[data-theme="dark"] .modal-product__content {
+  background: #211e1b !important;
+  color: var(--texto);
+  border-color: var(--borde);
+}
