@@ -212,18 +212,36 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button
-            className="nav-menu-button"
-            type="button"
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            aria-expanded={open}
-            aria-controls="site-navigation-links"
-            onClick={() => setOpen((value) => !value)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <div className="nav-mobile-actions">
+            <button
+              type="button"
+              className="navbar-theme-toggle navbar-theme-toggle--mobile"
+              onClick={handleThemeToggle}
+              aria-label={
+                theme === "dark"
+                  ? "Cambiar a modo claro"
+                  : "Cambiar a modo oscuro"
+              }
+              title={theme === "dark" ? "Modo claro" : "Modo oscuro"}
+            >
+              <span className="navbar-theme-toggle-icon" aria-hidden="true">
+                {theme === "dark" ? "☀" : "☾"}
+              </span>
+            </button>
+
+            <button
+              className="nav-menu-button"
+              type="button"
+              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={open}
+              aria-controls="site-navigation-links"
+              onClick={() => setOpen((value) => !value)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </nav>
       </header>
 

@@ -1,5 +1,5 @@
 .process-section {
-  padding-bottom: 94px;
+  padding-bottom: 88px;
 }
 
 .steps-grid {
@@ -60,17 +60,21 @@
 }
 
 @media (max-width: 620px) {
+  .process-section {
+    padding-bottom: 64px;
+  }
+
   .steps-grid {
-          grid-template-columns: 1fr;
-        }
+    grid-template-columns: 1fr;
+  }
 
   .step-card,
-        .step-card:first-child,
-        .step-card:last-child {
-          padding: 20px 0;
-        }
+  .step-card:first-child,
+  .step-card:last-child {
+    padding: 20px 0;
+  }
 
   .step-card:last-child {
-          border-bottom: 0;
-        }
+    border-bottom: 0;
+  }
 }

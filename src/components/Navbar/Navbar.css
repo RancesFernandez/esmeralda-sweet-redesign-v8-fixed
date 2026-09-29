@@ -417,10 +417,10 @@ body.product-modal-open { overflow: hidden; }
 }
 
 @media (max-width: 620px) {
-  .site-nav { width: calc(100% - 24px); }
+  .site-nav { width: calc(100% - 28px); }
   .brand span { font-size: 11px; }
   .brand img { width: 34px; height: 34px; }
-  .nav-links { left: 12px; right: 12px; }
+  .nav-links { left: 14px; right: 14px; }
 }
 
 @media (max-width: 380px) {
@@ -433,4 +433,99 @@ body.product-modal-open { overflow: hidden; }
   .nav-links,
   .nav-menu-button span,
   .nav-cta { transition: none; }
+}
+
+
+/* =========================================================
+   THEME CONTROL — single desktop button + compact mobile button
+   ========================================================= */
+
+.nav-mobile-actions {
+  display: none;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
+}
+
+.navbar-theme-toggle {
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--borde);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--texto);
+  box-shadow: none;
+  cursor: pointer;
+  font: inherit;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.navbar-theme-toggle:hover {
+  transform: translateY(-1px);
+  background: var(--verde-claro);
+  border-color: var(--verde-esmeralda);
+  color: var(--verde-esmeralda);
+}
+
+.navbar-theme-toggle:active {
+  transform: translateY(0);
+}
+
+.navbar-theme-toggle:focus-visible {
+  outline: 2px solid var(--verde-esmeralda);
+  outline-offset: 3px;
+}
+
+.navbar-theme-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* Desktop: only the button inside .nav-actions is visible. */
+.nav-actions .navbar-theme-toggle {
+  display: inline-grid;
+}
+
+.nav-mobile-actions .navbar-theme-toggle--mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .nav-mobile-actions {
+    display: inline-flex;
+  }
+
+  /* Mobile uses ONLY the compact button beside the hamburger. */
+  .nav-actions .navbar-theme-toggle {
+    display: none;
+  }
+
+  .nav-mobile-actions .navbar-theme-toggle--mobile {
+    display: inline-grid;
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-mobile-actions {
+    gap: 5px;
+  }
+
+  .nav-mobile-actions .navbar-theme-toggle--mobile,
+  .nav-menu-button {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+  }
 }

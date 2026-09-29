@@ -1,4 +1,4 @@
-const THEME_KEY = "esmeralda-theme";
+const THEME_KEY = "esmeralda-theme-v3";
 
 export function getInitialTheme() {
   try {
@@ -6,9 +6,9 @@ export function getInitialTheme() {
     if (saved === "dark" || saved === "light") return saved;
   } catch (_) {}
 
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  // The application always starts in light mode when there is no
+  // preference saved for this version.
+  return "light";
 }
 
 export function applyTheme(theme) {

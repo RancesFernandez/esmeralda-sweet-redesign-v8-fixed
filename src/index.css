@@ -4950,11 +4950,28 @@ html[data-theme="dark"] .navbar-theme-toggle:focus-visible {
     width: 100%;
     min-width: 0;
     height: 44px;
+    margin: 6px 0 2px;
     border-radius: 9px;
     justify-content: flex-start;
     gap: 9px;
     padding: 10px 13px;
+    border: 0;
+    background: transparent;
+    color: #5f5c55;
+    font-size: 14px;
+    font-weight: 650;
     box-shadow: none;
+  }
+
+  .navbar-theme-toggle--mobile:hover,
+  .navbar-theme-toggle--mobile:focus-visible {
+    background: var(--crema);
+    color: var(--verde-esmeralda);
+    border-color: transparent;
+  }
+
+  html[data-theme="dark"] .navbar-theme-toggle--mobile {
+    color: var(--texto);
   }
 
   .nav-actions .navbar-theme-toggle {
@@ -5339,4 +5356,43 @@ html[data-theme="dark"] .modal-product__content {
   background: #211e1b !important;
   color: var(--texto);
   border-color: var(--borde);
+}
+
+
+/* Final navbar theme-control layout.
+   The mobile control lives beside the hamburger, never inside the menu. */
+@media (max-width: 900px) {
+  .nav-mobile-actions {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .nav-mobile-actions .navbar-theme-toggle--mobile {
+    display: inline-grid !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    justify-content: center !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-size: inherit !important;
+  }
+
+  .nav-actions .navbar-theme-toggle {
+    display: none !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-mobile-actions {
+    display: none !important;
+  }
+
+  .nav-actions .navbar-theme-toggle {
+    display: inline-grid !important;
+  }
 }
