@@ -254,7 +254,7 @@ export const productos = [
     subcategoria: "tortas",
     subsubcategoria: "tortas-personalizadas",
     nombre: "Tortas personalizadas",
-    descripcion: "Personalizamos tu torta a tu elección.",
+    descripcion: "Personalizamos la torta a tu elección.",
     imagen: imagenes.productos.tortaPersonalizada,
     imagenes: [
       imagenes.productos.tortaPersonalizada5,
@@ -422,13 +422,13 @@ export const productos = [
     ],
     detalle: {
       precios: [
-        "-24 unidades $1440",
-        "-30 unidades $1800",
-        "-40 unidades $2400",
-        "-55 unidades $3300",
-        "-60 unidades $3600",
-        "-100 unidades $5900",
-        "-200 unidades $11600",
+        "24 unidades: $1440",
+        "30 unidades: $1800",
+        "40 unidades: $2400",
+        "55 unidades: $3300",
+        "60 unidades: $3600",
+        "100 unidades: $5900",
+        "200 unidades: $11600",
       ],
       secciones: [
         {
@@ -487,8 +487,8 @@ export const productos = [
       ],
 
       precios: [
-        "Comen 4 y pican 6 vale $2300",
-        "Comen 8 y pican 12 vale $4500",
+        "Comen 4 y pican 6: $2300",
+        "Comen 8 y pican 12: $4500",
       ],
     },
   },

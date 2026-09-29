@@ -4,6 +4,7 @@ import { productos } from '../data/productos';
 import ProductoCard from '../components/ProductoCard';
 import { getCategoria, getOpcion } from '../data/menuCategorias';
 import { imagenes } from '../data/imagenes';
+import { buscarProductos } from '../lib/busquedaProductos';
 
 
 function DulceTortasSections({ productos }) {
@@ -129,6 +130,8 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
 
   const opcionId = searchParams.get('tipo') || categoriaData?.opciones[0]?.id;
   const opcion = getOpcion(categoria, opcionId);
+  const searchQuery = searchParams.get('buscar') || '';
+  const hasGlobalSearch = searchQuery.trim().length > 0;
   const isDulceTortas = categoria === 'dulce' && opcionId === 'tortas';
 
   const filteredProducts = useMemo(() => {
@@ -145,8 +148,35 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
     });
   }, [categoria, opcionId]);
 
+  const searchResults = useMemo(
+    () => buscarProductos(productos, searchQuery),
+    [searchQuery]
+  );
+
+  const updateSearch = (value) => {
+    const nextParams = new URLSearchParams(searchParams);
+    const trimmedValue = value.trimStart();
+
+    if (trimmedValue) {
+      nextParams.set('buscar', trimmedValue);
+    } else {
+      nextParams.delete('buscar');
+    }
+
+    setSearchParams(nextParams, { replace: true });
+  };
+
+  const clearSearch = () => {
+    const nextParams = new URLSearchParams(searchParams);
+    nextParams.delete('buscar');
+    setSearchParams(nextParams, { replace: true });
+  };
+
   const setTipo = (id) => {
-    setSearchParams({ tipo: id });
+    const nextParams = new URLSearchParams(searchParams);
+    nextParams.set('tipo', id);
+    nextParams.delete('buscar');
+    setSearchParams(nextParams);
 
     window.setTimeout(() => {
       resultsRef.current?.scrollIntoView({
@@ -175,6 +205,95 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
       <section className="section catalog-navigation">
         <div className="section-container">
 
+          <div className={`catalog-search ${hasGlobalSearch ? 'catalog-search--active' : ''}`}>
+            <div className="catalog-search__copy">
+              <p className="section-kicker">Buscar en todo el catálogo</p>
+              <p className="catalog-search__hint">
+                Encontrá cualquier producto, sin importar en qué menú esté.
+              </p>
+            </div>
+
+            <div className="catalog-search__field">
+              <span className="catalog-search__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="11" cy="11" r="6.5" />
+                  <path d="m16 16 4.2 4.2" />
+                </svg>
+              </span>
+
+              <label className="sr-only" htmlFor={`catalog-search-${categoria}`}>
+                Buscar productos en todo el catálogo
+              </label>
+
+              <input
+                id={`catalog-search-${categoria}`}
+                type="search"
+                value={searchQuery}
+                onChange={(event) => updateSearch(event.target.value)}
+                placeholder="Buscar por nombre…"
+                autoComplete="off"
+                spellCheck="false"
+                enterKeyHint="search"
+              />
+
+              {hasGlobalSearch && (
+                <button
+                  type="button"
+                  className="catalog-search__clear"
+                  onClick={clearSearch}
+                  aria-label="Limpiar búsqueda"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+          </div>
+
+          {hasGlobalSearch ? (
+            <div ref={resultsRef} id="menu-resultados" className="catalog-search-results">
+              <div className="catalog-results__heading">
+                <div>
+                  <p className="section-kicker">Resultados en todo el catálogo</p>
+                  <h2>
+                    {searchResults.length > 0
+                      ? `Resultados para “${searchQuery.trim()}”`
+                      : 'No encontramos coincidencias'}
+                  </h2>
+                </div>
+
+                <span>
+                  {searchResults.length > 0
+                    ? `${searchResults.length} ${searchResults.length === 1 ? 'propuesta' : 'propuestas'}`
+                    : 'Probá con otro nombre'}
+                </span>
+              </div>
+
+              {searchResults.length > 0 ? (
+                <div className="catalog-grid catalog-grid--search">
+                  {searchResults.map((producto) => (
+                    <ProductoCard
+                      key={producto.id}
+                      producto={producto}
+                      categoria={
+                        producto.categoria === 'dulce'
+                          ? 'Menú dulce'
+                          : producto.categoria === 'salado'
+                            ? 'Menú salado'
+                            : 'Desayunos'
+                      }
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="catalog-search-empty">
+                  <span aria-hidden="true">⌕</span>
+                  <strong>No hay productos que coincidan con tu búsqueda.</strong>
+                  <p>Probá con una parte del nombre, por ejemplo “torta”, “choc” o “desay”.</p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
           {categoria !== 'desayunos' && (
             <>
               <div className="catalog-intro">
@@ -283,6 +402,9 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
                 </div>
               )}
             </div>
+          )}
+
+            </>
           )}
 
           <div className="catalog-bottom-links">
