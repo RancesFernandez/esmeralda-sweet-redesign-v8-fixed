@@ -367,32 +367,6 @@ img {
 }
 
 /* =========================================================
-   BADGE
-   ========================================================= */
-
-.product-card__badge {
-  position: absolute;
-  z-index: 2;
-  top: 12px;
-  left: 12px;
-
-  padding: 7px 11px;
-
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--verde-profundo);
-
-  backdrop-filter: blur(8px);
-
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.045em;
-  text-transform: uppercase;
-}
-
-/* =========================================================
    VER DETALLE
    ========================================================= */
 
@@ -2899,7 +2873,7 @@ body {
 }
 
 .catalog-navigation {
-  padding-top: 68px;
+  padding-top: 24px;
 }
 
 .catalog-intro {
@@ -5119,7 +5093,6 @@ html[data-theme="dark"] .menu-option-card__image {
   background: #24201c;
 }
 
-html[data-theme="dark"] .product-card__badge,
 html[data-theme="dark"] .product-image-dots,
 html[data-theme="dark"] .modal-image-dots {
   background: rgba(28, 25, 22, .9);

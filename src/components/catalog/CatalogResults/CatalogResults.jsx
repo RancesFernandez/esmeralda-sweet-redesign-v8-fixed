@@ -28,11 +28,6 @@ export default function CatalogResults({
           <h2>{titulo}</h2>
         </div>
 
-        <span>
-          {productos.length > 0
-            ? `${productos.length} ${productos.length === 1 ? 'propuesta' : 'propuestas'}`
-            : 'Sin coincidencias'}
-        </span>
       </div>
 
       {productos.length > 0 ? (

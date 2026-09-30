@@ -78,16 +78,6 @@ export default function ProductImageGallery({
         ))}
       </div>
 
-      <span className="product-card__badge">
-        {producto.subsubcategoria === 'tortas-y-postres'
-          ? 'Tortas y postres'
-          : producto.categoria === 'dulce'
-            ? 'Propuesta dulce'
-            : producto.categoria === 'salado'
-              ? 'Propuesta salada'
-              : 'Propuesta de desayuno'}
-      </span>
-
       <span className="product-card__quick">
         Ver detalle <span aria-hidden="true">↗</span>
       </span>

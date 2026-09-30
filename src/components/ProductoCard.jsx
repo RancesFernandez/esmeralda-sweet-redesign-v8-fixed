@@ -127,12 +127,6 @@ export default function ProductoCard({ producto, categoria }) {
     };
   }, [open]);
 
-  const categoryLabel =
-    producto.categoria === 'dulce'
-      ? 'Propuesta dulce'
-      : producto.categoria === 'salado'
-        ? 'Propuesta salada'
-        : 'Propuesta de desayuno';
 
   return (
     <>
@@ -201,10 +195,6 @@ export default function ProductoCard({ producto, categoria }) {
               />
             ))}
           </div>
-
-          <span className="product-card__badge">
-            {esTorta ? 'Tortas y postres' : categoryLabel}
-          </span>
 
           <span className="product-card__quick">
             Ver detalle <span aria-hidden="true">↗</span>

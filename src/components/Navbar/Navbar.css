@@ -529,3 +529,25 @@ body.product-modal-open { overflow: hidden; }
     height: 36px;
   }
 }
+
+
+/* Final mobile/dark readability overrides. */
+@media (max-width: 900px) {
+  html[data-theme="dark"] .nav-links > a,
+  html[data-theme="dark"] .nav-dropdown__trigger {
+    color: #f5f1eb;
+  }
+
+  html[data-theme="dark"] .nav-dropdown__panel a {
+    color: #f5f1eb !important;
+    background: #211e1b !important;
+    border-left-color: #55b892;
+  }
+
+  html[data-theme="dark"] .nav-dropdown__panel a:hover,
+  html[data-theme="dark"] .nav-dropdown__panel a:focus-visible,
+  html[data-theme="dark"] .nav-dropdown--open .nav-dropdown__trigger {
+    color: #69c79f !important;
+    background: #203b32 !important;
+  }
+}

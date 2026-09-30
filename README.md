@@ -1,16 +1,28 @@
-# React + Vite
+# Esmeralda Sweet
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Desarrollo local
 
-Currently, two official plugins are available:
+Este proyecto no incluye `node_modules` ni `.git` en el paquete de entrega. Esto evita errores causados por dependencias instaladas en otro sistema operativo o arquitectura.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+En Windows, desde la carpeta del proyecto:
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Para producción:
 
-## Expanding the Oxlint configuration
+```bash
+npm run build
+npm run preview
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Cambios recientes
+
+- Se redujo el espacio vertical entre la navegación de menús, el buscador y los resultados, en desktop y mobile.
+- Se ajustó la lupa del buscador para mejorar alineación, grosor y contraste en modo oscuro.
+- Se reforzó la legibilidad de textos de navegación/dropdowns en modo oscuro, especialmente en mobile.
+- Se ajustó el hero de los catálogos en mobile para evitar que subtítulos largos queden visualmente cortados.
+- Se eliminó el contador de “propuestas” de cada tipo de menú.
+- Se evitó distribuir `node_modules` dentro del ZIP; `npm install` debe regenerarlo localmente.
