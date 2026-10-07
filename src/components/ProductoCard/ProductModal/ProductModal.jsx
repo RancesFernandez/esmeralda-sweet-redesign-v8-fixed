@@ -190,7 +190,7 @@ Quisiera consultar por *${producto.nombre}*.
             rel="noreferrer"
             onClick={(event) => event.stopPropagation()}
           >
-            Consultar por WhatsApp ↗
+            Consultar por WhatsApp
           </a>
         </div>
       </div>

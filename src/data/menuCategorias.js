@@ -13,7 +13,7 @@ export const menuCategorias = {
         nombre: 'Postres y tortas',
         imagenKey: 'carrotCake',
       },
-      { id: 'masitas', nombre: 'Masitas', imagenKey: 'chaja' },
+      
       { id: 'alfajores', nombre: 'Alfajores', imagenKey: 'alfajoresPrincipal' },
       { id: 'muffins', nombre: 'Muffins', imagenKey: 'muffins' },
       { id: 'rolls-de-canela', nombre: 'Rolls de canela', imagenKey: 'rollsDeCanela' },

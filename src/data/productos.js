@@ -493,27 +493,7 @@ export const productos = [
     },
   },
 
-  {
-    id: 303,
-    categoria: "dulce",
-    subcategoria: "masitas",
-    nombre: "Masitas varias",
-    precio: 1000,
-    descripcion:
-      "Surtido de masitas artesanales. Variedades y presentación a consultar.",
-    imagen: imagenes.productos.sandwiches1,
-    detalle: {
-      secciones: [
-        {
-          titulo: "",
-          items: [],
-        },
-      ],
 
-      precios: [],
-      nota: "Próximamente nuevas propuestas",
-    },
-  },
 
   {
     id: 401,

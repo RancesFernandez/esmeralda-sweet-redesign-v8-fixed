@@ -200,7 +200,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setQuoteOpen(true)}
             >
-              Cotización rápida <span aria-hidden="true">↗</span>
+              Cotización rápida <span aria-hidden="true"></span>
             </button>
             <a
               className="nav-cta"
@@ -208,7 +208,7 @@ export default function Navbar() {
               target="_blank"
               rel="noreferrer"
             >
-              Hacer pedido <span aria-hidden="true">↗</span>
+              Hacer pedido <span aria-hidden="true"></span>
             </a>
           </div>
 

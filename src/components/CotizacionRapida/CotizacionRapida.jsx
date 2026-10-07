@@ -122,7 +122,7 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
             <h3>¿Querés cotizar ahora?</h3>
             <p>Completá los datos esenciales y te llevamos a WhatsApp con el mensaje listo.</p>
             <button className="btn-primary" type="button" onClick={() => window.dispatchEvent(new CustomEvent('open-esmeralda-quote'))}>
-              Abrir cotización rápida ↗
+              Abrir cotización rápida
             </button>
           </div>
         </div>
@@ -243,7 +243,7 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
           </label>
 
           <button className="btn-primary" type="submit">
-            Continuar por WhatsApp ↗
+            Continuar por WhatsApp
           </button>
 
           <small>

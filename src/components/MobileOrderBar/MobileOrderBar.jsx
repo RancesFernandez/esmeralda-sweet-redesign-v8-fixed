@@ -9,7 +9,7 @@ export default function MobileOrderBar() {
         target="_blank"
         rel="noreferrer"
       >
-        Hacer pedido por WhatsApp ↗
+        Hacer pedido por WhatsApp
       </a>
     </div>
   );

@@ -79,7 +79,7 @@ export default function ProductImageGallery({
       </div>
 
       <span className="product-card__quick">
-        Ver detalle <span aria-hidden="true">↗</span>
+        Ver detalle <span aria-hidden="true"></span>
       </span>
     </div>
   );

@@ -197,7 +197,7 @@ export default function ProductoCard({ producto, categoria }) {
           </div>
 
           <span className="product-card__quick">
-            Ver detalle <span aria-hidden="true">↗</span>
+            Ver detalle <span aria-hidden="true"></span>
           </span>
 
         </div>
@@ -453,7 +453,7 @@ Quisiera consultar por *${producto.nombre}*.
                 rel="noreferrer"
                 onClick={(event) => event.stopPropagation()}
               >
-                Consultar por WhatsApp ↗
+                Consultar por WhatsApp
               </a>
 
             </div>

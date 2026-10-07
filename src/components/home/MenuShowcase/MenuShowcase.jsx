@@ -45,7 +45,7 @@ export default function MenuShowcase() {
           <div className="menu-showcase-card__overlay" />
           <div className="menu-showcase-card__top">
             <span className="menu-showcase-card__eyebrow" />
-            <span className="menu-showcase-card__arrow" aria-hidden="true">↗</span>
+           
           </div>
           <div className="menu-showcase-card__content">
             <h3>{menu.title}</h3>
