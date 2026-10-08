@@ -19,6 +19,10 @@ export default function MenuOptionGrid({ opciones = [], selectedId, onSelect }) 
               <img src={imagenes.productos[item.imagenKey]} alt="" />
             </span>
 
+            <span className="menu-option-card__brand" aria-hidden="true">
+              <img src={imagenes.logo} alt="" />
+            </span>
+
             <span className="menu-option-card__overlay" aria-hidden="true" />
 
             <span className="menu-option-card__content">

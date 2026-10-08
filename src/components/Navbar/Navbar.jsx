@@ -111,8 +111,11 @@ export default function Navbar() {
             onClick={closeMenus}
           >
             <img src={imagenes.logo} alt="Esmeralda Sweet" />
-            <span>
-              Esmeralda <strong>sweet</strong>
+            <span className="brand-copy">
+              <span className="brand-name">
+                Esmeralda <strong>sweet</strong> <br />
+              </span>
+              <span className="brand-tagline">Algo rico para alegrar el corazón</span>
             </span>
           </Link>
 
