@@ -15,14 +15,15 @@ export default function StorySection() {
 
         <div className="story-copy">
           <p className="section-kicker">Nuestra historia</p>
-          
+
           <p>
             Hay cosas que comienzan sin grandes planes y terminan convirtiéndose
-            en parte de quienes somos. En 2022, surge la idea de emprender lo que empezó de una manera
-            sencilla: preparando tortas y cosas dulces para mi familia en momentos especiales, por el
-            simple placer de crear algo rico con mis propias manos y compartirlo
-            con quienes más quiero. Lo que comenzó como un hobby fue creciendo
-            poco a poco, hasta convertirse en una verdadera vocación.{" "}
+            en parte de quienes somos. En 2022, surge la idea de emprender lo
+            que empezó de una manera sencilla: preparando tortas y cosas dulces
+            para mi familia en momentos especiales, por el simple placer de
+            crear algo rico con mis propias manos y compartirlo con quienes más
+            quiero. Lo que comenzó como un hobby fue creciendo poco a poco,
+            hasta convertirse en una verdadera vocación.{" "}
           </p>
           <p>
             Desde aquella primera cocina en casa, entre recetas, aprendizajes y
@@ -51,15 +52,17 @@ export default function StorySection() {
           <p>
             {" "}
             Y quizás ahí entendí que esto siempre fue mucho más que preparar una
-            torta, una picada o un box de saladitos. Es crear algo que acompaña un momento, una celebración, un
-            encuentro. Es poner dedicación en cada detalle para que, cuando
-            llegue a la mesa, pueda provocar algo tan sencillo y tan especial
-            como una sonrisa. Porque detrás de cada pedido hay una historia, una
-            persona y un motivo para celebrar. Y esa es, desde el comienzo, la
-            esencia de
+            torta, una picada o un box de saladitos. Es crear algo que acompaña
+            un momento, una celebración, un encuentro. Es poner dedicación en
+            cada detalle para que, cuando llegue a la mesa, pueda provocar algo
+            tan sencillo y tan especial como una sonrisa. Porque detrás de cada
+            pedido hay una historia, una persona y un motivo para celebrar. Y
+            esa es, desde el comienzo, la esencia de Esmeralda Sweet.
           </p>
-          <p className="section-kicker">Esmeralda Sweet: </p>
-          <h3 className="section-kicker">Algo rico para alegrar el corazón.</h3>
+
+          <h3 className="section-kicker">
+            Victoria - Emprendedora y creadora de Esmeralda Sweet.
+          </h3>
         </div>
       </div>
     </section>

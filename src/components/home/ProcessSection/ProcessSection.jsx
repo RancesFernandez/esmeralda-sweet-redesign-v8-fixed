@@ -1,10 +1,10 @@
 import './ProcessSection.css';
 
 const PASOS = [
-  ['01', 'Elegí tu favorito', 'Recorré nuestros productos y encontrá la propuesta que más se adapta a tu momento.'],
+  ['01', 'Elegí tu favorito', 'Recorré nuestro menú y encontrá la propuesta que más se adapta a tu momento.'],
   ['02', 'Escribinos', 'Hacé tu pedido directo por WhatsApp y contanos fecha, cantidad y preferencias.'],
-  ['03', 'Coordinamos', 'Te confirmamos disponibilidad, horario y todos los detalles antes de preparar tu pedido.'],
-  ['04', 'Disfrutá', 'Recibís una propuesta lista para poner en la mesa y compartir.'],
+  ['03', 'Coordinamos', 'Te confirmamos disponibilidad y coordinamos los detalles de tu pedido.'],
+  ['04', 'Disfrutá', 'Recibís o retirás tu pedido creado especialmente para ti.'],
 ];
 
 export default function ProcessSection() {
