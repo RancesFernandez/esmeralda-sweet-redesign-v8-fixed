@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const SITE_URL = 'https://esmeraldasweet.uy';
+const SITE_URL = 'https://esmeraldasweet.com.uy';
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 const SOCIAL_PROFILES = [
   'https://www.instagram.com/esmeralda_sweet_uy/',

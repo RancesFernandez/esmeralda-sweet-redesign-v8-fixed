@@ -40,6 +40,6 @@ Esto permite que React Router funcione correctamente al entrar directamente a es
 
 El SEO está preparado para el dominio final:
 
-`https://esmeraldasweet.uy`
+`https://esmeraldasweet.com.uy`
 
 Cuando conectes ese dominio en Vercel, no hace falta modificar las rutas de la aplicación.

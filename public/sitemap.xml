@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://esmeraldasweet.uy/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://esmeraldasweet.com.uy/</loc>
   </url>
   <url>
-    <loc>https://esmeraldasweet.uy/menu-dulce</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://esmeraldasweet.com.uy/menu-dulce</loc>
   </url>
   <url>
-    <loc>https://esmeraldasweet.uy/menu-salado</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://esmeraldasweet.com.uy/menu-salado</loc>
   </url>
   <url>
-    <loc>https://esmeraldasweet.uy/desayunos</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://esmeraldasweet.com.uy/desayunos</loc>
   </url>
 </urlset>
