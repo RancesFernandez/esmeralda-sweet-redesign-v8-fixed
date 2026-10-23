@@ -5787,3 +5787,41 @@ html[data-theme="dark"] .quote-form small,
 html[data-theme="dark"] .quote-form__hint {
   color: var(--muted);
 }
+
+/* Esmeralda Sweet — mobile product imagery and image viewer */
+.product-card {
+  cursor: pointer;
+}
+
+.product-card:focus-visible {
+  outline: 2px solid var(--verde-esmeralda);
+  outline-offset: 3px;
+}
+
+.product-card__image-stage:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.92);
+  outline-offset: -5px;
+}
+
+@media (max-width: 620px) {
+  .product-card__image,
+  .dulce-section .product-card__image {
+    aspect-ratio: 1.15 / 1;
+  }
+
+  .product-card__image-stage {
+    min-height: 0;
+  }
+
+  .product-card__quick {
+    min-height: 40px;
+    padding: 11px 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .product-card__image,
+  .dulce-section .product-card__image {
+    aspect-ratio: 1.1 / 1;
+  }
+}

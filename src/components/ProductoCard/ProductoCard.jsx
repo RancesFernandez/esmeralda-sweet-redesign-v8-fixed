@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import ProductImageGallery from './ProductImageGallery/ProductImageGallery';
 import ProductModal from './ProductModal/ProductModal';
+import ProductImageLightbox from './ProductImageLightbox/ProductImageLightbox';
 import './ProductoCard.css';
 
 export default function ProductoCard({ producto, categoria }) {
   const [open, setOpen] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
   const listaImagenes = useMemo(
@@ -53,7 +55,13 @@ export default function ProductoCard({ producto, categoria }) {
 
   return (
     <>
-      <article className={`product-card ${esTorta ? 'product-card--torta' : ''}`}>
+      <article
+        className={`product-card ${esTorta ? 'product-card--torta' : ''}`}
+        onClick={() => {
+          const esMobile = window.matchMedia?.('(max-width: 760px)').matches ?? window.innerWidth <= 760;
+          if (esMobile) setOpen(true);
+        }}
+      >
 
         <ProductImageGallery
           producto={producto}
@@ -63,6 +71,7 @@ export default function ProductoCard({ producto, categoria }) {
           onNext={siguienteImagen}
           onSwipe={manejarSwipe}
           onOpen={() => setOpen(true)}
+          onOpenImage={() => setLightboxOpen(true)}
         />
 
         <div className="product-card__body">
@@ -117,6 +126,19 @@ export default function ProductoCard({ producto, categoria }) {
           imagenes={listaImagenes}
           currentImage={currentImage}
           onClose={() => setOpen(false)}
+          onPrevious={() => anteriorImagen()}
+          onNext={() => siguienteImagen()}
+          onSelectImage={cambiarImagen}
+          onOpenImage={() => setLightboxOpen(true)}
+        />
+      )}
+
+      {lightboxOpen && (
+        <ProductImageLightbox
+          productoNombre={producto.nombre}
+          imagenes={listaImagenes}
+          currentImage={currentImage}
+          onClose={() => setLightboxOpen(false)}
           onPrevious={() => anteriorImagen()}
           onNext={() => siguienteImagen()}
           onSelectImage={cambiarImagen}

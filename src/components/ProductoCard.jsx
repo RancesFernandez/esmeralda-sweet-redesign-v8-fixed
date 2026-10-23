@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { whatsappUrl } from '../data/config';
+import ProductImageLightbox from './ProductoCard/ProductImageLightbox/ProductImageLightbox';
 
 export default function ProductoCard({ producto, categoria }) {
   const [open, setOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
 
 
@@ -30,7 +32,9 @@ export default function ProductoCard({ producto, categoria }) {
   };
 
   const touchStartX = useRef(null);
+  const suppressImageClick = useRef(false);
   const modalTouchStartX = useRef(null);
+  const suppressModalImageClick = useRef(false);
 
   const handleTouchStart = (event) => {
     touchStartX.current = event.touches[0].clientX;
@@ -43,6 +47,7 @@ export default function ProductoCard({ producto, categoria }) {
     const distance = touchStartX.current - touchEndX;
 
     if (Math.abs(distance) > 45 && listaImagenes.length > 1) {
+      suppressImageClick.current = true;
       if (distance > 0) {
         cambiarImagen(
           (currentImage + 1) % listaImagenes.length
@@ -53,6 +58,7 @@ export default function ProductoCard({ producto, categoria }) {
           listaImagenes.length
         );
       }
+      window.setTimeout(() => { suppressImageClick.current = false; }, 350);
     }
 
     touchStartX.current = null;
@@ -69,6 +75,7 @@ export default function ProductoCard({ producto, categoria }) {
     const distance = modalTouchStartX.current - touchEndX;
 
     if (Math.abs(distance) > 45 && listaImagenes.length > 1) {
+      suppressModalImageClick.current = true;
       if (distance > 0) {
         cambiarImagen(
           (currentImage + 1) % listaImagenes.length
@@ -79,6 +86,7 @@ export default function ProductoCard({ producto, categoria }) {
           listaImagenes.length
         );
       }
+      window.setTimeout(() => { suppressModalImageClick.current = false; }, 350);
     }
 
     modalTouchStartX.current = null;
@@ -173,8 +181,23 @@ export default function ProductoCard({ producto, categoria }) {
 
           <div
             className="product-card__image-stage"
+            role="button"
+            tabIndex={0}
+            aria-label={`Ampliar imagen de ${producto.nombre}`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
+            onClick={(event) => {
+              event.stopPropagation();
+              if (suppressImageClick.current) return;
+              setLightboxOpen(true);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                event.stopPropagation();
+                setLightboxOpen(true);
+              }
+            }}
           >
             <img
               key={imagenActual}
@@ -292,6 +315,21 @@ export default function ProductoCard({ producto, categoria }) {
                 src={imagenActual}
                 alt={producto.nombre}
                 decoding="async"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  if (suppressModalImageClick.current) return;
+                  setLightboxOpen(true);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    setLightboxOpen(true);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`Ampliar imagen de ${producto.nombre}`}
               />
 
               {listaImagenes.length > 1 && (
@@ -452,6 +490,18 @@ Quisiera consultar por *${producto.nombre}*.
           </div>
 
         </div>
+      )}
+
+      {lightboxOpen && (
+        <ProductImageLightbox
+          productoNombre={producto.nombre}
+          imagenes={listaImagenes}
+          currentImage={currentImage}
+          onClose={() => setLightboxOpen(false)}
+          onPrevious={() => cambiarImagen((currentImage - 1 + listaImagenes.length) % listaImagenes.length)}
+          onNext={() => cambiarImagen((currentImage + 1) % listaImagenes.length)}
+          onSelectImage={cambiarImagen}
+        />
       )}
     </>
   );

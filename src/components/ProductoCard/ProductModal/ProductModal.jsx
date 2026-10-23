@@ -12,8 +12,10 @@ export default function ProductModal({
   onPrevious,
   onNext,
   onSelectImage,
+  onOpenImage,
 }) {
   const touchStartX = useRef(null);
+  const suppressImageClick = useRef(false);
   const esTorta = producto.subsubcategoria === 'tortas-y-postres';
 
   useEffect(() => {
@@ -40,8 +42,10 @@ export default function ProductModal({
     const distance = touchStartX.current - event.changedTouches[0].clientX;
 
     if (Math.abs(distance) > 45 && imagenes.length > 1) {
+      suppressImageClick.current = true;
       if (distance > 0) onNext();
       else onPrevious();
+      window.setTimeout(() => { suppressImageClick.current = false; }, 350);
     }
 
     touchStartX.current = null;
@@ -70,7 +74,26 @@ export default function ProductModal({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <img src={imagen} alt={producto.nombre} decoding="async" />
+          <img
+            src={imagen}
+            alt={producto.nombre}
+            decoding="async"
+            onClick={(event) => {
+              event.stopPropagation();
+              if (suppressImageClick.current) return;
+              onOpenImage?.();
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                event.stopPropagation();
+                onOpenImage?.();
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label={`Ampliar imagen de ${producto.nombre}`}
+          />
 
           {imagenes.length > 1 && (
             <>
