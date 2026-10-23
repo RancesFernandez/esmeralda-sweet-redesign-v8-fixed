@@ -5,6 +5,7 @@ import ProductoCard from '../components/ProductoCard';
 import { getCategoria, getOpcion } from '../data/menuCategorias';
 import { imagenes } from '../data/imagenes';
 import { buscarProductos } from '../lib/busquedaProductos';
+import SEO, { buildWebPageSchema } from '../components/SEO/SEO';
 
 
 function DulceTortasSections({ productos }) {
@@ -188,8 +189,22 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
 
 
 
+  const seoPath = categoria === 'dulce' ? '/menu-dulce' : categoria === 'salado' ? '/menu-salado' : '/desayunos';
+  const seoTitle = categoria === 'dulce'
+    ? 'Tortas, postres y alfajores artesanales | Esmeralda Sweet'
+    : categoria === 'salado'
+      ? 'Menú salado y picadas | Esmeralda Sweet'
+      : 'Desayunos para regalar en Montevideo | Esmeralda Sweet';
+  const seoDescription = categoria === 'dulce'
+    ? 'Descubrí tortas artesanales, tortas personalizadas, postres, brownies, cheesecakes, alfajores y opciones sin azúcar de Esmeralda Sweet en Montevideo.'
+    : categoria === 'salado'
+      ? 'Conocé las propuestas saladas, saladitos y picadas artesanales de Esmeralda Sweet en Montevideo, ideales para compartir y celebrar.'
+      : 'Elegí desayunos artesanales individuales y para compartir, con opciones dulces y saladas para regalar en Montevideo.';
+
   return (
-    <main className="catalog-page">
+    <>
+      <SEO title={seoTitle} description={seoDescription} path={seoPath} jsonLd={buildWebPageSchema({ title: seoTitle, description: seoDescription, path: seoPath })} />
+      <main className="catalog-page">
       <section className={`catalog-hero catalog-hero--${categoria}`}>
         <div className="catalog-hero__decor catalog-hero__decor--one" />
         <div className="catalog-hero__decor catalog-hero__decor--two" />
@@ -438,6 +453,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
         </div>
       </section>
 
-    </main>
+      </main>
+    </>
   );
 }

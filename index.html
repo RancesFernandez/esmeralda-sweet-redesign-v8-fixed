@@ -16,8 +16,9 @@
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,6 +74,40 @@
       content="Esmeralda Sweet - Pastelería artesanal"
     />
 
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://esmeraldasweet.com.uy/#website",
+            "url": "https://esmeraldasweet.com.uy/",
+            "name": "Esmeralda Sweet",
+            "inLanguage": "es-UY",
+            "publisher": { "@id": "https://esmeraldasweet.com.uy/#bakery" }
+          },
+          {
+            "@type": "Bakery",
+            "@id": "https://esmeraldasweet.com.uy/#bakery",
+            "name": "Esmeralda Sweet",
+            "url": "https://esmeraldasweet.com.uy/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://esmeraldasweet.com.uy/favicon.png",
+              "width": 512,
+              "height": 512
+            },
+            "image": "https://esmeraldasweet.com.uy/og-image.jpg",
+            "description": "Pastelería artesanal en Montevideo: tortas, postres, alfajores, desayunos y propuestas dulces y saladas.",
+            "areaServed": { "@type": "City", "name": "Montevideo" },
+            "sameAs": [
+              "https://www.instagram.com/esmeralda_sweet_uy/",
+              "https://www.tiktok.com/@esmeralda_sweet_uy"
+            ]
+          }
+        ]
+      }
+    </script>
     <title>Esmeralda Sweet | Pastelería artesanal en Montevideo</title>
   </head>
   <body>
