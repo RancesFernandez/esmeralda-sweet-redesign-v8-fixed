@@ -1,10 +1,3 @@
-.dulce-section__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  padding: 0 28px 28px;
-}
-
 .dulce-sections {
   display: flex;
   flex-direction: column;
@@ -13,59 +6,12 @@
 }
 
 .dulce-section {
+  overflow: hidden;
   border: 1px solid var(--borde);
   border-radius: 20px;
-  background: #fff;
-  overflow: hidden;
+  background: var(--blanco);
   box-shadow: 0 8px 24px rgba(38, 37, 33, 0.045);
-  transition:
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.dulce-section + .dulce-section {
-  margin-top: 0;
-}
-
-.dulce-section__heading {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 24px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  text-align: left;
-  color: var(--texto);
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.dulce-section__heading h2 {
-  margin: 0;
-  font-family: "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
-  font-size: clamp(1.7rem, 3vw, 2.35rem);
-  line-height: 1;
-  letter-spacing: .035em;
-  text-transform: uppercase;
-  text-wrap: balance;
-}
-
-.dulce-section__heading p:last-child {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-  max-width: 360px;
-}
-
-.dulce-section__heading>p {
-  max-width: 390px;
-  margin: 0 0 2px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.65;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .dulce-section:hover {
@@ -77,6 +23,32 @@
   border-color: rgba(15, 122, 91, 0.22);
 }
 
+.dulce-section__header {
+  padding: 24px 28px;
+}
+
+.dulce-section__header > .section-kicker {
+  margin-bottom: 3px;
+}
+
+.dulce-section__heading-title {
+  margin: 0;
+  font: inherit;
+}
+
+.dulce-section__heading {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--texto);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
 .dulce-section__heading:hover {
   background: #fcfbf8;
 }
@@ -86,69 +58,69 @@
   outline-offset: -3px;
 }
 
-.dulce-section__heading-text {
-  min-width: 0;
+.dulce-section__title-row {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 3px;
 }
 
 .dulce-section__title {
   display: block;
-  margin-top: 3px;
+  min-width: 0;
+  margin: 0;
+  color: var(--texto);
   font-family: "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
   font-size: clamp(1.65rem, 3vw, 2.25rem);
-  line-height: 1;
+  font-weight: 700;
+  line-height: 1.05;
   letter-spacing: 0.035em;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .dulce-section__description {
   display: block;
   max-width: 680px;
-  margin-top: 10px;
+  margin: 10px 0 0;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.6;
 }
 
 .dulce-section__arrow {
-  flex: 0 0 auto;
+  display: grid;
+  flex: 0 0 42px;
+  place-items: center;
   width: 42px;
   height: 42px;
   border: 1px solid var(--borde);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--verde-esmeralda);
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
-  transition:
-    transform 0.3s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
+  transition: transform 0.3s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
-.dulce-section__heading:hover .dulce-section__arrow {
+.dulce-section__heading:hover .dulce-section__arrow,
+.dulce-section.is-open .dulce-section__arrow {
   background: var(--verde-claro);
   border-color: rgba(15, 122, 91, 0.2);
 }
 
 .dulce-section.is-open .dulce-section__arrow {
   transform: rotate(180deg);
-  background: var(--verde-claro);
-  border-color: rgba(15, 122, 91, 0.2);
 }
 
 .dulce-section__content {
   display: grid;
   grid-template-rows: 0fr;
-  transition:
-    grid-template-rows 0.35s ease,
-    opacity 0.25s ease;
   opacity: 0;
+  transition: grid-template-rows 0.35s ease, opacity 0.25s ease;
 }
 
 .dulce-section.is-open .dulce-section__content {
@@ -156,160 +128,117 @@
   opacity: 1;
 }
 
-.dulce-section__content>* {
+.dulce-section__content > * {
   min-height: 0;
   overflow: hidden;
 }
 
+.dulce-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 22px;
+  padding: 0 28px 28px;
+}
+
+.dulce-section__grid .product-card {
+  width: 100%;
+  height: 100%;
+}
+
+.dulce-section .product-card__image {
+  aspect-ratio: 4 / 3;
+}
+
+.dulce-section__grid .product-card__body {
+  min-height: 190px;
+}
+
 @media (max-width: 1100px) {
   .dulce-section__grid {
-          grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-        }
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 700px) {
-  .dulce-section__grid {
-          grid-template-columns: 1fr;
-      
-          gap: 1rem;
-        }
-}
-
-@media (max-width: 760px) {
   .dulce-sections {
-          gap: 28px;
-          margin-top: 38px;
-        }
-
-  .dulce-section__heading {
-          display: block;
-          margin-bottom: 20px;
-        }
-
-  .dulce-section__heading h2 {
-          font-size: clamp(27px, 8vw, 36px);
-        }
-
-  .dulce-section__heading p:last-child {
-          max-width: 560px;
-        }
-
-  .dulce-section__grid {
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
+    gap: 12px;
+    margin-top: 36px;
+  }
 
   .dulce-section {
-          border-radius: 16px;
-        }
+    border-radius: 16px;
+  }
 
-  .dulce-section__heading>p {
-          margin-top: 10px;
-        }
-}
-
-@media (max-width: 520px) {
-  .dulce-sections {
-          margin-top: 34px;
-          gap: 34px;
-        }
+  .dulce-section__header {
+    padding: 20px;
+  }
 
   .dulce-section__heading {
-          gap: 8px;
-        }
-
-  .dulce-section__heading h2 {
-          font-size: 1.65rem;
-        }
-
-  .dulce-section__heading p:last-child {
-          font-size: 12px;
-          line-height: 1.6;
-        }
-
-  .dulce-section__grid {
-          max-width: none;
-        }
-
-  .dulce-section {
-          border-radius: 16px;
-        }
-}
-
-@media (max-width: 900px) {
-  .dulce-section__grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-}
-
-@media (max-width: 650px) {
-  .dulce-sections {
-          margin-top: 36px;
-          gap: 12px;
-        }
-
-  .dulce-section {
-          border-radius: 16px;
-        }
-
-  .dulce-section__heading {
-          padding: 20px;
-          gap: 16px;
-        }
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+  }
 
   .dulce-section__title {
-          font-size: clamp(1.4rem, 7vw, 1.8rem);
-        }
-
-  .dulce-section__description {
-          margin-top: 8px;
-          font-size: 12px;
-          line-height: 1.55;
-        }
+    font-size: clamp(1.35rem, 6vw, 1.8rem);
+    line-height: 1.1;
+  }
 
   .dulce-section__arrow {
-          width: 38px;
-          height: 38px;
-          font-size: 16px;
-        }
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+  }
 
   .dulce-section__grid {
-          grid-template-columns: 1fr;
-          gap: 16px;
-          padding: 0 20px 20px;
-        }
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 0 20px 20px;
+  }
+
+  .dulce-section__grid .product-card__body {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .dulce-section__header {
+    padding: 18px 16px;
+  }
+
+  .dulce-section__heading {
+    padding: 0;
+  }
+
+  .dulce-section__title-row {
+    gap: 8px;
+  }
+
+  .dulce-section__title {
+    font-size: 1.3rem;
+  }
+
+  .dulce-section__arrow {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .dulce-section__grid {
+    padding: 0 16px 16px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .dulce-section,
-        .dulce-section__heading,
-        .dulce-section__arrow,
-        .dulce-section__content {
-          transition: none;
-        }
+  .dulce-section__heading,
+  .dulce-section__arrow,
+  .dulce-section__content {
+    transition: none;
+  }
 }
 
-@media (max-width: 600px) {
-  .dulce-section__heading {
-          padding: 1.25rem;
-        }
-
-  .dulce-section__grid {
-          grid-template-columns: 1fr;
-        }
-
-  .dulce-section__arrow {
-          width: 36px;
-          height: 36px;
-        }
-}
-
-/* =========================================================
-   DARK MODE — dulce sections
-   The base component uses light-only white surfaces, so they
-   need explicit dark-theme overrides to preserve contrast.
-   ========================================================= */
 html[data-theme="dark"] .dulce-section {
   background: var(--blanco);
   border-color: var(--borde);

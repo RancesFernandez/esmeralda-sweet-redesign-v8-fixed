@@ -53,19 +53,8 @@ export default function ProductoCard({ producto, categoria }) {
 
   return (
     <>
-      <article
-        className={`product-card ${esTorta ? 'product-card--torta' : ''}`}
-        tabIndex={0}
-        role="button"
-        aria-label={`Ver detalle de ${producto.nombre}`}
-        onClick={() => setOpen(true)}
-        onKeyDown={(event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            setOpen(true);
-          }
-        }}
-      >
+      <article className={`product-card ${esTorta ? 'product-card--torta' : ''}`}>
+
         <ProductImageGallery
           producto={producto}
           imagenes={listaImagenes}
@@ -73,6 +62,7 @@ export default function ProductoCard({ producto, categoria }) {
           onPrevious={anteriorImagen}
           onNext={siguienteImagen}
           onSwipe={manejarSwipe}
+          onOpen={() => setOpen(true)}
         />
 
         <div className="product-card__body">
@@ -104,10 +94,18 @@ export default function ProductoCard({ producto, categoria }) {
             </strong>
           )}
 
-          <span className="product-card__link">
+          <button
+            type="button"
+            className="product-card__link"
+            aria-label={`Ver detalle de ${producto.nombre} y opciones de consulta`}
+            onClick={(event) => {
+              event.stopPropagation();
+              setOpen(true);
+            }}
+          >
             Consultar por WhatsApp
             <span aria-hidden="true">→</span>
-          </span>
+          </button>
         </div>
       </article>
 

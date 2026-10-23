@@ -86,7 +86,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
         : "menú dulce";
 
   return (
-    <main className="catalog-page">
+    <main id="main-content" tabIndex={-1} className="catalog-page">
       <CatalogHero
         categoria={categoria}
         titulo={titulo}
@@ -101,6 +101,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
               className={`menu-switcher__link ${
                 categoria === "dulce" ? "is-active" : ""
               }`}
+              aria-current={categoria === "dulce" ? "page" : undefined}
             >
               Menú dulce
             </Link>
@@ -110,6 +111,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
               className={`menu-switcher__link ${
                 categoria === "salado" ? "is-active" : ""
               }`}
+              aria-current={categoria === "salado" ? "page" : undefined}
             >
               Menú salado
             </Link>
@@ -119,6 +121,7 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
               className={`menu-switcher__link ${
                 categoria === "desayunos" ? "is-active" : ""
               }`}
+              aria-current={categoria === "desayunos" ? "page" : undefined}
             >
               Desayunos
             </Link>

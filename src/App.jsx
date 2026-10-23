@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import Inicio from './pages/Inicio';
 import Navbar from './components/Navbar/Navbar';
 import MobileOrderBar from './components/MobileOrderBar/MobileOrderBar';
+import SiteFooter from './components/home/SiteFooter/SiteFooter';
 
 const MenuDulce = lazy(() => import('./pages/MenuDulce/MenuDulce'));
 const MenuSalado = lazy(() => import('./pages/MenuSalado/MenuSalado'));
@@ -25,6 +26,7 @@ export default function App() {
     <>
       <ScrollToTop />
 
+      <a className="skip-link" href="#main-content">Saltar al contenido principal</a>
       <Navbar />
 
       <Suspense
@@ -42,6 +44,7 @@ export default function App() {
         </Routes>
       </Suspense>
 
+      <SiteFooter />
       <MobileOrderBar />
 
       <Analytics />

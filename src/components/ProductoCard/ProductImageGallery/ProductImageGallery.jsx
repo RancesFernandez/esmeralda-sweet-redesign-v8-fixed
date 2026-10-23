@@ -8,6 +8,7 @@ export default function ProductImageGallery({
   onPrevious,
   onNext,
   onSwipe,
+  onOpen,
 }) {
   const touchStartX = useRef(null);
 
@@ -76,9 +77,17 @@ export default function ProductImageGallery({
         />
       </div>
 
-      <span className="product-card__quick">
-        Ver detalle <span aria-hidden="true"></span>
-      </span>
+      <button
+        type="button"
+        className="product-card__quick"
+        aria-label={`Ver detalle de ${producto.nombre}`}
+        onClick={(event) => {
+          event.stopPropagation();
+          onOpen();
+        }}
+      >
+        Ver detalle <span aria-hidden="true">→</span>
+      </button>
     </div>
   );
 }

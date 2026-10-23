@@ -131,7 +131,6 @@ export default function Navbar() {
                 className={`nav-dropdown__trigger ${isMenuSectionActive ? "is-active" : ""}`}
                 type="button"
                 aria-expanded={menuOpen}
-                aria-haspopup="true"
                 aria-controls="site-menu-panel"
                 onClick={() => setMenuOpen((value) => !value)}
               >
@@ -140,7 +139,12 @@ export default function Navbar() {
 
               <div id="site-menu-panel" className="nav-dropdown__panel">
                 {menuItems.map(({ label, to }) => (
-                  <Link key={to} to={to} onClick={closeMenus}>
+                  <Link
+                    key={to}
+                    to={to}
+                    onClick={closeMenus}
+                    aria-current={location.pathname === to ? "page" : undefined}
+                  >
                     {label}
                   </Link>
                 ))}

@@ -7,7 +7,6 @@ import StorySection from '../components/home/StorySection/StorySection';
 import CotizacionRapida from '../components/CotizacionRapida/CotizacionRapida';
 import FaqSection from '../components/home/FaqSection/FaqSection';
 import EventCta from '../components/home/EventCta/EventCta';
-import SiteFooter from '../components/home/SiteFooter/SiteFooter';
 import SEO, { buildBusinessSchema, buildWebPageSchema } from '../components/SEO/SEO';
 
 export default function Inicio() {
@@ -22,7 +21,7 @@ export default function Inicio() {
         path="/"
         jsonLd={[buildBusinessSchema(), buildWebPageSchema({ title, description, path: '/' })]}
       />
-      <main>
+      <main id="main-content" tabIndex={-1}>
       <HeroHome />
       <InfoStrip />
       <ProductsSection />
@@ -32,7 +31,6 @@ export default function Inicio() {
       <CotizacionRapida />
       <FaqSection />
       <EventCta />
-      <SiteFooter />
       </main>
     </>
   );

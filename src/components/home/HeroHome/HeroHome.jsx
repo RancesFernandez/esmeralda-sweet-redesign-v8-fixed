@@ -23,6 +23,8 @@ export default function HeroHome() {
   const [enteringSlide, setEnteringSlide] = useState(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
     let cancelled = false;
     const timer = window.setTimeout(() => {
       const nextSlide = (activeSlide + 1) % HERO_IMAGES.length;

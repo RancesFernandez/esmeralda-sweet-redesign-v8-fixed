@@ -6,17 +6,17 @@ const SECCIONES = [
   {
     id: 'tortas-y-postres',
     titulo: 'Tortas y postres',
-    
+    descripcion: 'Clásicos artesanales para compartir.',
   },
   {
     id: 'tortas-personalizadas',
     titulo: 'Tortas personalizadas',
-    
+    descripcion: 'Diseños a medida para celebrar momentos especiales.',
   },
   {
     id: 'sin-azucar',
     titulo: 'Sin azúcar',
-    
+    descripcion: 'Opciones de nuestra línea sin azúcar.',
   },
 ];
 
@@ -50,20 +50,33 @@ export default function DulceTortasSections({ productos }) {
             className={`dulce-section ${isOpen ? 'is-open' : ''}`}
             key={seccion.id}
           >
-            <button
-              type="button"
-              className="dulce-section__heading"
-              onClick={() => toggleSection(seccion.id)}
-              aria-expanded={isOpen}
-              aria-controls={contentId}
-            >
-              <span className="dulce-section__heading-text">
-                <span className="section-kicker">Esmeralda Sweet</span>
-                <span className="dulce-section__title">{seccion.titulo}</span>
-                <span className="dulce-section__description">{seccion.descripcion}</span>
-              </span>
-              <span className="dulce-section__arrow" aria-hidden="true">↓</span>
-            </button>
+            <div className="dulce-section__header">
+              <span className="section-kicker">Esmeralda Sweet</span>
+              <h2 className="dulce-section__heading-title">
+                <button
+                  type="button"
+                  className="dulce-section__heading"
+                  onClick={() => toggleSection(seccion.id)}
+                  aria-expanded={isOpen}
+                  aria-controls={contentId}
+                  aria-labelledby={`dulce-title-${seccion.id}`}
+                  aria-describedby={`dulce-description-${seccion.id}`}
+                >
+                  <span className="dulce-section__title-row">
+                    <span id={`dulce-title-${seccion.id}`} className="dulce-section__title">
+                      {seccion.titulo}
+                    </span>
+                    <span className="dulce-section__arrow" aria-hidden="true">↓</span>
+                  </span>
+                </button>
+              </h2>
+              <p
+                id={`dulce-description-${seccion.id}`}
+                className="dulce-section__description"
+              >
+                {seccion.descripcion}
+              </p>
+            </div>
 
             <div
               id={contentId}
