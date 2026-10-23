@@ -1,37 +1,5 @@
 # Imágenes del sitio
 
-Esta carpeta contiene todas las imágenes visuales de Esmeralda Sweet.
+Las fotografías del proyecto se guardan en formato **WebP** para reducir el peso transferido y mantener una buena calidad visual. Se importan desde `src/data/imagenes.js`, que centraliza las referencias a los recursos.
 
-## Cómo agregar una imagen real
-
-1. Copiá la foto en la carpeta correspondiente:
-   - `hero/` para el banner principal.
-   - `productos/` para productos del catálogo.
-   - `galeria/` para fotos de eventos/mesas.
-   - `nosotros/` para historia y marca.
-2. Abrí `src/data/imagenes.js`.
-3. Importá la imagen con su ruta real.
-4. Reemplazá el placeholder que estaba usando ese nombre.
-
-Ejemplo:
-
-```js
-import picadaGrande from '../assets/images/productos/picada-grande.jpg';
-```
-
-Luego:
-
-```js
-productos: {
-  picadaGrande,
-}
-```
-
-## Recomendación
-
-Usá nombres sin espacios ni tildes, por ejemplo:
-
-- `picada-grande.jpg`
-- `evento-01.webp`
-- `historia.jpg`
-
+Al reemplazar una fotografía, conviene exportarla como WebP de calidad aproximada 82–88 y conservar una dimensión máxima de alrededor de 2560 px para permitir ampliarla en el modal sin perder definición. No hace falta incluir `node_modules/`, `dist/` ni archivos de entorno en una entrega del código fuente.

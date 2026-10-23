@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Inicio from './pages/Inicio';
-import MenuDulce from './pages/MenuDulce/MenuDulce';
-import MenuSalado from './pages/MenuSalado/MenuSalado';
-import MenuDesayunos from './pages/MenuDesayunos/MenuDesayunos';
-import Navbar from './components/Navbar/Navbar';
-import MobileOrderBar from './components/MobileOrderBar/MobileOrderBar';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import Inicio from './pages/Inicio';
+import Navbar from './components/Navbar/Navbar';
+import MobileOrderBar from './components/MobileOrderBar/MobileOrderBar';
+
+const MenuDulce = lazy(() => import('./pages/MenuDulce/MenuDulce'));
+const MenuSalado = lazy(() => import('./pages/MenuSalado/MenuSalado'));
+const MenuDesayunos = lazy(() => import('./pages/MenuDesayunos/MenuDesayunos'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -26,12 +27,20 @@ export default function App() {
 
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/menu-dulce" element={<MenuDulce />} />
-        <Route path="/menu-salado" element={<MenuSalado />} />
-        <Route path="/desayunos" element={<MenuDesayunos />} />
-      </Routes>
+      <Suspense
+        fallback={
+          <div className="route-loading" role="status" aria-live="polite">
+            Cargando menú…
+          </div>
+        }
+      >
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/menu-dulce" element={<MenuDulce />} />
+          <Route path="/menu-salado" element={<MenuSalado />} />
+          <Route path="/desayunos" element={<MenuDesayunos />} />
+        </Routes>
+      </Suspense>
 
       <MobileOrderBar />
 

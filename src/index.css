@@ -5591,3 +5591,14 @@ html[data-theme="dark"] .catalog-search-empty {
     margin-bottom: 36px;
   }
 }
+
+
+/* Placeholder shown only while a separately bundled menu route is loading. */
+.route-loading {
+  min-height: 45vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+  color: var(--muted);
+  font-size: 14px;
+}

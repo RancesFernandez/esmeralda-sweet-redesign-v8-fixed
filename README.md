@@ -26,3 +26,7 @@ npm run preview
 - Se ajustó el hero de los catálogos en mobile para evitar que subtítulos largos queden visualmente cortados.
 - Se eliminó el contador de “propuestas” de cada tipo de menú.
 - Se evitó distribuir `node_modules` dentro del ZIP; `npm install` debe regenerarlo localmente.
+
+## Rendimiento
+
+Se optimizaron las fotografías, se ajustó la carga diferida de imágenes y se separó el código de los menús. Los detalles están en [OPTIMIZACIONES_RENDIMIENTO.md](./OPTIMIZACIONES_RENDIMIENTO.md).

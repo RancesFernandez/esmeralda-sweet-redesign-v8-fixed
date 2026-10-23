@@ -16,11 +16,11 @@ export default function MenuOptionGrid({ opciones = [], selectedId, onSelect }) 
             aria-pressed={isActive}
           >
             <span className="menu-option-card__image" aria-hidden="true">
-              <img src={imagenes.productos[item.imagenKey]} alt="" />
+              <img src={imagenes.productos[item.imagenKey]} alt="" loading="lazy" decoding="async" />
             </span>
 
             <span className="menu-option-card__brand" aria-hidden="true">
-              <img src={imagenes.logo} alt="" />
+              <img src={imagenes.logo} alt="" loading="lazy" decoding="async" />
             </span>
 
             <span className="menu-option-card__overlay" aria-hidden="true" />

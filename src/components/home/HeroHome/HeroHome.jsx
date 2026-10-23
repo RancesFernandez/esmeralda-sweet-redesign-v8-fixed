@@ -19,28 +19,65 @@ const SLIDE_DURATION = 15000;
 
 export default function HeroHome() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [previousSlide, setPreviousSlide] = useState(null);
+  const [enteringSlide, setEnteringSlide] = useState(null);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % HERO_IMAGES.length);
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      const nextSlide = (activeSlide + 1) % HERO_IMAGES.length;
+      const nextImage = new window.Image();
+
+      const showNextSlide = () => {
+        if (cancelled) return;
+        setPreviousSlide(activeSlide);
+        setActiveSlide(nextSlide);
+        setEnteringSlide(nextSlide);
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            if (!cancelled) setEnteringSlide(null);
+          });
+        });
+      };
+
+      nextImage.onload = showNextSlide;
+      nextImage.onerror = showNextSlide;
+      nextImage.src = HERO_IMAGES[nextSlide].src;
     }, SLIDE_DURATION);
 
-    return () => window.clearInterval(timer);
-  }, []);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [activeSlide]);
+
+  useEffect(() => {
+    if (previousSlide === null) return undefined;
+    const timer = window.setTimeout(() => setPreviousSlide(null), 1200);
+    return () => window.clearTimeout(timer);
+  }, [previousSlide, activeSlide]);
 
   return (
     <section className="hero-home" aria-label="Presentación de Esmeralda Sweet">
       <div className="hero-home__slides" aria-hidden="true">
-        {HERO_IMAGES.map((image, index) => (
+        {previousSlide !== null && (
           <img
-            key={image.src}
-            className={`hero-home__image ${index === activeSlide ? "is-active" : ""}`}
-            src={image.src}
+            key={HERO_IMAGES[previousSlide].src}
+            className="hero-home__image is-leaving"
+            src={HERO_IMAGES[previousSlide].src}
             alt=""
-            loading={index === 0 ? "eager" : "lazy"}
-            fetchPriority={index === 0 ? "high" : "auto"}
+            decoding="async"
           />
-        ))}
+        )}
+        <img
+          key={HERO_IMAGES[activeSlide].src}
+          className={`hero-home__image ${enteringSlide === activeSlide ? "is-entering" : "is-active"}`}
+          src={HERO_IMAGES[activeSlide].src}
+          alt=""
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
       </div>
       <div className="hero-home__overlay" aria-hidden="true" />
       <div className="hero-home__glow" aria-hidden="true" />

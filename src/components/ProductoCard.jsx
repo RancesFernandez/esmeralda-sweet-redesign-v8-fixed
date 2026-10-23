@@ -15,13 +15,6 @@ export default function ProductoCard({ producto, categoria }) {
 
   const imagenActual = listaImagenes[currentImage];
 
-  useEffect(() => {
-    listaImagenes.forEach((src) => {
-      const image = new Image();
-      image.src = src;
-    });
-  }, [listaImagenes]);
-
   const cambiarImagen = (nuevoIndice) => {
     if (nuevoIndice === currentImage) return;
 
@@ -183,17 +176,15 @@ export default function ProductoCard({ producto, categoria }) {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            {listaImagenes.map((src, index) => (
-              <img
-                key={src}
-                src={src}
-                alt={index === currentImage ? producto.nombre : ''}
-                aria-hidden={index !== currentImage}
-                loading={index === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-                className={index === currentImage ? 'is-active' : ''}
-              />
-            ))}
+            <img
+              key={imagenActual}
+              src={imagenActual}
+              alt={producto.nombre}
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
+              className="is-active"
+            />
           </div>
 
           <span className="product-card__quick">

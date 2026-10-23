@@ -16,13 +16,6 @@ export default function ProductoCard({ producto, categoria }) {
   const esTorta = producto.subsubcategoria === 'tortas-y-postres';
 
   useEffect(() => {
-    listaImagenes.forEach((src) => {
-      const image = new Image();
-      image.src = src;
-    });
-  }, [listaImagenes]);
-
-  useEffect(() => {
     if (!open) {
       setCurrentImage(0);
       return undefined;

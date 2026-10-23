@@ -65,17 +65,15 @@ export default function ProductImageGallery({
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {imagenes.map((src, index) => (
-          <img
-            key={src}
-            src={src}
-            alt={index === currentImage ? `${producto.nombre} - Esmeralda Sweet` : ''}
-            aria-hidden={index !== currentImage}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            decoding="async"
-            className={index === currentImage ? 'is-active' : ''}
-          />
-        ))}
+        <img
+          key={imagenes[currentImage]}
+          src={imagenes[currentImage]}
+          alt={`${producto.nombre} - Esmeralda Sweet`}
+          decoding="async"
+          loading="lazy"
+          fetchPriority="low"
+          className="is-active"
+        />
       </div>
 
       <span className="product-card__quick">

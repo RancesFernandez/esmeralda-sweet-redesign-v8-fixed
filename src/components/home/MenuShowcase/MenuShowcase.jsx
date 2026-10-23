@@ -38,10 +38,9 @@ export default function MenuShowcase() {
           to={menu.path}
           className={`menu-showcase-card menu-showcase-card--${menu.id}`}
         >
-          <div
-            className="menu-showcase-card__image"
-            style={{ backgroundImage: `url(${menu.image})` }}
-          />
+          <div className="menu-showcase-card__image" aria-hidden="true">
+            <img src={menu.image} alt="" loading="lazy" decoding="async" />
+          </div>
           <div className="menu-showcase-card__overlay" />
           <div className="menu-showcase-card__top">
             <span className="menu-showcase-card__eyebrow" />

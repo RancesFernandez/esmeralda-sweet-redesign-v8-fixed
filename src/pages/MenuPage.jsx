@@ -321,6 +321,8 @@ export default function MenuPage({ categoria, titulo, subtitulo }) {
                       <img
                         src={imagenes.productos[item.imagenKey]}
                         alt=""
+                        loading="lazy"
+                        decoding="async"
                       />
                     </span>
 
