@@ -6,17 +6,17 @@ const SECCIONES = [
   {
     id: 'tortas-y-postres',
     titulo: 'Tortas y postres',
-    descripcion: 'Clásicos artesanales para compartir.',
+    
   },
   {
     id: 'tortas-personalizadas',
     titulo: 'Tortas personalizadas',
-    descripcion: 'Diseños a medida para celebrar momentos especiales.',
+    
   },
   {
     id: 'sin-azucar',
     titulo: 'Sin azúcar',
-    descripcion: 'Opciones de nuestra línea sin azúcar.',
+    
   },
 ];
 
