@@ -10,6 +10,8 @@ export default function Comentarios() {
   const [nuevoTexto, setNuevoTexto] = useState('');
   const [nuevoUsuario, setNuevoUsuario] = useState('');
   const [estrellasSeleccionadas, setEstrellasSeleccionadas] = useState(5);
+  const [formOpen, setFormOpen] = useState(false);
+  const [enlaceCopiado, setEnlaceCopiado] = useState(false);
 
   const cargarComentarios = useCallback(async () => {
     setCargandoComentarios(true);
@@ -38,6 +40,35 @@ export default function Comentarios() {
   useEffect(() => {
     cargarComentarios();
   }, [cargarComentarios]);
+
+  useEffect(() => {
+    const abrirFormularioDesdeEnlace = () => {
+      if (window.location.hash === '#dejanos-resena') {
+        setFormOpen(true);
+        window.setTimeout(() => {
+          document.getElementById('dejanos-resena')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 120);
+      }
+    };
+
+    abrirFormularioDesdeEnlace();
+    window.addEventListener('hashchange', abrirFormularioDesdeEnlace);
+    return () => window.removeEventListener('hashchange', abrirFormularioDesdeEnlace);
+  }, []);
+
+  const compartirEnlaceResena = async () => {
+    const enlace = `${window.location.origin}/#dejanos-resena`;
+    try {
+      await navigator.clipboard.writeText(enlace);
+      setEnlaceCopiado(true);
+      window.setTimeout(() => setEnlaceCopiado(false), 2500);
+    } catch {
+      window.prompt('Copiá este enlace para compartirlo:', enlace);
+    }
+  };
 
   const manejarEnvio = async (e) => {
     e.preventDefault();
@@ -81,7 +112,7 @@ export default function Comentarios() {
   };
 
   return (
-    <section className="reviews-section section">
+    <section id="testimonios" className="reviews-section section">
       <div className="section-container">
         <div className="section-heading">
           <p className="section-kicker">Lo que dicen de nosotros</p>
@@ -144,8 +175,15 @@ export default function Comentarios() {
         </div>
 
         {supabase && (
-        <details className="review-form-wrap">
-          <summary>Dejanos tu reseña</summary>
+        <>
+        <div className="review-share">
+          <p>¿Ya probaste nuestras delicias? Nos encantaría conocer tu experiencia.</p>
+          <button type="button" className="review-share__button" onClick={compartirEnlaceResena}>
+            <span aria-hidden="true">↗</span> {enlaceCopiado ? '¡Enlace copiado!' : 'Compartir enlace para dejar una reseña'}
+          </button>
+        </div>
+        <details id="dejanos-resena" className="review-form-wrap" open={formOpen} onToggle={(e) => setFormOpen(e.currentTarget.open)}>
+          <summary onClick={(e) => { e.preventDefault(); setFormOpen((actual) => !actual); }}>Dejanos tu reseña</summary>
           <form onSubmit={manejarEnvio} className="review-form">
             <input required minLength={2} value={nuevoUsuario} onChange={(e) => setNuevoUsuario(e.target.value)} placeholder="Tu nombre" />
             <textarea required minLength={10} value={nuevoTexto} onChange={(e) => setNuevoTexto(e.target.value)} rows="3" placeholder="Contanos tu experiencia..." />
@@ -167,6 +205,7 @@ export default function Comentarios() {
             </div>
           </form>
         </details>
+        </>
         )}
       </div>
     </section>

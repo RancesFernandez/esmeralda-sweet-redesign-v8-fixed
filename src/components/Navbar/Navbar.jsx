@@ -15,6 +15,8 @@ const menuItems = [
 const navItems = [
   ["¿Cómo funciona?", "como-funciona"],
   ["Preguntas frecuentes", "preguntas"],
+  ["Nosotros", "nuestra-historia"],
+  ["Testimonios", "testimonios"],
 ];
 
 export default function Navbar() {
@@ -115,7 +117,9 @@ export default function Navbar() {
               <span className="brand-name">
                 Esmeralda <strong>sweet</strong> <br />
               </span>
-              <span className="brand-tagline">Algo rico para alegrar el corazón</span>
+              <span className="brand-tagline">
+                Algo rico para alegrar el corazón
+              </span>
             </span>
           </Link>
 
@@ -163,16 +167,6 @@ export default function Navbar() {
                 {label}
               </a>
             ))}
-
-            <a
-              href="/#nuestra-historia"
-              onClick={(e) => {
-                e.preventDefault();
-                goToSection("nuestra-historia");
-              }}
-            >
-              Nosotros
-            </a>
 
             <button
               className="nav-quote-mobile"
