@@ -20,6 +20,8 @@ npm run preview
 
 ## Cambios recientes
 
+- Se agregó paginación de testimonios de 8 comentarios por página, con la página activa resaltada en esmeralda tenue y cards de reseñas renovadas. No requiere cambios de esquema en Supabase; ver [PAGINACION_TESTIMONIOS.md](./PAGINACION_TESTIMONIOS.md) para verificación y publicación.
+
 - Se redujo el espacio vertical entre la navegación de menús, el buscador y los resultados, en desktop y mobile.
 - Se ajustó la lupa del buscador para mejorar alineación, grosor y contraste en modo oscuro.
 - Se reforzó la legibilidad de textos de navegación/dropdowns en modo oscuro, especialmente en mobile.
