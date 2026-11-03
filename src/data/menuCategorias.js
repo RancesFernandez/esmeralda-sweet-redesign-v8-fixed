@@ -26,7 +26,7 @@ export const menuCategorias = {
     imagen: null,
     opciones: [
       { id: 'saladitos', nombre: 'Saladitos', descripcion: 'Bocados salados ideales para picar y compartir.', imagenKey: 'sandwiches' },
-      { id: 'picadas', nombre: 'Picadas', descripcion: 'Combinaciones para llevar directo a la mesa.', imagenKey: 'sandwiches6' },
+      { id: 'picadas', nombre: 'Picadas', descripcion: 'Combinaciones para llevar directo a la mesa.', imagenKey: 'picada2' },
     ],
   },
   desayunos: {
