@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { whatsappUrl } from '../../data/config';
-import './CotizacionRapida.css';
+import React, { useEffect, useState } from "react";
+import { whatsappUrl } from "../../data/config";
+import "./CotizacionRapida.css";
 
 const initialForm = {
-  nombre: '',
-  tipo: 'Cumpleaños',
-  personas: '10-20',
-  fecha: '',
-  mensaje: ''
+  nombre: "",
+  tipo: "Cumpleaños",
+  personas: "10-20",
+  fecha: "",
+  mensaje: "",
 };
 
-export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
+export default function CotizacionRapida({ isOpen, onClose = () => {} }) {
   const [form, setForm] = useState(initialForm);
 
   const getLocalDateString = (date) => {
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
 
     return `${year}-${month}-${day}`;
   };
@@ -36,12 +36,12 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
   const update = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'fecha') {
+    if (name === "fecha") {
       // No permitir hoy, mañana ni ninguna fecha anterior.
       if (value && value < minQuoteDate) {
         setForm((current) => ({
           ...current,
-          fecha: '',
+          fecha: "",
         }));
         return;
       }
@@ -63,38 +63,38 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
     if (!isOpen) return undefined;
 
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') onClose();
+      if (event.key === "Escape") onClose();
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
   const submit = (event) => {
     event.preventDefault();
 
     if (form.fecha && form.fecha < minQuoteDate) {
-      alert('Por favor seleccioná una fecha a partir de pasado mañana.');
+      alert("Por favor seleccioná una fecha a partir de pasado mañana.");
       return;
     }
 
     const text = [
-      'Hola Esmeralda Sweet 😊',
-      '',
+      "Hola Esmeralda Sweet 😊",
+      "",
       `Mi nombre es ${form.nombre} y quisiera consultar por una propuesta para ${form.tipo.toLowerCase()}.`,
-      '',
+      "",
       `👥 Somos aproximadamente ${form.personas} personas.`,
-      `📅 La fecha estimada es ${form.fecha || 'a confirmar'}.`,
-      form.mensaje
-        ? `💭 Estoy buscando: ${form.mensaje}`
-        : '',
-      '',
-      '¿Podrían orientarme con las opciones disponibles y pasarme una propuesta?',
-      '',
-      '¡Muchas gracias! 💚',
-    ].filter(Boolean).join('\n');
+      `📅 La fecha estimada es ${form.fecha || "a confirmar"}.`,
+      form.mensaje ? `💭 Estoy buscando: ${form.mensaje}` : "",
+      "",
+      "¿Podrían orientarme con las opciones disponibles y pasarme una propuesta?",
+      "",
+      "¡Muchas gracias! 💚",
+    ]
+      .filter(Boolean)
+      .join("\n");
 
-    window.open(whatsappUrl(text), '_blank', 'noopener,noreferrer');
+    window.open(whatsappUrl(text), "_blank", "noopener,noreferrer");
     onClose();
   };
 
@@ -106,10 +106,12 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
         <div className="section-container quote-grid">
           <div className="quote-copy">
             <p className="section-kicker">¿Tenés una fecha especial?</p>
-            <h2 className="section-title">Contanos qué necesitás y armamos una propuesta.</h2>
+            <h2 className="section-title">
+              Contanos qué necesitás y armamos una propuesta.
+            </h2>
             <p>
-              Prepará tu consulta en pocos pasos y enviala directamente por WhatsApp.
-              No confirma una reserva.
+              Prepará tu consulta en pocos pasos y enviala directamente por
+              WhatsApp. No confirma una reserva.
             </p>
             <div className="quote-trust">
               <span>✓ Atención personalizada</span>
@@ -120,8 +122,17 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
           <div className="quote-inline-card">
             <p className="section-kicker">Más rápido</p>
             <h3>¿Querés cotizar ahora?</h3>
-            <p>Completá los datos esenciales y te llevamos a WhatsApp con el mensaje listo.</p>
-            <button className="btn-primary" type="button" onClick={() => window.dispatchEvent(new CustomEvent('open-esmeralda-quote'))}>
+            <p>
+              Completá los datos esenciales y te llevamos a WhatsApp con el
+              mensaje listo.
+            </p>
+            <button
+              className="btn-primary"
+              type="button"
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open-esmeralda-quote"))
+              }
+            >
               Abrir cotización rápida
             </button>
           </div>
@@ -131,7 +142,11 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
   }
 
   return (
-    <div className="quote-modal-backdrop" role="presentation" onMouseDown={onClose}>
+    <div
+      className="quote-modal-backdrop"
+      role="presentation"
+      onMouseDown={onClose}
+    >
       <div
         className="quote-modal"
         role="dialog"
@@ -158,7 +173,6 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
         </div>
 
         <form className="quote-form quote-form--modal" onSubmit={submit}>
-
           <label>
             Nombre y Apellido
             <input
@@ -205,24 +219,23 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
                 if (event.target.value && event.target.value < minQuoteDate) {
                   setForm((current) => ({
                     ...current,
-                    fecha: '',
+                    fecha: "",
                   }));
                 }
               }}
               onInvalid={(event) => {
                 event.target.setCustomValidity(
-                  `Seleccioná una fecha a partir del ${minQuoteDate.split('-').reverse().join('/')}.`
+                  `Seleccioná una fecha a partir del ${minQuoteDate.split("-").reverse().join("/")}.`,
                 );
               }}
               onInput={(event) => {
-                event.target.setCustomValidity('');
+                event.target.setCustomValidity("");
               }}
               required
             />
             <small className="quote-form__hint">
               Disponible a partir de pasado mañana.
             </small>
-
           </label>
 
           <label className="quote-form__field quote-form__field--full">
@@ -238,7 +251,8 @@ export default function CotizacionRapida({ isOpen, onClose = () => { } }) {
             />
 
             <small className="quote-form__hint">
-              Contanos brevemente qué estás buscando para poder orientarte mejor.
+              Contanos brevemente qué estás buscando para poder orientarte
+              mejor.
             </small>
           </label>
 

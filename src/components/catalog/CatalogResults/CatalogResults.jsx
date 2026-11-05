@@ -1,10 +1,10 @@
-import ProductoCard from '../../ProductoCard/ProductoCard';
-import './CatalogResults.css';
+import ProductoCard from "../../ProductoCard/ProductoCard";
+import "./CatalogResults.css";
 
 const nombresCategoria = {
-  dulce: 'Menú dulce',
-  salado: 'Menú salado',
-  desayunos: 'Desayunos',
+  dulce: "Menú dulce",
+  salado: "Menú salado",
+  desayunos: "Desayunos",
 };
 
 export default function CatalogResults({
@@ -12,22 +12,25 @@ export default function CatalogResults({
   opcion,
   productos,
   globalSearch = false,
-  searchQuery = '',
+  searchQuery = "",
 }) {
   const titulo = globalSearch
     ? `Resultados para “${searchQuery.trim()}”`
     : opcion?.nombre;
 
   return (
-    <div className={`catalog-results ${globalSearch ? 'catalog-results--search' : ''}`}>
+    <div
+      className={`catalog-results ${globalSearch ? "catalog-results--search" : ""}`}
+    >
       <div className="catalog-results__heading">
         <div>
           <p className="section-kicker">
-            {globalSearch ? 'Todo el catálogo' : `${categoriaData?.nombre} · ${opcion?.nombre}`}
+            {globalSearch
+              ? "Todo el catálogo"
+              : `${categoriaData?.nombre} · ${opcion?.nombre}`}
           </p>
           <h2>{titulo}</h2>
         </div>
-
       </div>
 
       {productos.length > 0 ? (

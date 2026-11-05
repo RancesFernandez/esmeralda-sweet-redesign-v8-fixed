@@ -41,7 +41,8 @@ export default function CatalogSearch({ value, onChange, resultCount = 0 }) {
           aria-describedby={`${inputId}-hint`}
         />
         <span id={`${inputId}-hint`} className="sr-only">
-          Escribí un nombre o una categoría para buscar productos en el catálogo.
+          Escribí un nombre o una categoría para buscar productos en el
+          catálogo.
         </span>
 
         {value && (

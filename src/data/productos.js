@@ -410,7 +410,7 @@ export const productos = [
     categoria: "salado",
     subcategoria: "saladitos",
     nombre: "Box de saladitos",
-    descripcion: "Información completa al ingresar.",
+    descripcion: "Box de bocados salados artesanales con variedad de scones, panes, bagels y rellenos para reuniones, celebraciones y eventos.",
     imagen: imagenes.productos.sandwiches,
     imagenes: [
       imagenes.productos.sandwiches,
@@ -464,7 +464,7 @@ export const productos = [
     categoria: "salado",
     subcategoria: "picadas",
     nombre: "Picadas",
-    descripcion: "Información completa al ingresar.",
+    descripcion: "Picada artesanal para compartir, con quesos, fiambres, hummus, aceitunas, maní y panes. Consultá las presentaciones disponibles.",
     imagen: imagenes.productos.picadaPrincipal,
     imagenes: [imagenes.productos.picadaPrincipal, imagenes.productos.picada2],
     detalle: {

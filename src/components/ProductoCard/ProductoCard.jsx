@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { getProductPath } from '../../lib/seoProductos';
 import { useEffect, useMemo, useState } from 'react';
 import ProductImageGallery from './ProductImageGallery/ProductImageGallery';
 import ProductModal from './ProductModal/ProductModal';
@@ -115,6 +117,15 @@ export default function ProductoCard({ producto, categoria }) {
             Consultar por WhatsApp
             <span aria-hidden="true">→</span>
           </button>
+          <Link
+            className="product-card__link product-card__detail-link"
+            to={getProductPath(producto)}
+            onClick={(event) => event.stopPropagation()}
+            aria-label={`Ver información completa de ${producto.nombre}`}
+          >
+            Ver información del producto
+            <span aria-hidden="true">↗</span>
+          </Link>
         </div>
       </article>
 

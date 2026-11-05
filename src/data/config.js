@@ -1,4 +1,5 @@
-export const WHATSAPP_NUMBER = '+598099123926';
+// wa.me requires the international number with digits only (without +, spaces or dashes).
+export const WHATSAPP_NUMBER = '598099123926';
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const MSG_PEDIDO_GENERAL = `Hola Esmeralda Sweet 😊

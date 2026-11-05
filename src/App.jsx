@@ -10,6 +10,7 @@ import SiteFooter from './components/home/SiteFooter/SiteFooter';
 const MenuDulce = lazy(() => import('./pages/MenuDulce/MenuDulce'));
 const MenuSalado = lazy(() => import('./pages/MenuSalado/MenuSalado'));
 const MenuDesayunos = lazy(() => import('./pages/MenuDesayunos/MenuDesayunos'));
+const ProductoDetalle = lazy(() => import('./pages/ProductoDetalle'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -41,6 +42,8 @@ export default function App() {
           <Route path="/menu-dulce" element={<MenuDulce />} />
           <Route path="/menu-salado" element={<MenuSalado />} />
           <Route path="/desayunos" element={<MenuDesayunos />} />
+          <Route path="/productos/:slug" element={<ProductoDetalle />} />
+          <Route path="*" element={<main className="route-not-found" id="main-content"><h1>Esta página no está disponible</h1><p>Volvé al inicio o explorá nuestros productos.</p><a href="/">Ir al inicio</a></main>} />
         </Routes>
       </Suspense>
 

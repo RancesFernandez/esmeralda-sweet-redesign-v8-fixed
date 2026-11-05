@@ -1,29 +1,26 @@
-import { useState } from 'react';
-import ProductoCard from '../../ProductoCard/ProductoCard';
-import './DulceTortasSections.css';
+import { useState } from "react";
+import ProductoCard from "../../ProductoCard/ProductoCard";
+import "./DulceTortasSections.css";
 
 const SECCIONES = [
   {
-    id: 'tortas-y-postres',
-    titulo: 'Tortas y postres',
-    
+    id: "tortas-y-postres",
+    titulo: "Tortas y postres",
   },
   {
-    id: 'tortas-personalizadas',
-    titulo: 'Tortas personalizadas',
-    
+    id: "tortas-personalizadas",
+    titulo: "Tortas personalizadas",
   },
   {
-    id: 'sin-azucar',
-    titulo: 'Sin azúcar',
-    
+    id: "sin-azucar",
+    titulo: "Sin azúcar",
   },
 ];
 
 const INITIAL_OPEN_SECTIONS = {
-  'tortas-y-postres': false,
-  'tortas-personalizadas': false,
-  'sin-azucar': false,
+  "tortas-y-postres": false,
+  "tortas-personalizadas": false,
+  "sin-azucar": false,
 };
 
 export default function DulceTortasSections({ productos }) {
@@ -47,7 +44,7 @@ export default function DulceTortasSections({ productos }) {
 
         return (
           <section
-            className={`dulce-section ${isOpen ? 'is-open' : ''}`}
+            className={`dulce-section ${isOpen ? "is-open" : ""}`}
             key={seccion.id}
           >
             <div className="dulce-section__header">
@@ -63,10 +60,15 @@ export default function DulceTortasSections({ productos }) {
                   aria-describedby={`dulce-description-${seccion.id}`}
                 >
                   <span className="dulce-section__title-row">
-                    <span id={`dulce-title-${seccion.id}`} className="dulce-section__title">
+                    <span
+                      id={`dulce-title-${seccion.id}`}
+                      className="dulce-section__title"
+                    >
                       {seccion.titulo}
                     </span>
-                    <span className="dulce-section__arrow" aria-hidden="true">↓</span>
+                    <span className="dulce-section__arrow" aria-hidden="true">
+                      ↓
+                    </span>
                   </span>
                 </button>
               </h2>
